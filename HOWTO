@@ -1,0 +1,18 @@
+
+Database migration/seed
+-----------------------
+./artisan migrate:make
+./artisan migrate:make create_roles_table --table roles --create
+./artisan migrate:make create_users_table --table users --create
+./artisan migrate:make create_users_roles_table --table users_roles --create
+./artisan migrate:make create_categories_table --table categories --create
+./artisan migrate:make create_expenses_table --table expenses --create
+./artisan migrate:make create_incomes_table --table incomes --create
+
+./artisan migrate:rollback
+./artisan migrate:reset
+./artisan migrate
+
+./artisan db:seed
+./artisan db:seed --class=ProdDatabaseSeeder
+./artisan migrate:refresh --seed
