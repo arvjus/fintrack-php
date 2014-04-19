@@ -12,4 +12,8 @@ class Category extends Eloquent
     protected $primaryKey = 'category_id';
     protected $guarded = array('category_id');
 
+    public function expenses() {
+        return $this->hasMany('Expense');
+    }
+
 }

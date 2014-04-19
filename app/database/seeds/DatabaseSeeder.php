@@ -22,6 +22,8 @@ class DatabaseSeeder extends Seeder
         $this->call('UsersTableSeeder');
         $this->call('UsersRolesTableSeeder');
         $this->call('CategoriesTableSeeder');
+        $this->call('ExpensesTableSeeder');
+        $this->call('IncomesTableSeeder');
     }
 }
 
@@ -112,5 +114,57 @@ class CategoriesTableSeeder extends Seeder
         $cat->order_pos = 3;
         $cat->descr = 'TV, computers, cameras';
         $cat->save();
+    }
+}
+
+class ExpensesTableSeeder extends Seeder
+{
+    public function run() {
+        $reporter_user_id = DB::table('users')->select('user_id')->where('name', 'reporter')->first()->user_id;
+
+        $expense = new Expense();
+        $expense->category_id = 'fd';
+        $expense->user_id = $reporter_user_id;
+        $expense->create_date = new DateTime();
+        $expense->amount = 55.75;
+        $expense->descr = 'McDonald\'s';
+        $expense->save();
+
+        $expense = new Expense();
+        $expense->category_id = 'fd';
+        $expense->user_id = $reporter_user_id;
+        $expense->create_date = new DateTime();
+        $expense->amount = 123.45;
+        $expense->descr = 'Sausages';
+        $expense->save();
+
+        $expense = new Expense();
+        $expense->category_id = 'el';
+        $expense->user_id = $reporter_user_id;
+        $expense->create_date = new DateTime();
+        $expense->amount = 4500;
+        $expense->descr = 'new iPhone';
+        $expense->save();
+    }
+}
+
+class IncomesTableSeeder extends Seeder
+{
+    public function run() {
+        $reporter_user_id = DB::table('users')->select('user_id')->where('name', 'reporter')->first()->user_id;
+
+        $income = new Income();
+        $income->user_id = $reporter_user_id;
+        $income->create_date = new DateTime();
+        $income->amount = 12345.67;
+        $income->descr = 'Salary';
+        $income->save();
+
+        $income = new Income();
+        $income->user_id = $reporter_user_id;
+        $income->create_date = new DateTime();
+        $income->amount = 200.50;
+        $income->descr = 'Books on eBay';
+        $income->save();
     }
 }
