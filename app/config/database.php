@@ -46,7 +46,7 @@ return array(
 
     'connections' => array(
 
-        'sqlite-test' => array(
+        'sqlite' => array(
             'driver' => 'sqlite',
             'database' => __DIR__ . '/../database/production.sqlite',
             'prefix' => '',
