@@ -8,8 +8,7 @@ class DatabaseSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
-    {
+    public function run() {
         Eloquent::unguard();
 
         DB::table('incomes')->delete();
@@ -28,8 +27,7 @@ class DatabaseSeeder extends Seeder
 
 class RolesTableSeeder extends Seeder
 {
-    public function run()
-    {
+    public function run() {
         Role::create(array('name' => 'admin'));
         Role::create(array('name' => 'reporter'));
         Role::create(array('name' => 'viewer'));
@@ -38,8 +36,7 @@ class RolesTableSeeder extends Seeder
 
 class UsersTableSeeder extends Seeder
 {
-    public function run()
-    {
+    public function run() {
         $user = new User();
         $user->name = 'admin';
         $user->password = Hash::make('admin123');
@@ -59,8 +56,7 @@ class UsersTableSeeder extends Seeder
 
 class UsersRolesTableSeeder extends Seeder
 {
-    public function run()
-    {
+    public function run() {
         $admin_role_id = DB::table('roles')->select('role_id')->where('name', 'admin')->first()->role_id;
         $reporter_role_id = DB::table('roles')->select('role_id')->where('name', 'reporter')->first()->role_id;
         $viewer_role_id = DB::table('roles')->select('role_id')->where('name', 'viewer')->first()->role_id;
@@ -92,8 +88,7 @@ class UsersRolesTableSeeder extends Seeder
 
 class CategoriesTableSeeder extends Seeder
 {
-    public function run()
-    {
+    public function run() {
         $cat = new Category();
         $cat->category_id = 'fd';
         $cat->name = 'Food';

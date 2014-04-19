@@ -1,19 +1,18 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
 
-class CreateExpensesTable extends Migration {
+class CreateExpensesTable extends Migration
+{
 
-	/**
-	 * Run the migrations.
-	 *
-	 * @return void
-	 */
-	public function up()
-	{
-		Schema::create('expenses', function(Blueprint $table)
-		{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up() {
+        Schema::create('expenses', function (Blueprint $table) {
             $table->increments('expense_id');
             $table->string('category_id', 2);
             $table->integer('user_id')->unsigned();
@@ -23,20 +22,18 @@ class CreateExpensesTable extends Migration {
 
             $table->foreign('category_id')->references('category_id')->on('categories');
             $table->foreign('user_id')->references('user_id')->on('users');
-		});
-	}
+        });
+    }
 
-	/**
-	 * Reverse the migrations.
-	 *
-	 * @return void
-	 */
-	public function down()
-	{
-		Schema::table('expenses', function(Blueprint $table)
-		{
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down() {
+        Schema::table('expenses', function (Blueprint $table) {
             Schema::drop('expenses');
-		});
-	}
+        });
+    }
 
 }

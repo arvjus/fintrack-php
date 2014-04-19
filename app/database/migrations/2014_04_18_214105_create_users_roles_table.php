@@ -1,17 +1,17 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
 
-class CreateUsersRolesTable extends Migration {
+class CreateUsersRolesTable extends Migration
+{
 
-	/**
-	 * Run the migrations.
-	 *
-	 * @return void
-	 */
-	public function up()
-	{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up() {
         Schema::create('users_roles', function (Blueprint $table) {
             $table->increments('user_role_id');
             $table->integer('user_id')->unsigned();
@@ -21,19 +21,17 @@ class CreateUsersRolesTable extends Migration {
             $table->foreign('role_id')->references('role_id')->on('roles');
             $table->index(array('user_id', 'role_id'));
         });
-	}
+    }
 
-	/**
-	 * Reverse the migrations.
-	 *
-	 * @return void
-	 */
-	public function down()
-	{
-		Schema::table('users_roles', function(Blueprint $table)
-		{
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down() {
+        Schema::table('users_roles', function (Blueprint $table) {
             Schema::drop('users_roles');
-		});
-	}
+        });
+    }
 
 }

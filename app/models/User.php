@@ -6,8 +6,7 @@ class User extends Eloquent
     protected $primaryKey = 'user_id';
     protected $guarded = array('user_id', 'password');
 
-    public function usersRoles()
-    {
+    public function usersRoles() {
         return $this->hasMany('UserRole', 'user_id');
     }
 }

@@ -1,19 +1,18 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
 
-class CreateIncomesTable extends Migration {
+class CreateIncomesTable extends Migration
+{
 
-	/**
-	 * Run the migrations.
-	 *
-	 * @return void
-	 */
-	public function up()
-	{
-		Schema::create('incomes', function(Blueprint $table)
-		{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up() {
+        Schema::create('incomes', function (Blueprint $table) {
             $table->increments('income_id');
             $table->integer('user_id')->unsigned();
             $table->dateTime('create_date');
@@ -21,20 +20,18 @@ class CreateIncomesTable extends Migration {
             $table->string('descr');
 
             $table->foreign('user_id')->references('user_id')->on('users');
-		});
-	}
+        });
+    }
 
-	/**
-	 * Reverse the migrations.
-	 *
-	 * @return void
-	 */
-	public function down()
-	{
-		Schema::table('incomes', function(Blueprint $table)
-		{
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down() {
+        Schema::table('incomes', function (Blueprint $table) {
             Schema::drop('incomes');
-		});
-	}
+        });
+    }
 
 }

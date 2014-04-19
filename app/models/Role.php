@@ -12,8 +12,7 @@ class Role extends Eloquent
     protected $primaryKey = 'role_id';
     protected $guarded = array('role_id');
 
-    public function usersRoles()
-    {
+    public function usersRoles() {
         return $this->hasMany('UserRole', 'role_id');
     }
 }
