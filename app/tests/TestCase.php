@@ -8,14 +8,25 @@ class TestCase extends Illuminate\Foundation\Testing\TestCase
     public function setUp() {
         parent::setUp();
 
-        $this->prepareForTests();
+        // Migrate database
+        $this->initDatabase();
+        $this->seedTestData();
     }
 
-    /**
-     * Migrate the database
-     */
-    private function prepareForTests() {
+    private function initDatabase() {
         Artisan::call('migrate');
+    }
+
+    private function seedTestData() {
+        Artisan::call('db:seed');
+        /*
+        Artisan::call('db:seed',
+            array('--class' => 'EmptySeeder',
+                '--class' => 'RolesTableSeeder',
+                '--class' => 'UsersTableSeeder',
+                '--class' => 'UsersRolesTableSeeder'
+            ));
+        */
     }
 
     /**
@@ -30,5 +41,4 @@ class TestCase extends Illuminate\Foundation\Testing\TestCase
 
         return require __DIR__ . '/../../bootstrap/start.php';
     }
-
 }

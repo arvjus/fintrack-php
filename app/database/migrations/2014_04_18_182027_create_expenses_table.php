@@ -18,7 +18,7 @@ class CreateExpensesTable extends Migration
             $table->integer('user_id')->unsigned();
             $table->dateTime('create_date');
             $table->float('amount');
-            $table->string('descr');
+            $table->string('descr')->nullable();
 
             $table->foreign('category_id')->references('category_id')->on('categories');
             $table->foreign('user_id')->references('user_id')->on('users');

@@ -1,11 +1,5 @@
 <?php
 
-/**
- * Created by PhpStorm.
- * User: arju
- * Date: 2014/18/04
- * Time: 21:34
- */
 use LaravelBook\Ardent\Ardent;
 
 class Role extends Ardent
@@ -14,8 +8,8 @@ class Role extends Ardent
     protected $primaryKey = 'role_id';
     protected $guarded = array('role_id');
 
-    public function usersRoles() {
-        return $this->hasMany('UserRole', 'role_id');
+    public function users() {
+        return $this->belongsToMany('User', 'users_roles', 'role_id', 'user_id');
     }
 
     /**
@@ -23,12 +17,5 @@ class Role extends Ardent
      */
     public static $rules = array(
         'name' => 'required|between:4,20'
-    );
-
-    /**
-     * Factory
-     */
-    public static $factory = array(
-        'name' => 'a role'
     );
 }

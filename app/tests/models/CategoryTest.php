@@ -28,6 +28,13 @@ class CategoryTest extends TestCase {
         $this->assertEquals('fd', $category->category_id);
     }
 
+    public function testRelations() {
+        $category = Category::where('name', 'Food')->first();
+        $this->assertNotEmpty($category);
+        $this->assertNotEmpty($category->expenses);
+        $this->assertEquals(2, count($category->expenses));
+    }
+
     public function testFindAll() {
         $categories = Category::all();
         $this->assertNotEmpty($categories);

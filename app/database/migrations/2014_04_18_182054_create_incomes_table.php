@@ -17,7 +17,7 @@ class CreateIncomesTable extends Migration
             $table->integer('user_id')->unsigned();
             $table->dateTime('create_date');
             $table->float('amount');
-            $table->string('descr');
+            $table->string('descr')->nullable();
 
             $table->foreign('user_id')->references('user_id')->on('users');
         });

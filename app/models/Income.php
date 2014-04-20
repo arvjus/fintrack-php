@@ -1,12 +1,8 @@
 <?php
 
-/**
- * Created by PhpStorm.
- * User: arju
- * Date: 2014/18/04
- * Time: 21:34
- */
-class Income extends Eloquent
+use LaravelBook\Ardent\Ardent;
+
+class Income extends Ardent
 {
     public $timestamps = false;
     protected $primaryKey = 'income_id';
@@ -15,4 +11,14 @@ class Income extends Eloquent
     public function user() {
         return $this->belongsTo('User', 'user_id');
     }
+
+    /**
+     * Ardent validation rules
+     */
+    public static $rules = array(
+        'user_id' => 'required',
+        'create_date' => 'required',
+        'amount' => 'required',
+        'descr' => 'between:4,50'
+    );
 }

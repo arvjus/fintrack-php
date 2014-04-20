@@ -1,31 +1,32 @@
 <?php
 
-class ExpenseTest extends TestCase {
+class IncomeTest extends TestCase {
 
-    public function testCreateUncomplete() {
-        $expense = new Expense();
-        $this->assertFalse($expense->save());
+    public function testCreateIncomplete() {
+        $income = new Income();
+        $this->assertFalse($income->save());
     }
 
     public function testCreateOk() {
-        $expense = new Expense();
-        $expense->category_id = 'fd';
-        $expense->user_id = DB::table('users')->select('user_id')->where('name', 'reporter')->first()->user_id;
-        $expense->create_date = new DateTime();
-        $expense->amount = 55.75;
-        $expense->descr = 'McDonald\'s';
-        saveModel($expense);
+        $income = new Income();
+        $income->user_id = DB::table('users')->select('user_id')->where('name', 'reporter')->first()->user_id;
+        $income->create_date = new DateTime();
+        $income->amount = 12345.67;
+        $income->descr = 'Salary';
+        saveModel($income);
     }
 
-    public function testSearchExpense() {
-        $expense = Expense::where('descr', 'McDonald\'s')->first();
-        $this->assertNotEmpty($expense);
-        $this->assertEquals('fd', $expense->category_id);
+    public function testSearchIncome() {
+        $income = Income::where('descr', 'Salary')->first();
+        $this->assertNotEmpty($income);
+        $this->assertEquals(12345.67, $income->amount);
+        $this->assertNotEmpty($income->user);
+        $this->assertEquals('reporter', $income->user->name);
     }
 
     public function testFindAll() {
-        $categories = Expense::all();
+        $categories = Income::all();
         $this->assertNotEmpty($categories);
-        $this->assertEquals(3, count($categories));
+        $this->assertEquals(2, count($categories));
     }
 }

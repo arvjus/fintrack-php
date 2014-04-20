@@ -1,5 +1,5 @@
 <?php
-
+/*
 class UserRole extends Eloquent
 {
     public $timestamps = false;
@@ -15,3 +15,4 @@ class UserRole extends Eloquent
         return $this->belongsTo('Role', 'role_id', 'role_id');
     }
 }
+*/
