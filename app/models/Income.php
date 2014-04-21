@@ -9,7 +9,7 @@ class Income extends Ardent
     protected $guarded = array('income_id');
 
     public function user() {
-        return $this->belongsTo('User', 'user_id');
+        return $this->belongsTo('user', 'user_id');
     }
 
     /**

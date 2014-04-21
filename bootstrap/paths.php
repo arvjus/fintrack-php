@@ -43,7 +43,7 @@ return array(
 
     /*
     |--------------------------------------------------------------------------
-    | Storage Path
+    | storage Path
     |--------------------------------------------------------------------------
     |
     | The storage path is used by Laravel to store cached Blade views, logs

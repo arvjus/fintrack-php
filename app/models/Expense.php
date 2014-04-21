@@ -13,7 +13,7 @@ class Expense extends Ardent
     }
 
     public function user() {
-        return $this->belongsTo('User', 'user_id');
+        return $this->belongsTo('user', 'user_id');
     }
 
     /**

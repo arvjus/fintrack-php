@@ -10,3 +10,16 @@ Database migration/seed
 ./artisan db:seed
 ./artisan db:seed --class=ProdDatabaseSeeder
 ./artisan migrate:refresh --seed
+
+
+Create package
+--------------
+
+add name, email to app/config/workbench.php
+./artisan workbench arjus/mypackage --resources
+
+create service class and facade.
+in service provider, instantiate service in register() and add alias in boot().
+register service provider in app/config/app.php
+
+repository: https://packagist.org

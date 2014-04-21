@@ -9,7 +9,7 @@ class Role extends Ardent
     protected $guarded = array('role_id');
 
     public function users() {
-        return $this->belongsToMany('User', 'users_roles', 'role_id', 'user_id');
+        return $this->belongsToMany('user', 'users_roles', 'role_id', 'user_id');
     }
 
     /**
