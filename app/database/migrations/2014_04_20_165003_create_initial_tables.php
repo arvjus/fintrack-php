@@ -12,24 +12,12 @@ class CreateInitialTables extends Migration
      * @return void
      */
     public function up() {
-        Schema::create('roles', function (Blueprint $table) {
-            $table->increments('role_id');
-            $table->string('name', 20)->unique();
-        });
-
         Schema::create('users', function (Blueprint $table) {
             $table->increments('user_id');
             $table->string('name', 16)->unique();
             $table->string('password', 64);
-        });
-
-        Schema::create('users_roles', function (Blueprint $table) {
-            $table->increments('user_role_id');
-            $table->integer('user_id')->unsigned();
-            $table->integer('role_id')->unsigned();
-
-            $table->foreign('user_id')->references('user_id')->on('users');
-            $table->foreign('role_id')->references('role_id')->on('roles');
+            $table->boolean('is_admin')->default(false);
+            $table->boolean('is_reporter')->default(false);
         });
 
         Schema::create('categories', function (Blueprint $table) {
@@ -83,16 +71,8 @@ class CreateInitialTables extends Migration
             Schema::drop('categories');
         });
 
-        Schema::table('users_roles', function (Blueprint $table) {
-            Schema::drop('users_roles');
-        });
-
         Schema::table('users', function (Blueprint $table) {
             Schema::drop('users');
-        });
-
-        Schema::table('roles', function (Blueprint $table) {
-            Schema::drop('roles');
         });
     }
 }

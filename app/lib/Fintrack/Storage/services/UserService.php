@@ -8,7 +8,11 @@ class UserService
         return User::all();
     }
 
-    public function find($id) {
-        return User::find($id);
+    public function find($user_id) {
+        return User::find($user_id);
+    }
+
+    public function findByName($name) {
+        return User::where('name', $name)->first();
     }
 }

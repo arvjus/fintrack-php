@@ -20,6 +20,6 @@ class Category extends Ardent
         'name' => 'required|between:4,20',
         'name_short' => 'required|between:4,15',
         'order_pos' => 'max:9',
-        'descr' => 'required|between:4,50'
+        'descr' => 'required|between:4,60'
     );
 }

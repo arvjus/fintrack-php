@@ -14,13 +14,6 @@ class UserTest extends TestCase {
         $this->assertTrue($user->save());
     }
 
-    public function testUserRoles() {
-        $user = User::where('name', 'admin')->first();
-        $this->assertNotEmpty($user);
-        $this->assertNotEmpty($user->roles);
-        $this->assertEquals(3, count($user->roles));
-    }
-
     public function testFindAll() {
         $users = User::all();
         $this->assertNotEmpty($users);
