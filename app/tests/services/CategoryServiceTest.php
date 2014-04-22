@@ -9,10 +9,15 @@ class CategoryServiceTest extends TestCase {
         $this->service = new CategoryService();
     }
 
-    public function testAll() {
+    public function testGetAll() {
         $categories = $this->service->all();
         $this->assertNotNull($categories);
         $this->assertEquals(3, count($categories));
     }
 
+    public function testFind() {
+        $category = $this->service->find('fd');
+        $this->assertNotNull($category);
+        $this->assertEquals('Food', $category->name);
+    }
 }

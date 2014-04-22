@@ -9,7 +9,7 @@ class ExpenseServiceTest extends TestCase {
         $this->service = new ExpenseService();
     }
 
-    public function testAll() {
+    public function testGetAll() {
         $expenses = $this->service->all();
         $this->assertNotNull($expenses);
         $this->assertEquals(3, count($expenses));
