@@ -26,7 +26,7 @@ return array(
     |
     */
 
-    'default' => 'pgsql-test',
+    'default' => 'mysql-test',
 
     /*
     |--------------------------------------------------------------------------
@@ -52,26 +52,28 @@ return array(
             'prefix' => '',
         ),
 
-        'pgsql-test' => array(
-            'driver' => 'pgsql',
+        'mysql-test' => array(
+            'driver' => 'mysql',
             'host' => 'localhost',
             'database' => 'fintrack_test',
             'username' => 'fintrack',
             'password' => 'fintrack',
             'charset' => 'utf8',
+            'collation' => 'utf8_unicode_ci',
             'prefix' => '',
-            'schema' => 'public',
+            'unix_socket' => '/tmp/mysql.sock',
         ),
 
-        'pgsql-prod' => array(
-            'driver' => 'pgsql',
+        'mysql-prod' => array(
+            'driver' => 'mysql',
             'host' => 'localhost',
             'database' => 'fintrack',
             'username' => 'fintrack',
             'password' => 'fintrack',
             'charset' => 'utf8',
+            'collation' => 'utf8_unicode_ci',
             'prefix' => '',
-            'schema' => 'public',
+            'unix_socket' => '/tmp/mysql.sock',
         ),
     ),
 
