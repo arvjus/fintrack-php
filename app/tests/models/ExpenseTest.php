@@ -20,14 +20,14 @@ class ExpenseTest extends TestCase {
     public function testSearchExpense() {
         $expense = Expense::where('descr', 'McDonald\'s')->first();
         $this->assertNotEmpty($expense);
-        $this->assertEquals(55.75, $expense->amount);
+        $this->assertEquals(55.75, round($expense->amount, 2));
         $this->assertNotEmpty($expense->user);
         $this->assertEquals('reporter', $expense->user->name);
     }
 
     public function testFindAll() {
-        $categories = Expense::all();
-        $this->assertNotEmpty($categories);
-        $this->assertEquals(3, count($categories));
+        $expenses = Expense::all();
+        $this->assertNotEmpty($expenses);
+        $this->assertEquals(4, count($expenses));
     }
 }

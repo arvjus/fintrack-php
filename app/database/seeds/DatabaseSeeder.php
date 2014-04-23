@@ -95,7 +95,7 @@ class ExpensesTableSeeder extends Seeder
         $expense = new Expense();
         $expense->category_id = 'fd';
         $expense->user_id = $reporter_user_id;
-        $expense->create_date = new DateTime();
+        $expense->create_date = date('Y-m-d', strtotime('2010-01-01'));
         $expense->amount = 55.75;
         $expense->descr = 'McDonald\'s';
         saveModel($expense);
@@ -103,7 +103,7 @@ class ExpensesTableSeeder extends Seeder
         $expense = new Expense();
         $expense->category_id = 'fd';
         $expense->user_id = $reporter_user_id;
-        $expense->create_date = new DateTime();
+        $expense->create_date = date('Y-m-d', strtotime('2010-02-01'));
         $expense->amount = 123.45;
         $expense->descr = 'Sausages';
         saveModel($expense);
@@ -111,9 +111,17 @@ class ExpensesTableSeeder extends Seeder
         $expense = new Expense();
         $expense->category_id = 'el';
         $expense->user_id = $reporter_user_id;
-        $expense->create_date = new DateTime();
+        $expense->create_date = date('Y-m-d', strtotime('2010-01-01'));
         $expense->amount = 4500;
         $expense->descr = 'new iPhone';
+        saveModel($expense);
+
+        $expense = new Expense();
+        $expense->category_id = 'hh';
+        $expense->user_id = $reporter_user_id;
+        $expense->create_date = date('Y-m-d', strtotime('2010-02-10'));
+        $expense->amount = 100.0;
+        $expense->descr = 'toapapper';
         saveModel($expense);
     }
 }
@@ -125,16 +133,23 @@ class IncomesTableSeeder extends Seeder
 
         $income = new Income();
         $income->user_id = $reporter_user_id;
-        $income->create_date = new DateTime();
+        $income->create_date = date('Y-m-d', strtotime('2010-01-01'));
         $income->amount = 12345.67;
         $income->descr = 'Salary';
         saveModel($income);
 
         $income = new Income();
         $income->user_id = $reporter_user_id;
-        $income->create_date = new DateTime();
+        $income->create_date = date('Y-m-d', strtotime('2010-01-01'));
         $income->amount = 200.50;
         $income->descr = 'Books on eBay';
+        saveModel($income);
+
+        $income = new Income();
+        $income->user_id = $reporter_user_id;
+        $income->create_date = date('Y-m-d', strtotime('2010-02-10'));
+        $income->amount = 500.10;
+        $income->descr = 'Extra jobb';
         saveModel($income);
     }
 }

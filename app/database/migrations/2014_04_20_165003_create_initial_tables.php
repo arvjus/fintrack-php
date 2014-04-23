@@ -34,7 +34,7 @@ class CreateInitialTables extends Migration
             $table->increments('expense_id');
             $table->string('category_id', 2);
             $table->integer('user_id')->unsigned();
-            $table->dateTime('create_date');
+            $table->date('create_date');
             $table->float('amount');
             $table->string('descr')->nullable();
 
@@ -45,7 +45,7 @@ class CreateInitialTables extends Migration
         Schema::create('incomes', function (Blueprint $table) {
             $table->increments('income_id');
             $table->integer('user_id')->unsigned();
-            $table->dateTime('create_date');
+            $table->date('create_date');
             $table->float('amount');
             $table->string('descr')->nullable();
 

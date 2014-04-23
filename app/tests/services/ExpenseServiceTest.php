@@ -12,7 +12,12 @@ class ExpenseServiceTest extends TestCase {
     public function testGetAll() {
         $expenses = $this->service->all();
         $this->assertNotNull($expenses);
-        $this->assertEquals(3, count($expenses));
+        $this->assertEquals(4, count($expenses));
     }
 
+    public function testGetPartly() {
+        $expenses = $this->service->all(2);
+        $this->assertNotNull($expenses);
+        $this->assertEquals(2, count($expenses));
+    }
 }

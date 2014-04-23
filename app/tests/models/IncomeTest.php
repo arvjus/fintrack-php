@@ -19,7 +19,7 @@ class IncomeTest extends TestCase {
     public function testSearchIncome() {
         $income = Income::where('descr', 'Salary')->first();
         $this->assertNotEmpty($income);
-        $this->assertEquals(12345.67, $income->amount);
+        $this->assertEquals(12345.67, round($income->amount, 2));
         $this->assertNotEmpty($income->user);
         $this->assertEquals('reporter', $income->user->name);
     }
@@ -27,6 +27,6 @@ class IncomeTest extends TestCase {
     public function testFindAll() {
         $categories = Income::all();
         $this->assertNotEmpty($categories);
-        $this->assertEquals(2, count($categories));
+        $this->assertEquals(3, count($categories));
     }
 }

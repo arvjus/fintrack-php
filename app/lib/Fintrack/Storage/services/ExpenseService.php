@@ -4,12 +4,13 @@ use Expense;
 
 class ExpenseService
 {
-    public function all() {
+    public function all($limit = 0) {
+        if ($limit > 0) {
+            return Expense::take($limit)->get();
+        } else {
+            return Expense::all();
+        }
         return Expense::all();
-    }
-
-    public function find($id) {
-        return Expense::find($id);
     }
 
     public function plain($dateFrom, $dateTo, $categoryIds) {
