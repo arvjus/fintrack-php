@@ -2,6 +2,11 @@
 
 use Fintrack\Storage\Services\UserService;
 
+// name	is_admin	is_reporter
+// admin	1	1
+// reporter	0	1
+// viewer	0	0
+
 class UserServiceTest extends TestCase {
     public function setUp() {
         parent::setUp();

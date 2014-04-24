@@ -3,13 +3,18 @@
 use Fintrack\Storage\Services\IncomeService;
 use Beans\SummaryBean;
 
+// create_date	amount	descr
+// 2010-01-01	12345.67	Salary
+// 2010-01-01	200.50	Books on eBay
+// 2010-02-10	500.10	Extra jobb
+
 class IncomeServiceTest extends TestCase {
     public function setUp() {
         parent::setUp();
 
         $this->service = new IncomeService();
         $this->date1 = date('Y-m-d', strtotime('2010-01-01'));
-        $this->date2 = date('Y-m-d', strtotime('2010-02-20'));
+        $this->date2 = date('Y-m-d', strtotime('2010-02-10'));
     }
 
     public function testGetAll() {

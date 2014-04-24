@@ -6,16 +6,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="393ebd95-2fb8-4b54-aa00-89e84c9b747a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/models/beans/SummaryBean.php" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/config/testing/database.php" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/database/migrations/2014_04_20_165003_create_initial_tables.php" afterPath="$PROJECT_DIR$/app/database/migrations/2014_04_20_165003_create_initial_tables.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/database/seeds/DatabaseSeeder.php" afterPath="$PROJECT_DIR$/app/database/seeds/DatabaseSeeder.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/tests/services/DataAggregationServiceTest.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/tests/services/CategoryServiceTest.php" afterPath="$PROJECT_DIR$/app/tests/services/CategoryServiceTest.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/lib/fintrack/storage/services/ExpenseService.php" afterPath="$PROJECT_DIR$/app/lib/fintrack/storage/services/ExpenseService.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/tests/services/ExpenseServiceTest.php" afterPath="$PROJECT_DIR$/app/tests/services/ExpenseServiceTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/tests/models/ExpenseTest.php" afterPath="$PROJECT_DIR$/app/tests/models/ExpenseTest.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/lib/fintrack/storage/services/IncomeService.php" afterPath="$PROJECT_DIR$/app/lib/fintrack/storage/services/IncomeService.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/tests/services/IncomeServiceTest.php" afterPath="$PROJECT_DIR$/app/tests/services/IncomeServiceTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/tests/models/IncomeTest.php" afterPath="$PROJECT_DIR$/app/tests/models/IncomeTest.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/lib/fintrack/storage/StorageServiceProvider.php" afterPath="$PROJECT_DIR$/app/lib/fintrack/storage/StorageServiceProvider.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/tests/services/UserServiceTest.php" afterPath="$PROJECT_DIR$/app/tests/services/UserServiceTest.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="fintrack.iws" />
@@ -39,10 +37,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="IncomeServiceTest.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="IncomeServiceTest.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/tests/services/IncomeServiceTest.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="55" column="0" selection-start="1928" selection-end="1928" vertical-scroll-proportion="0.31736526" vertical-offset="560" max-vertical-offset="1395">
+            <state line="47" column="0" selection-start="1420" selection-end="1471" vertical-scroll-proportion="-17.5" vertical-offset="285" max-vertical-offset="1470">
               <folding>
                 <element signature="e#7#51#0" expanded="true" />
               </folding>
@@ -50,17 +48,61 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="ExpenseService.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/lib/fintrack/storage/services/ExpenseService.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="27" column="0" selection-start="976" selection-end="976" vertical-scroll-proportion="-16.875" vertical-offset="0" max-vertical-offset="1200">
+              <folding>
+                <element signature="e#44#56#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DataAggregationService.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/lib/fintrack/storage/services/DataAggregationService.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="16" column="29" selection-start="380" selection-end="380" vertical-scroll-proportion="0.28742516" vertical-offset="0" max-vertical-offset="835">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CategoryService.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/lib/fintrack/storage/services/CategoryService.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="13" column="1" selection-start="225" selection-end="225" vertical-scroll-proportion="-8.125" vertical-offset="0" max-vertical-offset="285">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DataAggregationServiceTest.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/tests/services/DataAggregationServiceTest.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="26" column="45" selection-start="805" selection-end="805" vertical-scroll-proportion="-16.25" vertical-offset="0" max-vertical-offset="540">
+              <folding>
+                <element signature="e#7#60#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ExpenseServiceTest.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/tests/services/ExpenseServiceTest.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="3" column="0" selection-start="7" selection-end="53" vertical-scroll-proportion="-1.875" vertical-offset="0" max-vertical-offset="2745">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="IncomeService.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/lib/fintrack/storage/services/IncomeService.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="42" column="40" selection-start="1407" selection-end="1407" vertical-scroll-proportion="-23.541666" vertical-offset="65" max-vertical-offset="900">
+            <state line="4" column="0" selection-start="56" selection-end="79" vertical-scroll-proportion="-2.4583333" vertical-offset="1" max-vertical-offset="915">
               <folding>
                 <element signature="e#44#55#0" expanded="true" />
-                <marker date="1398288202000" expanded="true" signature="533:687" placeholder="SELECT COUNT..." />
-                <marker date="1398288202000" expanded="true" signature="539:627" placeholder="select COUNT..." />
-                <marker date="1398288202000" expanded="true" signature="539:687" placeholder="select COUNT..." />
-                <marker date="1398288202000" expanded="true" signature="1114:1485" placeholder="select COUNT..." />
-                <marker date="1398288202000" expanded="true" signature="1114:1363" placeholder="select COUNT..." />
               </folding>
             </state>
           </provider>
@@ -79,8 +121,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/database/seeds/roles.php" />
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/app/database/migrations/2014_04_18_181902_create_categories_table.php" />
         <option value="$PROJECT_DIR$/app/database/migrations/2014_04_18_172639_create_roles_table.php" />
         <option value="$PROJECT_DIR$/app/database/migrations/2014_04_18_172659_create_users_table.php" />
@@ -104,7 +144,6 @@
         <option value="$PROJECT_DIR$/app/lib/Fintrack/Storage/User/EloquentUserRepository.php" />
         <option value="$PROJECT_DIR$/app/config/app.php" />
         <option value="$PROJECT_DIR$/app/lib/fintrack/storage/repositories/UserRepository.php" />
-        <option value="$PROJECT_DIR$/app/lib/fintrack/storage/StorageServiceProvider.php" />
         <option value="$PROJECT_DIR$/app/lib/fintrack/storage/services/CategoryService.php" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/app/tests/models/CategoryTest.php" />
@@ -119,17 +158,20 @@
         <option value="$PROJECT_DIR$/app/models/User.php" />
         <option value="$PROJECT_DIR$/app/lib/fintrack/storage/services/UserService.php" />
         <option value="$PROJECT_DIR$/app/tests/models/UserTest.php" />
-        <option value="$PROJECT_DIR$/app/tests/services/UserServiceTest.php" />
-        <option value="$PROJECT_DIR$/app/tests/services/CategoryServiceTest.php" />
-        <option value="$PROJECT_DIR$/app/tests/services/ExpenseServiceTest.php" />
-        <option value="$PROJECT_DIR$/app/lib/fintrack/storage/services/ExpenseService.php" />
         <option value="$PROJECT_DIR$/app/models/beans/SummaryBean.php" />
         <option value="$PROJECT_DIR$/app/tests/models/IncomeTest.php" />
         <option value="$PROJECT_DIR$/app/tests/models/ExpenseTest.php" />
         <option value="$PROJECT_DIR$/app/database/migrations/2014_04_20_165003_create_initial_tables.php" />
         <option value="$PROJECT_DIR$/app/database/seeds/DatabaseSeeder.php" />
-        <option value="$PROJECT_DIR$/app/lib/fintrack/storage/services/IncomeService.php" />
         <option value="$PROJECT_DIR$/app/tests/services/IncomeServiceTest.php" />
+        <option value="$PROJECT_DIR$/app/tests/services/CategoryServiceTest.php" />
+        <option value="$PROJECT_DIR$/app/tests/services/UserServiceTest.php" />
+        <option value="$PROJECT_DIR$/app/lib/fintrack/storage/services/IncomeService.php" />
+        <option value="$PROJECT_DIR$/app/lib/fintrack/storage/services/ExpenseService.php" />
+        <option value="$PROJECT_DIR$/app/tests/services/ExpenseServiceTest.php" />
+        <option value="$PROJECT_DIR$/app/lib/fintrack/storage/StorageServiceProvider.php" />
+        <option value="$PROJECT_DIR$/app/tests/services/DataAggregationServiceTest.php" />
+        <option value="$PROJECT_DIR$/app/lib/fintrack/storage/services/DataAggregationService.php" />
       </list>
     </option>
   </component>
@@ -165,7 +207,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -436,30 +477,9 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="fintrack" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="fintrack" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="config" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="testing" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -529,15 +549,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1680" height="956" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32919955" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24969988" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24285714" sideWeight="0.4994363" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22261904" sideWeight="0.4994363" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24285714" sideWeight="0.5005637" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
@@ -545,11 +564,12 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32919955" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Duplicates" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3990981" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -655,9 +675,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/composer.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="20" selection-start="612" selection-end="612" vertical-scroll-proportion="-13.125" vertical-offset="0" max-vertical-offset="720">
-          <folding />
-        </state>
+        <state line="21" column="20" selection-start="612" selection-end="612" vertical-scroll-proportion="-13.125" vertical-offset="0" max-vertical-offset="720" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/_ide_helper.php">
@@ -674,19 +692,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/config/app.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="122" column="17" selection-start="4783" selection-end="4783" vertical-scroll-proportion="0.66467065" vertical-offset="1275" max-vertical-offset="2970">
-          <folding />
-        </state>
+        <state line="122" column="17" selection-start="4783" selection-end="4783" vertical-scroll-proportion="0.66467065" vertical-offset="1275" max-vertical-offset="2970" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/BaseController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="2" column="33" selection-start="40" selection-end="40" vertical-scroll-proportion="0.035928145" vertical-offset="0" max-vertical-offset="835" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/tests/models/CategoryTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="0" selection-start="0" selection-end="177" vertical-scroll-proportion="0.16167665" vertical-offset="0" max-vertical-offset="835" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/IncomeController.php">
@@ -702,13 +713,6 @@
     <entry file="file://$PROJECT_DIR$/app/controllers/HomeController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="10" column="7" selection-start="218" selection-end="218" vertical-scroll-proportion="-6.25" vertical-offset="0" max-vertical-offset="360" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/lib/fintrack/storage/services/CategoryService.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="30" selection-start="141" selection-end="141" vertical-scroll-proportion="-4.375" vertical-offset="0" max-vertical-offset="285">
-          <folding />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/routes.php">
@@ -728,11 +732,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/lib/fintrack/storage/StorageServiceProvider.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="0" selection-start="356" selection-end="356" vertical-scroll-proportion="0.19760479" vertical-offset="0" max-vertical-offset="835" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/User.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="8" column="78" selection-start="216" selection-end="216" vertical-scroll-proportion="0.14371258" vertical-offset="0" max-vertical-offset="835">
@@ -749,65 +748,47 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/database/seeds/ProdDatabaseSeeder.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="70" column="0" selection-start="1889" selection-end="1889" vertical-scroll-proportion="0.011976048" vertical-offset="1040" max-vertical-offset="2040">
-          <folding />
-        </state>
+        <state line="70" column="0" selection-start="1889" selection-end="1889" vertical-scroll-proportion="0.011976048" vertical-offset="1040" max-vertical-offset="2040" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/HOWTO">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="41" selection-start="205" selection-end="249" vertical-scroll-proportion="0.17462166" vertical-offset="0" max-vertical-offset="859">
-          <folding />
-        </state>
+        <state line="10" column="41" selection-start="205" selection-end="249" vertical-scroll-proportion="0.17462166" vertical-offset="0" max-vertical-offset="859" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/tests/models/UserTest.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="0" selection-start="347" selection-end="347" vertical-scroll-proportion="0.28742516" vertical-offset="0" max-vertical-offset="835">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/tests/services/CategoryServiceTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="27" selection-start="238" selection-end="238" vertical-scroll-proportion="0.19760479" vertical-offset="0" max-vertical-offset="835">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/tests/services/UserServiceTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="31" selection-start="943" selection-end="943" vertical-scroll-proportion="0.55688626" vertical-offset="0" max-vertical-offset="835">
-          <folding />
-        </state>
+        <state line="16" column="0" selection-start="347" selection-end="347" vertical-scroll-proportion="0.28742516" vertical-offset="0" max-vertical-offset="835" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="32" selection-start="61" selection-end="69" vertical-scroll-proportion="0.035971224" vertical-offset="0" max-vertical-offset="834">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/lib/fintrack/storage/services/ExpenseService.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="0" selection-start="294" selection-end="294" vertical-scroll-proportion="-9.375" vertical-offset="0" max-vertical-offset="480">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/beans/SummaryBean.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="29" selection-start="132" selection-end="132" vertical-scroll-proportion="0.1257485" vertical-offset="0" max-vertical-offset="835">
-          <folding />
-        </state>
+        <state line="2" column="32" selection-start="61" selection-end="69" vertical-scroll-proportion="0.035971224" vertical-offset="0" max-vertical-offset="834" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/config/database.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="56" column="32" selection-start="1917" selection-end="1917" vertical-scroll-proportion="-34.541668" vertical-offset="11" max-vertical-offset="1830">
-          <folding />
-        </state>
+        <state line="56" column="32" selection-start="1917" selection-end="1917" vertical-scroll-proportion="-34.541668" vertical-offset="11" max-vertical-offset="1830" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/tests/models/ExpenseTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="61" selection-start="769" selection-end="769" vertical-scroll-proportion="-13.75" vertical-offset="0" max-vertical-offset="570" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/tests/models/IncomeTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="63" selection-start="711" selection-end="711" vertical-scroll-proportion="0.37724552" vertical-offset="0" max-vertical-offset="835" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/database/migrations/2014_04_20_165003_create_initial_tables.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="47" column="24" selection-start="1617" selection-end="1617" vertical-scroll-proportion="-28.75" vertical-offset="0" max-vertical-offset="1245" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/database/seeds/DatabaseSeeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="149" column="66" selection-start="4353" selection-end="4353" vertical-scroll-proportion="-32.291668" vertical-offset="1430" max-vertical-offset="2475" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/lib/fintrack/storage/services/UserService.php">
@@ -817,61 +798,95 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/tests/services/ExpenseServiceTest.php">
+    <entry file="file://$PROJECT_DIR$/app/tests/services/UserServiceTest.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="41" selection-start="463" selection-end="463" vertical-scroll-proportion="-11.25" vertical-offset="0" max-vertical-offset="420">
+        <state line="4" column="3" selection-start="54" selection-end="54" vertical-scroll-proportion="0.07185629" vertical-offset="0" max-vertical-offset="835">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/tests/models/ExpenseTest.php">
+    <entry file="file://$PROJECT_DIR$/app/tests/models/CategoryTest.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="61" selection-start="769" selection-end="769" vertical-scroll-proportion="-13.75" vertical-offset="0" max-vertical-offset="570">
+        <state line="9" column="0" selection-start="0" selection-end="177" vertical-scroll-proportion="0.16167665" vertical-offset="0" max-vertical-offset="835">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/tests/models/IncomeTest.php">
+    <entry file="file://$PROJECT_DIR$/app/tests/services/CategoryServiceTest.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="63" selection-start="711" selection-end="711" vertical-scroll-proportion="0.37724552" vertical-offset="0" max-vertical-offset="835">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/database/migrations/2014_04_20_165003_create_initial_tables.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="47" column="24" selection-start="1617" selection-end="1617" vertical-scroll-proportion="-28.75" vertical-offset="0" max-vertical-offset="1245">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/database/seeds/DatabaseSeeder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="149" column="66" selection-start="4353" selection-end="4353" vertical-scroll-proportion="-32.291668" vertical-offset="1430" max-vertical-offset="2475">
+        <state line="7" column="16" selection-start="194" selection-end="202" vertical-scroll-proportion="0.1257485" vertical-offset="0" max-vertical-offset="835">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/lib/fintrack/storage/services/IncomeService.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="42" column="40" selection-start="1407" selection-end="1407" vertical-scroll-proportion="-23.541666" vertical-offset="65" max-vertical-offset="900">
+        <state line="4" column="0" selection-start="56" selection-end="79" vertical-scroll-proportion="-2.4583333" vertical-offset="1" max-vertical-offset="915">
           <folding>
             <element signature="e#44#55#0" expanded="true" />
-            <marker date="1398288202000" expanded="true" signature="533:687" placeholder="SELECT COUNT..." />
-            <marker date="1398288202000" expanded="true" signature="539:627" placeholder="select COUNT..." />
-            <marker date="1398288202000" expanded="true" signature="539:687" placeholder="select COUNT..." />
-            <marker date="1398288202000" expanded="true" signature="1114:1485" placeholder="select COUNT..." />
-            <marker date="1398288202000" expanded="true" signature="1114:1363" placeholder="select COUNT..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/lib/fintrack/storage/StorageServiceProvider.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="39" selection-start="450" selection-end="472" vertical-scroll-proportion="0.21556886" vertical-offset="0" max-vertical-offset="835">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/tests/services/ExpenseServiceTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="0" selection-start="7" selection-end="53" vertical-scroll-proportion="-1.875" vertical-offset="0" max-vertical-offset="2745">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/beans/SummaryBean.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="20" selection-start="123" selection-end="123" vertical-scroll-proportion="0.12931034" vertical-offset="0" max-vertical-offset="812">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/lib/fintrack/storage/services/CategoryService.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="1" selection-start="225" selection-end="225" vertical-scroll-proportion="-8.125" vertical-offset="0" max-vertical-offset="285">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/lib/fintrack/storage/services/ExpenseService.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="0" selection-start="976" selection-end="976" vertical-scroll-proportion="-16.875" vertical-offset="0" max-vertical-offset="1200">
+          <folding>
+            <element signature="e#44#56#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/tests/services/IncomeServiceTest.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="55" column="0" selection-start="1928" selection-end="1928" vertical-scroll-proportion="0.31736526" vertical-offset="560" max-vertical-offset="1395">
+        <state line="47" column="0" selection-start="1420" selection-end="1471" vertical-scroll-proportion="-17.5" vertical-offset="285" max-vertical-offset="1470">
           <folding>
             <element signature="e#7#51#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/tests/services/DataAggregationServiceTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="45" selection-start="805" selection-end="805" vertical-scroll-proportion="-16.25" vertical-offset="0" max-vertical-offset="540">
+          <folding>
+            <element signature="e#7#60#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/lib/fintrack/storage/services/DataAggregationService.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="29" selection-start="380" selection-end="380" vertical-scroll-proportion="0.28742516" vertical-offset="0" max-vertical-offset="835">
+          <folding />
         </state>
       </provider>
     </entry>

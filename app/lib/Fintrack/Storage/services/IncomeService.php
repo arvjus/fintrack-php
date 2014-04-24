@@ -7,14 +7,15 @@ class IncomeService
 {
     public function all($limit = 0) {
         if ($limit > 0) {
-            return Income::take($limit)->get();
+            return Income::take($limit)->
+                           orderBy('create_date', 'DESC')->get();
         } else {
-            return Income::all();
+            return Income::orderBy('create_date', 'DESC')->get();
         }
     }
 
     public function plain($dateFrom, $dateTo) {
-        return Income::whereBetween('create_date', array($dateFrom, $dateTo))->get();
+        return Income::whereBetween('create_date', array($dateFrom, $dateTo))->orderBy('create_date', 'DESC')->get();
     }
 
     public function summarySimple($dateFrom, $dateTo) {

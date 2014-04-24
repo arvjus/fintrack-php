@@ -9,7 +9,8 @@ class StorageServiceProvider extends ServiceProvider
             'Fintrack\Storage\Services\UserService',
             'Fintrack\Storage\Services\CategoryService',
             'Fintrack\Storage\Services\ExpenseService',
-            'Fintrack\Storage\Services\IncomeService'
+            'Fintrack\Storage\Services\IncomeService',
+            'Fintrack\Storage\Services\DataAggregationService'
         );
     }
 
