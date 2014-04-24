@@ -3,7 +3,7 @@
 use Fintrack\Storage\Services\IncomeService as IncomeService;
 use Fintrack\Storage\Services\ExpenseService as ExpenseService;
 
-class HomeController extends BaseController
+class RecentController extends BaseController
 {
     protected $layout = 'layouts.master';
 
@@ -18,7 +18,7 @@ class HomeController extends BaseController
      * @return Response
      */
     public function index() {
-        return View::make('home',
+        return View::make('recent',
             array('incomes' => $this->incomeService->all(5),
                   'expenses' => $this->expenseService->all(15)
             ));
