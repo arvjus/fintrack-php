@@ -14,6 +14,6 @@ class ExpenseController extends BaseController
      * @return Response
      */
     public function index() {
-        return $this->expense->all();
+        return View::make('expense');
     }
 }

@@ -18,9 +18,17 @@ class RecentController extends BaseController
      * @return Response
      */
     public function index() {
-        return View::make('recent',
-            array('incomes' => $this->incomeService->all(5),
-                  'expenses' => $this->expenseService->all(15)
-            ));
+        $income = new Income();
+        $income->income_id = 1;
+        $income->user_id = 1;
+        $income->create_date = date('now');
+        $income->amount = 123.45;
+        $income->descr = 'salary';
+
+        $view = View::make('recent');
+        $view->incomes = $this->incomeService->all(5);
+        $view->expenses = $this->expenseService->all(15);
+        $view->msg = 'this is a message';
+        return $view;
     }
 }

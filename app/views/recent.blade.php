@@ -4,7 +4,7 @@
 Fintrack - Recently added records
 @stop
 
-@section('body')
+@section('content')
 <div id="heading">Recently added records</div><p/>
 
 <b>Incomes</b>
@@ -32,5 +32,6 @@ Fintrack - Recently added records
     @endforeach
 </table>
 <br/>
-<div class="navigation"><a href="/user/home.page">Home</a></div>
+<div class="navigation"><a href="/home">Home</a></div>
+
 @stop

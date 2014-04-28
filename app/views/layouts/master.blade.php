@@ -10,7 +10,7 @@
     <script language="JavaScript" src="/js/date.js"></script>
     <script language="JavaScript" src="/js/jquery.datePicker.js"></script>
     <script language="JavaScript" src="/js/fintrack.js"></script>
-    @yield('header')
+    <script language="JavaScript" src="/js/fintrack.input.js"></script>
     <title>@yield('title')</title>
 </head>
 
@@ -22,39 +22,36 @@
                 <ul>
                     <li class="sub"><img src="/images/fintrack.png"/></li>
                     <li class="sub"><div class="heading">Finances</div></li>
-                   {{-- <auth:isUserLoggedIn> --}}
+
                         <li class="sub">
                             <ul>
-                                <li class="item"><a href="/user/income.page">Add Income</a></li>
-                                <li class="item"><a href="/user/expense.page">Add Expense</a></li>
-                                <li class="item"><a href="/user/recent.page">Recently Added</a></li>
-                                <li class="item"><a href="/user/list.page">List</a></li>
-                                <li class="item"><a href="/user/summary.page">Summary</a></li>
+                                <li class="item"><a href="/income">Add Income</a></li>
+                                <li class="item"><a href="/expense">Add Expense</a></li>
+                                <li class="item"><a href="/recent">Recently Added</a></li>
+                                <li class="item"><a href="/list">List</a></li>
+                                <li class="item"><a href="/summary">Summary</a></li>
                             </ul>
                         </li>
                         <li class="sub"><div class="heading">Session</div></li>
                         <li class="sub">
                             <ul>
-                                <li class="item"><a href="/logout.page">Logout <auth:currentUser default="guest"/></a></li>
+                                <li class="item"><a href="/logout">Logout</a></li>
                             </ul>
                         </li>
-{{--                    </auth:isUserLoggedIn>
-                    <auth:isUserLoggedIn not="true">
---}}
+
                         <li class="sub">
                             <ul>
-                                <li class="item"><a href="/user/home.page">Login</a></li>
+                                <li class="item"><a href="/home">Login</a></li>
                             </ul>
                         </li>
-{{--                    </auth:isUserLoggedIn>
-                    --}}
+
                 </ul>
             </div>
         </td>
         <td colspan="10"/>
         <td valign="top">
             <div class="body">
-                @yield('body')
+                @yield('content')
             </div>
         </td>
     </tr>
