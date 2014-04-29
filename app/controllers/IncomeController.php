@@ -21,9 +21,15 @@ class IncomeController extends BaseController
         $income->create_date = date('now');
         $income->amount = 123.45;
         $income->descr = 'salary';
+        return View::make('income', array('income' => $income, 'error' => 'err', 'message' => 'msg'));
+    }
 
-        //return View::make('test', array('income' => $income, 'err' => 'err', 'msg' => 'msg'));
-
-        return View::make('income', array('income' => $income, 'err' => 'err', 'msg' => 'msg'));
+    public function delete() {
+        $income = new Income();
+        $income->income_id = 1;
+        $income->create_date = date('now');
+        $income->amount = 123.45;
+        $income->descr = 'salary';
+        return View::make('income-delete', array('income' => $income, 'error' => 'err', 'message' => 'msg'));
     }
 }
