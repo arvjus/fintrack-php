@@ -11,6 +11,7 @@
     <script language="JavaScript" src="/js/jquery.datePicker.js"></script>
     <script language="JavaScript" src="/js/fintrack.js"></script>
     <script language="JavaScript" src="/js/fintrack.input.js"></script>
+
     <title>@yield('title')</title>
 </head>
 

@@ -6,10 +6,13 @@ Finance Tracker - Recently added records
 
 @section('content')
 <div id="heading">Recently added records</div><p/>
-
 <b>Incomes</b>
 <table class="data">
-    <tr><th class="inc_h">Date</th><th class="inc_h">Amount</th><th class="inc_h">Description</th></tr>
+    <tr>
+        <th class="inc_h">Date</th>
+        <th class="inc_h">Amount</th>
+        <th class="inc_h">Description</th>
+    </tr>
     @foreach ($incomes as $income)
     <tr>
         <td class="inc_l">{{{ $income->create_date }}}</td>
@@ -21,7 +24,12 @@ Finance Tracker - Recently added records
 <br/>
 <b>Expences</b>
 <table class="data">
-    <tr><th class="exp_h">Date</th><th class="exp_h">Amount</th><th class="exp_h">Category</th><th class="exp_h">Description</th></tr>
+    <tr>
+        <th class="exp_h">Date</th>
+        <th class="exp_h">Amount</th>
+        <th class="exp_h">Category</th>
+        <th class="exp_h">Description</th>
+    </tr>
     @foreach ($expenses as $expense)
     <tr>
         <td class="exp_l">{{{ $expense->create_date }}}</td>
@@ -33,5 +41,4 @@ Finance Tracker - Recently added records
 </table>
 <br/>
 <div class="navigation"><a href="/home">Home</a></div>
-
 @stop
