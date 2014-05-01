@@ -1,7 +1,8 @@
 @extends('layouts.master')
 
-@section('title')
-Finance Tracker - List
+@section('head')
+<script language="JavaScript" src="/js/fintrack.input.js"></script>
+<title>Finance Tracker - List</title>
 @stop
 
 @section('content')
@@ -26,12 +27,12 @@ Finance Tracker - List
                         <td><input type="checkbox" name="incomeSelected" value="true">Income</td>
                     </tr>
                     @foreach($categories as $category)
-                    <tr>
-                        <td><input type="checkbox" name="categoryId" group="categoryId"
-                                   value="{{{ $category->category_id }}}" title="{{{ $category->descr }}}"
-                                >{{{ $category->name }}}
-                        </td>
-                    </tr>
+                        <tr>
+                            <td><input type="checkbox" name="categoryId" group="categoryId"
+                                       value="{{{ $category->category_id }}}" title="{{{ $category->descr }}}"
+                                    >{{{ $category->name }}}
+                            </td>
+                        </tr>
                     @endforeach
                 </table>
             </td>
@@ -63,14 +64,14 @@ Finance Tracker - List
         <th class="inc_h">Delete</th>
     </tr>
     @foreach ($incomes as $income)
-    <tr>
-        <td class="inc_l">{{{ $income->create_date }}}</td>
-        <td class="inc_r">{{{ number_format($income->amount, 2, '.', '') }}}</td>
-        <td class="inc_l">{{{ $income->descr }}}</td>
-        <td class="inc_l">{{{ $income->user->name }}}</td>
-        <td class="inc_l"><a href="/income@edit?preinitId={{ $income->income_id }}">Edit</a></td>
-        <td class="inc_l"><a href="/income@delete?preinitId={{ $income->income_id }}">Delete</a></td>
-    </tr>
+        <tr>
+            <td class="inc_l">{{{ $income->create_date }}}</td>
+            <td class="inc_r">{{{ number_format($income->amount, 2, '.', '') }}}</td>
+            <td class="inc_l">{{{ $income->descr }}}</td>
+            <td class="inc_l">{{{ $income->user->name }}}</td>
+            <td class="inc_l"><a href="/income@edit?preinitId={{ $income->income_id }}">Edit</a></td>
+            <td class="inc_l"><a href="/income@delete?preinitId={{ $income->income_id }}">Delete</a></td>
+        </tr>
     @endforeach
 </table>
 <br/>
@@ -86,15 +87,15 @@ Finance Tracker - List
         <th class="exp_h">Delete</th>
     </tr>
     @foreach ($expenses as $expense)
-    <tr>
-        <td class="exp_l">{{{ $expense->create_date }}}</td>
-        <td class="exp_r">{{{ number_format($expense->amount, 2, '.', '') }}}</td>
-        <td class="exp_l">{{{ $expense->category->name_short }}}</td>
-        <td class="exp_l">{{{ $expense->descr }}}</td>
-        <td class="exp_l">{{{ $expense->user->name }}}</td>
-        <td class="exp_l"><a href="/income@edit?preinitId={{ $expense->expense_id }}">Edit</a></td>
-        <td class="exp_l"><a href="/income@delete?preinitId={{ $expense->expense_id }}">Delete</a></td>
-    </tr>
+        <tr>
+            <td class="exp_l">{{{ $expense->create_date }}}</td>
+            <td class="exp_r">{{{ number_format($expense->amount, 2, '.', '') }}}</td>
+            <td class="exp_l">{{{ $expense->category->name_short }}}</td>
+            <td class="exp_l">{{{ $expense->descr }}}</td>
+            <td class="exp_l">{{{ $expense->user->name }}}</td>
+            <td class="exp_l"><a href="/income@edit?preinitId={{ $expense->expense_id }}">Edit</a></td>
+            <td class="exp_l"><a href="/income@delete?preinitId={{ $expense->expense_id }}">Delete</a></td>
+        </tr>
     @endforeach
 </table>
 <br/>

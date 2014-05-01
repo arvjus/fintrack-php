@@ -23,6 +23,17 @@ class SummaryController extends \BaseController {
         $view->categories = $this->categoryService->all();
         $view->incomes = $this->incomeService->all(10);
         $view->expenses = $this->expenseService->all(15);
+
+        $view->incomesTotal = new stdClass();
+        $view->incomesTotal->count = 5;
+        $view->incomesTotal->amount = 123.456;
+
+        $view->expensesTotal = new stdClass();
+        $view->expensesTotal->count = 10;
+        $view->expensesTotal->amount = 223.322;
+
+        $view->grouppedBy = 'none';
+        $view->plotChart = false;
         $view->error = 'err';
         $view->message = 'this is a message';
         return $view;

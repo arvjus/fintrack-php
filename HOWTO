@@ -23,3 +23,12 @@ in service provider, instantiate service in register() and add alias in boot().
 register service provider in app/config/app.php
 
 repository: https://packagist.org
+
+
+
+.jsp => .blade.php
+------------------
+
+s: \$\{([a-zA-Z.]+)\}
+r: {{{ $\1 }}}
+

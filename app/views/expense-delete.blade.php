@@ -1,7 +1,8 @@
 @extends('layouts.master')
 
-@section('title')
-Finance Tracker - Delete Expense
+@section('head')
+<script language="JavaScript" src="/js/fintrack.input.js"></script>
+<title>Finance Tracker - Delete Expense</title>
 @stop
 
 @section('content')
@@ -37,8 +38,8 @@ Finance Tracker - Delete Expense
     <table>
         <tr>
             @if (isset($expense->expense_id))
-            <td><input type="submit" value="I'm sure I want to delete the item"/></td>
-            <td><input type="reset" value="Reset"/></td>
+                <td><input type="submit" value="I'm sure I want to delete the item"/></td>
+                <td><input type="reset" value="Reset"/></td>
             @endif
             <td><input type="submit" class="back" value="Back to list"/></td>
         </tr>

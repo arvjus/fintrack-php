@@ -1,7 +1,8 @@
 @extends('layouts.master')
 
-@section('title')
-Finance Tracker - {{{ isset($expense->expense_id) ? 'Add' : 'Edit' }}} Expense
+@section('head')
+<script language="JavaScript" src="/js/fintrack.input.js"></script>
+<title>Finance Tracker - {{{ isset($expense->expense_id) ? 'Add' : 'Edit' }}} Expense</title>
 @stop
 
 @section('content')
@@ -20,14 +21,14 @@ Finance Tracker - {{{ isset($expense->expense_id) ? 'Add' : 'Edit' }}} Expense
             <td>
                 <table>
                     @foreach($categories as $category)
-                    <tr>
-                        <td><input type="radio" name="categoryId" group="categoryId" value="{{{ $category->category_id }}}" title="{{{ $category->descr }}}"
-                            @if ($category->category_id == $expense->category_id)
-                                checked="true"
-                            @endif
-                            >{{{ $category->name }}}
-                        </td>
-                    </tr>
+                        <tr>
+                            <td><input type="radio" name="categoryId" group="categoryId" value="{{{ $category->category_id }}}" title="{{{ $category->descr }}}"
+                                @if ($category->category_id == $expense->category_id)
+                                    checked="true"
+                                @endif
+                                >{{{ $category->name }}}
+                            </td>
+                        </tr>
                     @endforeach
                 </table>
             </td>
@@ -48,7 +49,7 @@ Finance Tracker - {{{ isset($expense->expense_id) ? 'Add' : 'Edit' }}} Expense
             <td><input type="submit" value="Save"/></td>
             <td><input type="reset" value="Reset"/></td>
             @if (isset($expense->expense_id))
-            <td><input type="submit" class="back" value="Back to list"/></td>
+                <td><input type="submit" class="back" value="Back to list"/></td>
             @endif
         </tr>
     </table>

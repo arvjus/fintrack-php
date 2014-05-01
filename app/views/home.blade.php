@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
-@section('title')
-Fintrack - Recently added records
+@section('head')
+<title>Finance Tracker</title>
 @stop
 
 @section('content')

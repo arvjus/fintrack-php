@@ -1,7 +1,8 @@
 @extends('layouts.master')
 
-@section('title')
-Finance Tracker - {{{ isset($income->income_id) ? 'Add' : 'Edit' }}} Income
+@section('head')
+<script language="JavaScript" src="/js/fintrack.input.js"></script>
+<title>Finance Tracker - {{{ isset($income->income_id) ? 'Add' : 'Edit' }}} Income</title>
 @stop
 
 @section('content')
@@ -29,7 +30,7 @@ Finance Tracker - {{{ isset($income->income_id) ? 'Add' : 'Edit' }}} Income
             <td><input type="submit" value="Save"/></td>
             <td><input type="reset" value="Reset"/></td>
             @if (isset($income->income_id))
-            <td><input type="submit" class="back" value="Back to list"/></td>
+                <td><input type="submit" class="back" value="Back to list"/></td>
             @endif
         </tr>
     </table>

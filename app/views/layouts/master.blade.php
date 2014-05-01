@@ -10,9 +10,7 @@
     <script language="JavaScript" src="/js/date.js"></script>
     <script language="JavaScript" src="/js/jquery.datePicker.js"></script>
     <script language="JavaScript" src="/js/fintrack.js"></script>
-    <script language="JavaScript" src="/js/fintrack.input.js"></script>
-
-    <title>@yield('title')</title>
+    @yield('head')
 </head>
 
 <body>
@@ -42,7 +40,7 @@
 
                         <li class="sub">
                             <ul>
-                                <li class="item"><a href="/home">Login</a></li>
+                                <li class="item"><a href="/login">Login</a></li>
                             </ul>
                         </li>
 
