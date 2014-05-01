@@ -9,13 +9,13 @@
 <div id="heading">Delete Expense</div><p/>
 
 <form method="post" action="/expense@save">
-    <input type="hidden" name="preinitId" value="{{{ $preinitId or '' }}}"/>
+    <input type="hidden" name="preinit_id" value="{{{ $preinit_id or '' }}}"/>
 
     @if (isset($expense->expense_id))
     <table cellspacing=5 cellpading=5>
         <tr>
             <td>Date:</td>
-            <td><input type="text" class="date-pick" name="createDate" value="{{{ $expense->create_date }}}" size="12"/>
+            <td><input type="text" class="date-pick" name="create_date" value="{{{ $expense->create_date }}}" size="12"/>
             </td>
         </tr>
 
@@ -26,7 +26,7 @@
 
         <tr>
             <td>Amount:</td>
-            <td><input type="text" name="amount" class="focus" value="{{{ $expense->amount }}}" size="12"/></td>
+            <td><input type="text" name="amount" class="focus" value="{{{ number_format($expense->amount, 2, '.', '') }}}" size="12"/></td>
         </tr>
         <tr>
             <td>Description:</td>

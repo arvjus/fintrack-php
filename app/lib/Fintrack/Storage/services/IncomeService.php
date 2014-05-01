@@ -14,16 +14,16 @@ class IncomeService
         }
     }
 
-    public function plain($dateFrom, $dateTo) {
-        return Income::whereBetween('create_date', array($dateFrom, $dateTo))->orderBy('create_date', 'DESC')->get();
+    public function plain($date_from, $date_to) {
+        return Income::whereBetween('create_date', array($date_from, $date_to))->orderBy('create_date', 'DESC')->get();
     }
 
-    public function summarySimple($dateFrom, $dateTo) {
+    public function summarySimple($date_from, $date_to) {
         $results = \DB::select(
             \DB::raw('SELECT COUNT(income_id) AS count, SUM(amount) AS amount ' .
                      'FROM incomes ' .
                      'WHERE create_date BETWEEN ? AND ?'),
-                array($dateFrom, $dateTo)
+                array($date_from, $date_to)
             );
 
         $summaries = array();
@@ -35,14 +35,14 @@ class IncomeService
         return $summaries;
     }
 
-    public function summaryByMonth($dateFrom, $dateTo) {
+    public function summaryByMonth($date_from, $date_to) {
         $results = \DB::select(
             \DB::raw('SELECT COUNT(income_id) AS count, SUM(amount) AS amount, SUBSTRING(create_date, 1, 7) AS grp ' .
                      'FROM incomes ' .
                      'WHERE create_date BETWEEN ? AND ? ' .
                      'GROUP BY SUBSTRING(create_date, 1, 7)' .
                      'ORDER BY SUBSTRING(create_date, 1, 7)'),
-                array($dateFrom, $dateTo)
+                array($date_from, $date_to)
             );
 
         $summaries = array();

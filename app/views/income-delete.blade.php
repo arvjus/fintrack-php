@@ -9,17 +9,17 @@
 <div id="heading">Finance Tracker - Delete Income</div><p/>
 
 <form method="post" action="/income@doDelete">
-    <input type="hidden" name="preinitId" value="{{{ $preinitId or '' }}}"/>
+    <input type="hidden" name="preinit_id" value="{{{ $preinit_id or '' }}}"/>
     @if (isset($income->income_id))
         <table cellspacing=5 cellpading=5>
             <tr>
                 <td>Date:</td>
-                <td><input type="text" class="date-pick" name="createDate" value="{{{ $income->create_date }}}" size="12"/>
+                <td><input type="text" class="date-pick" name="create_date" value="{{{ $income->create_date }}}" size="12"/>
                 </td>
             </tr>
             <tr>
                 <td>Amount:</td>
-                <td><input type="text" name="amount" class="focus" value="{{{ $income->amount }}}" size="12"/></td>
+                <td><input type="text" name="amount" class="focus" value="{{{ number_format($income->amount, 2, '.', '') }}}" size="12"/></td>
             </tr>
             <tr>
                 <td>Description:</td>

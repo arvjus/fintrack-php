@@ -14,20 +14,20 @@ class ExpenseService
         }
     }
 
-    public function plain($dateFrom, $dateTo, $categoryIds = array()) {
-        if (count($categoryIds) > 0) {
-            return Expense::whereBetween('create_date', array($dateFrom, $dateTo))->
-                            whereRaw("category_id in ('" . implode("','", $categoryIds) . "')")->
+    public function plain($date_from, $date_to, $category_ids = array()) {
+        if (count($category_ids) > 0) {
+            return Expense::whereBetween('create_date', array($date_from, $date_to))->
+                            whereRaw("category_id in ('" . implode("','", $category_ids) . "')")->
                             orderBy('create_date', 'DESC')->get();
         }
-        return Expense::whereBetween('create_date', array($dateFrom, $dateTo))->
+        return Expense::whereBetween('create_date', array($date_from, $date_to))->
                         orderBy('create_date', 'DESC')->get();
     }
 
-    public function summaryByCategory($dateFrom, $dateTo, $categoryIds = array()) {
+    public function summaryByCategory($date_from, $date_to, $category_ids = array()) {
         $where_categories = '';
-        if (count($categoryIds) > 0) {
-            $where_categories = " AND e.category_id in ('" . implode("','", $categoryIds) . "')";
+        if (count($category_ids) > 0) {
+            $where_categories = " AND e.category_id in ('" . implode("','", $category_ids) . "')";
         }
 
         $results = \DB::select(
@@ -37,7 +37,7 @@ class ExpenseService
                 '  AND e.create_date BETWEEN ? AND ? ' . $where_categories .
                 'GROUP BY c.name ' .
                 'ORDER BY c.name '),
-            array($dateFrom, $dateTo)
+            array($date_from, $date_to)
         );
 
         $summaries = array();
@@ -49,10 +49,10 @@ class ExpenseService
         return $summaries;
     }
 
-    public function summaryByMonth($dateFrom, $dateTo, $categoryIds = array()) {
+    public function summaryByMonth($date_from, $date_to, $category_ids = array()) {
         $where_categories = '';
-        if (count($categoryIds) > 0) {
-            $where_categories = " AND category_id in ('" . implode("','", $categoryIds) . "')";
+        if (count($category_ids) > 0) {
+            $where_categories = " AND category_id in ('" . implode("','", $category_ids) . "')";
         }
 
         $results = \DB::select(
@@ -61,7 +61,7 @@ class ExpenseService
                 'WHERE create_date BETWEEN ? AND ? ' . $where_categories .
                 'GROUP BY SUBSTRING(create_date, 1, 7)' .
                 'ORDER BY SUBSTRING(create_date, 1, 7)'),
-            array($dateFrom, $dateTo)
+            array($date_from, $date_to)
         );
 
         $summaries = array();

@@ -16,7 +16,7 @@ class ExpenseController extends BaseController
     public function index() {
         $expense = new Expense();
         $expense->expense_id = 1;
-        $expense->create_date = date('now');
+        $expense->create_date = date('Y-m-d', time());
         $expense->category_id = 'fd';
         $expense->amount = 123.45;
         $expense->descr = 'stuff';
@@ -33,7 +33,7 @@ class ExpenseController extends BaseController
     public function delete() {
         $expense = new Expense();
         $expense->expense_id = 1;
-        $expense->create_date = date('now');
+        $expense->create_date = date('Y-m-d', time());
         $expense->category_id = 'fd';
         $expense->amount = 123.45;
         $expense->descr = 'stuff';

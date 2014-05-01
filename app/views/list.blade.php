@@ -12,11 +12,11 @@
     <table cellspacing=5 cellpading=5>
         <tr>
             <td>Date from:</td>
-            <td><input type="text" class="date-pick" name="dateFrom" value="{{{ $dateFrom or ''}}}" size="12"/></td>
+            <td><input type="text" class="date-pick" name="date_from" value="{{{ $date_from or ''}}}" size="12"/></td>
         </tr>
         <tr>
             <td>Date to:</td>
-            <td><input type="text" class="date-pick" name="dateTo" value="{{{ $dateTo or ''}}}" size="12"/></td>
+            <td><input type="text" class="date-pick" name="date_to" value="{{{ $date_to or ''}}}" size="12"/></td>
         </tr>
 
         <tr>
@@ -24,11 +24,11 @@
             <td>
                 <table>
                     <tr>
-                        <td><input type="checkbox" name="incomeSelected" value="true">Income</td>
+                        <td><input type="checkbox" name="income_selected" value="true">Income</td>
                     </tr>
                     @foreach($categories as $category)
                         <tr>
-                            <td><input type="checkbox" name="categoryId" group="categoryId"
+                            <td><input type="checkbox" name="category_id" group="category_id"
                                        value="{{{ $category->category_id }}}" title="{{{ $category->descr }}}"
                                     >{{{ $category->name }}}
                             </td>
@@ -39,7 +39,7 @@
         </tr>
         <tr>
             <td>User:</td>
-            <td><input type="text" name="userId" value="{{{ $userId or ''}}}" size="12"/></td>
+            <td><input type="text" name="user_id" value="{{{ $user_id or ''}}}" size="12"/></td>
         </tr>
     </table>
     <p>
@@ -69,8 +69,8 @@
             <td class="inc_r">{{{ number_format($income->amount, 2, '.', '') }}}</td>
             <td class="inc_l">{{{ $income->descr }}}</td>
             <td class="inc_l">{{{ $income->user->name }}}</td>
-            <td class="inc_l"><a href="/income@edit?preinitId={{ $income->income_id }}">Edit</a></td>
-            <td class="inc_l"><a href="/income@delete?preinitId={{ $income->income_id }}">Delete</a></td>
+            <td class="inc_l"><a href="/income@edit?preinit_id={{ $income->income_id }}">Edit</a></td>
+            <td class="inc_l"><a href="/income@delete?preinit_id={{ $income->income_id }}">Delete</a></td>
         </tr>
     @endforeach
 </table>
@@ -93,8 +93,8 @@
             <td class="exp_l">{{{ $expense->category->name_short }}}</td>
             <td class="exp_l">{{{ $expense->descr }}}</td>
             <td class="exp_l">{{{ $expense->user->name }}}</td>
-            <td class="exp_l"><a href="/income@edit?preinitId={{ $expense->expense_id }}">Edit</a></td>
-            <td class="exp_l"><a href="/income@delete?preinitId={{ $expense->expense_id }}">Delete</a></td>
+            <td class="exp_l"><a href="/income@edit?preinit_id={{ $expense->expense_id }}">Edit</a></td>
+            <td class="exp_l"><a href="/income@delete?preinit_id={{ $expense->expense_id }}">Delete</a></td>
         </tr>
     @endforeach
 </table>

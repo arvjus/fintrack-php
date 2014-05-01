@@ -9,11 +9,11 @@
 <div id="heading">{{{ isset($expense->expense_id) ? 'Add' : 'Edit' }}} Expense</div><p/>
 
 <form method="post" action="/expense@save">
-    <input type="hidden" name="preinitId" value="{{{ $preinitId or '' }}}"/>
+    <input type="hidden" name="preinit_id" value="{{{ $preinit_id or '' }}}"/>
     <table cellspacing=5 cellpading=5>
         <tr>
             <td>Date:</td>
-            <td><input type="text" class="date-pick" name="createDate" value="{{{ $expense->create_date }}}" size="12"/></td>
+            <td><input type="text" class="date-pick" name="create_date" value="{{{ $expense->create_date }}}" size="12"/></td>
         </tr>
 
         <tr>
@@ -22,7 +22,7 @@
                 <table>
                     @foreach($categories as $category)
                         <tr>
-                            <td><input type="radio" name="categoryId" group="categoryId" value="{{{ $category->category_id }}}" title="{{{ $category->descr }}}"
+                            <td><input type="radio" name="category_id" group="category_id" value="{{{ $category->category_id }}}" title="{{{ $category->descr }}}"
                                 @if ($category->category_id == $expense->category_id)
                                     checked="true"
                                 @endif
@@ -36,7 +36,7 @@
 
         <tr>
             <td>Amount:</td>
-            <td><input type="text" name="amount" class="focus" value="{{{ $expense->amount }}}" size="12"/></td>
+            <td><input type="text" name="amount" class="focus" value="{{{ number_format($expense->amount, 2, '.', '') }}}" size="12"/></td>
         </tr>
         <tr>
             <td>Description:</td>
