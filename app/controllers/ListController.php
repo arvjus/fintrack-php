@@ -5,8 +5,6 @@ use Fintrack\Storage\Services\IncomeService as IncomeService;
 use Fintrack\Storage\Services\ExpenseService as ExpenseService;
 
 class ListController extends \BaseController {
-    protected $layout = 'layouts.master';
-
     public function __construct(CategoryService $categoryService, IncomeService $incomeService, ExpenseService $expenseService) {
         $this->categoryService = $categoryService;
         $this->incomeService = $incomeService;

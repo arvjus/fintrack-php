@@ -5,8 +5,6 @@ use Fintrack\Storage\Services\ExpenseService as ExpenseService;
 
 class HomeController extends BaseController
 {
-    protected $layout = 'layouts.master';
-
     public function __construct(IncomeService $incomeService, ExpenseService $expenseService) {
         $this->incomeService = $incomeService;
         $this->expenseService = $expenseService;
@@ -17,10 +15,15 @@ class HomeController extends BaseController
      *
      * @return Response
      */
-    public function index() {
+    public function getIndex() {
         return View::make('home',
             array('incomes' => $this->incomeService->all(5),
                   'expenses' => $this->expenseService->all(15)
             ));
+    }
+
+    public function store() {
+        return "done";
+
     }
 }

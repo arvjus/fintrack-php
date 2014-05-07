@@ -14,6 +14,10 @@ class ExpenseService
         }
     }
 
+    public function get($page) {
+       return Expense::orderBy('create_date', 'DESC')->paginate($page);
+    }
+
     public function plain($date_from, $date_to, $category_ids = array()) {
         if (count($category_ids) > 0) {
             return Expense::whereBetween('create_date', array($date_from, $date_to))->

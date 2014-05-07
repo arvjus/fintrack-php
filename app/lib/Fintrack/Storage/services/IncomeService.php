@@ -14,6 +14,10 @@ class IncomeService
         }
     }
 
+    public function get($page) {
+        return Income::orderBy('create_date', 'DESC')->paginate($page);
+    }
+
     public function plain($date_from, $date_to) {
         return Income::whereBetween('create_date', array($date_from, $date_to))->orderBy('create_date', 'DESC')->get();
     }

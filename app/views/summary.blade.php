@@ -1,11 +1,11 @@
 @extends('layouts.master')
 
 @section('head')
-<link href="/css/jquery.jqplot.css" rel="stylesheet" type="text/css"/>
-<script language="JavaScript" src="/js/jquery.jqplot.min.js"></script>
-<script language="JavaScript" src="/js/jqplot.categoryAxisRenderer.min.js"></script>
-<script language="JavaScript" src="/js/jqplot.barRenderer.min.js"></script>
-<script language="JavaScript" src="/js/fintrack.summary.js"></script>
+{{ HTML::style('/css/jquery.jqplot.css') }}
+{{ HTML::script('/js/jquery.jqplot.min.js') }}
+{{ HTML::script('/js/jqplot.categoryAxisRenderer.min.js') }}
+{{ HTML::script('/js/jqplot.barRenderer.min.js') }}
+{{ HTML::script('/js/fintrack.summary.js') }}
 <title>Finance Tracker - Summary</title>
 @stop
 

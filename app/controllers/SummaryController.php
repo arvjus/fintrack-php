@@ -5,8 +5,6 @@ use Fintrack\Storage\Services\IncomeService as IncomeService;
 use Fintrack\Storage\Services\ExpenseService as ExpenseService;
 
 class SummaryController extends \BaseController {
-    protected $layout = 'layouts.master';
-
     public function __construct(CategoryService $categoryService, IncomeService $incomeService, ExpenseService $expenseService) {
         $this->categoryService = $categoryService;
         $this->incomeService = $incomeService;
@@ -18,7 +16,7 @@ class SummaryController extends \BaseController {
      *
      * @return Response
      */
-    public function index() {
+    public function getIndex() {
         $view = View::make('summary');
         $view->categories = $this->categoryService->all();
         $view->incomes = $this->incomeService->all(10);

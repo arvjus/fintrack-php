@@ -1,15 +1,14 @@
 @extends('layouts.master')
 
 @section('head')
-<script language="JavaScript" src="/js/fintrack.input.js"></script>
-<title>Finance Tracker - {{{ isset($income->income_id) ? 'Add' : 'Edit' }}} Income</title>
+{{ HTML::script('/js/fintrack.input.js') }}
+<title>Finance Tracker - Edit Income</title>
 @stop
 
 @section('content')
-<div id="heading">{{{ isset($income->income_id) ? 'Add' : 'Edit' }}} Income</div><p/>
+<div id="heading">Edit Income</div><p/>
 
 <form method="post" action="/income@save">
-    <input type="hidden" name="preinit_id" value="{{{ $preinit_id or '' }}}"/>
     <table cellspacing=5 cellpading=5>
         <tr>
             <td>Date:</td>
@@ -29,14 +28,10 @@
         <tr>
             <td><input type="submit" value="Save"/></td>
             <td><input type="reset" value="Reset"/></td>
-            @if (isset($income->income_id))
-                <td><input type="submit" class="back" value="Back to list"/></td>
-            @endif
+            <td><input type="submit" class="back" value="Back to list"/></td>
         </tr>
     </table>
     <div class="error">{{{ $error or '' }}}</div>
     <div>{{{ $message or '' }}}</div>
 </form>
-<br/>
-<div class="navigation"><a href="/home">Home</a></div>
 @stop
