@@ -15,8 +15,10 @@ class IncomeController extends BaseController
     }
 
     public function listIncome() {
+        $date_from = date('Y-m-01', time());
+        $date_to = date('Y-m-d', time());
         $incomes = $this->incomeService->get(15);
-        $this->layout->main = View::make('incomes.list')->with(compact('incomes'));
+        $this->layout->main = View::make('incomes.list')->with(compact('date_from', 'date_to', 'incomes'));
     }
 
     public function newIncome() {

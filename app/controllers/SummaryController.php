@@ -17,23 +17,22 @@ class SummaryController extends \BaseController {
      * @return Response
      */
     public function getIndex() {
-        $view = View::make('summary');
-        $view->categories = $this->categoryService->all();
-        $view->incomes = $this->incomeService->all(10);
-        $view->expenses = $this->expenseService->all(15);
+        $date_from = date('Y-01-01', time());
+        $date_to = date('Y-m-d', time());
 
-        $view->incomes_total = new stdClass();
-        $view->incomes_total->count = 5;
-        $view->incomes_total->amount = 123.456;
+        $categories = $this->categoryService->all();
 
-        $view->expenses_total = new stdClass();
-        $view->expenses_total->count = 10;
-        $view->expenses_total->amount = 223.322;
+        $incomes_total = new stdClass();
+        $incomes_total->count = 5;
+        $incomes_total->amount = 123.456;
 
-        $view->groupped_by = 'none';
-        $view->plot_chart = false;
-        $view->error = 'err';
-        $view->message = 'this is a message';
-        return $view;
+        $expenses_total = new stdClass();
+        $expenses_total->count = 10;
+        $expenses_total->amount = 223.322;
+
+        $groupped_by = 'none';
+        $plot_chart = false;
+
+        $this->layout->main = View::make('summary')->with(compact('date_from', 'date_to', 'categories', 'incomes_total', 'expenses_total', 'groupped_by', 'plot_chart'));
     }
 }

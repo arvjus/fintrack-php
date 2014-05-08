@@ -17,9 +17,11 @@ class ExpenseController extends BaseController
     }
 
     public function listExpense() {
+        $date_from = date('Y-m-01', time());
+        $date_to = date('Y-m-d', time());
         $categories = $this->categoryService->all();
         $expenses = $this->expenseService->get(15);
-        $this->layout->main = View::make('expenses.list')->with(compact('expenses', 'categories'));
+        $this->layout->main = View::make('expenses.list')->with(compact('date_from', 'date_to', 'expenses', 'categories'));
     }
 
     public function newExpense() {
