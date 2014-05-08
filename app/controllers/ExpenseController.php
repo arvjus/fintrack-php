@@ -36,6 +36,18 @@ class ExpenseController extends BaseController
         $this->layout->main = View::make('expenses.delete')->with(compact('expense'));
     }
 
+    public function doSaveExpense() {
+        $this->layout->main = View::make('confirmed')->with(['message' => 'Success!']);
+    }
+
+    public function doUpdateExpense(Expense $expense) {
+        $this->layout->main = View::make('confirmed')->with(['message' => 'Success!']);
+    }
+
+    public function doDeleteExpense(Expense $expense) {
+        $this->layout->main = View::make('confirmed')->with(['message' => 'Success!']);
+    }
+
 
     /**
      * Display a listing of the resource.

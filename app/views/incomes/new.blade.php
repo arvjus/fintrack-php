@@ -8,7 +8,7 @@
 @section('content')
 <div id="heading">New Income</div><p/>
 
-<form method="post" action="/income@save">
+{{ Form::open(['route'=>['income.do.save']]) }}
     <table cellspacing=5 cellpading=5>
         <tr>
             <td>Date:</td>
@@ -26,11 +26,12 @@
     <p>
     <table>
         <tr>
-            <td><input type="submit" value="Save"/></td>
-            <td><input type="reset" value="Reset"/></td>
+            <td>{{ Form::submit('Save') }}</td>
+            <td>{{ Form::reset('Reset') }}</td>
+            <td>{{ Form::button('Back to list') }}</td>
         </tr>
     </table>
     <div class="error">{{{ $error or '' }}}</div>
     <div>{{{ $message or '' }}}</div>
-</form>
+{{ Form::close() }}
 @stop

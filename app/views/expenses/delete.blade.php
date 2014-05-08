@@ -8,7 +8,7 @@
 @section('content')
 <div id="heading">Delete Expense</div><p/>
 
-<form method="post" action="/expense@save">
+{{ Form::open(['route'=>['expense.do.delete', $expense->expense_id]]) }}
     <table cellspacing=5 cellpading=5>
         <tr>
             <td>Date:</td>
@@ -31,10 +31,11 @@
     <p>
     <table>
         <tr>
-            <td><input type="submit" value="I'm sure I want to delete the item"/></td>
+            <td>{{ Form::submit('I\'m sure I want to delete the item') }}</td>
+            <td>{{ Form::button('Back to list') }}</td>
         </tr>
     </table>
     <div class="error">{{{ $error or '' }}}</div>
     <div>{{{ $message or '' }}}</div>
-</form>
+{{ Form::close() }}
 @stop

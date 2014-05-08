@@ -8,7 +8,7 @@
 @section('content')
 <div id="heading">Edit Expense</div><p/>
 
-<form method="post" action="/expense@save">
+{{ Form::open(['route'=>['expense.do.update', $expense->expense_id]]) }}
     <table cellspacing=5 cellpading=5>
         <tr>
             <td>Date:</td>
@@ -45,13 +45,13 @@
     <p>
     <table>
         <tr>
-            <td><input type="submit" value="Save"/></td>
-            <td><input type="reset" value="Reset"/></td>
-            <td><input type="submit" class="back" value="Back to list"/></td>
+            <td>{{ Form::submit('Update') }}</td>
+            <td>{{ Form::reset('Reset') }}</td>
+            <td>{{ Form::button('Back to list') }}</td>
         </tr>
     </table>
     <div class="error">{{{ $error or '' }}}</div>
     <div>{{{ $message or '' }}}</div>
-</form>
+{{ Form::close() }}
 @stop
 

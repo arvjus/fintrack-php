@@ -21,36 +21,12 @@ Route::get('/expense/{expense}/delete', ['as' => 'expense.delete', 'uses' => 'Ex
 
 Route::get('/summary', ['as' => 'summary', 'uses' => 'SummaryController@getIndex']);
 
-
 /* POST routes */
-Route::post('/income/save', ['as' => 'income.save', 'uses' => 'IncomeController@saveIncome']);
-Route::post('/income/{income}/update', ['as' => 'income.update', 'uses' => 'IncomeController@updateIncome']);
+Route::post('/income/save', ['as' => 'income.do.save', 'uses' => 'IncomeController@doSaveIncome']);
+Route::post('/income/{income}/update', ['as' => 'income.do.update', 'uses' => 'IncomeController@doUpdateIncome']);
+Route::post('/income/{income}/delete', ['as' => 'income.do.delete', 'uses' => 'IncomeController@doDeleteIncome']);
 
-Route::post('/expense/save', ['as' => 'expense.save', 'uses' => 'ExpenseController@saveExpense']);
-Route::post('/expense/{expense}/update', ['as' => 'expense.update', 'uses' => 'ExpenseController@updateExpense']);
+Route::post('/expense/save', ['as' => 'expense.do.save', 'uses' => 'ExpenseController@doSaveExpense']);
+Route::post('/expense/{expense}/update', ['as' => 'expense.do.update', 'uses' => 'ExpenseController@doUpdateExpense']);
+Route::post('/expense/{expense}/delete', ['as' => 'expense.do.delete', 'uses' => 'ExpenseController@doDeleteExpense']);
 
-/*
-Route::resource('login', 'LoginController@login');
-Route::resource('logout', 'LoginController@logout');
-Route::resource('incomes', 'IncomeController');
-Route::resource('incomes-delete', 'IncomeController@delete');
-Route::resource('expenses', 'ExpenseController');
-Route::resource('expenses-delete', 'ExpenseController@delete');
-Route::resource('recent', 'RecentController');
-Route::resource('list', 'ListController');
-Route::resource('summary', 'SummaryController');
-Route::resource('test', 'TestController');
-*/
-
-/*
-Route::get('/post/list', ['as' => 'post.list', 'uses' => 'PostController@listPost']);
-Route::get('/post/new', ['as' => 'post.new', 'uses' => 'PostController@newPost']);
-Route::get('/post/{post}/edit', ['as' => 'post.edit', 'uses' => 'PostController@editPost']);
-Route::get('/post/{post}/delete', ['as' => 'post.delete', 'uses' => 'PostController@deletePost']);
-Route::get('/comment/list', ['as' => 'comment.list', 'uses' => 'CommentController@listComment']);
-Route::get('/comment/{comment}/show', ['as' => 'comment.show', 'uses' => 'CommentController@showComment']);
-Route::get('/comment/{comment}/delete', ['as' => 'comment.delete', 'uses' => 'CommentController@deleteComment']);
-*/
-/*post routes*/
-/*
-*/

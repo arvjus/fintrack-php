@@ -8,7 +8,7 @@
 @section('content')
 <div id="heading">List Incomes</div><p/>
 
-<form method="post" action="/list@refresh">
+{{ Form::open(['route'=>['income.list'], 'method' => 'get']) }}
     <table cellspacing=5 cellpading=5>
         <tr>
             <td>Date from:</td>
@@ -26,13 +26,14 @@
     <p>
     <table>
         <tr>
-            <td><input type="submit" value="Refresh"/></td>
-            <td><input type="reset" value="Reset"/></td>
+            <td>{{ Form::submit('Refresh') }}</td>
+            <td>{{ Form::reset('Reset') }}</td>
         </tr>
     </table>
     <div class="error">{{{ $error or '' }}}</div>
     <div>{{{ $message or '' }}}</div>
-</form>
+{{ Form::close() }}
+
 {{ $incomes->links('pagination::simple') }}
 <table class="data">
     <tr>
