@@ -193,6 +193,10 @@ td.adm_r {
 	color:					#ff3333;
 }
 
+.success {
+    color:					#336633;
+}
+
 .message {
 	color:					#000000;
 }
@@ -222,6 +226,20 @@ a.dp-choose-date.dp-disabled {
 	cursor: default;
 }
 
+
+/*
+* Pager
+*/
+
+.pager, .pagination ul {
+    text-align: center;
+    list-style: none;
+}
+
+.pager li, .pagination ul li {
+    display: inline;
+    padding: 10px;
+}
 
 
 /* All devices */

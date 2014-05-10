@@ -14,12 +14,16 @@ class IncomeService
         }
     }
 
-    public function get($page) {
+    public function paginate($page) {
         return Income::orderBy('create_date', 'DESC')->paginate($page);
     }
 
-    public function plain($date_from, $date_to) {
-        return Income::whereBetween('create_date', array($date_from, $date_to))->orderBy('create_date', 'DESC')->get();
+    public function plain($page, $date_from, $date_to, $user_id = 0) {
+        $query = Income::whereBetween('create_date', array($date_from, $date_to));
+        if ($user_id) {
+            $query = $query->where('user_id', '=', $user_id);
+        }
+        return $query->orderBy('create_date', 'DESC')->paginate($page);
     }
 
     public function summarySimple($date_from, $date_to) {

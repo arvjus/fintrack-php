@@ -7,12 +7,11 @@
 
 @section('content')
 <div id="heading">New Income</div><p/>
-
-{{ Form::open(['route'=>['income.do.save']]) }}
+{{ Form::open(['route'=>['income.save']]) }}
     <table cellspacing=5 cellpading=5>
         <tr>
             <td>Date:</td>
-            <td><input type="text" class="date-pick" name="create_date" value="{{{ date('Y-m-d', time()) }}}" size="12"/></td>
+            <td><input type="text" class="date-pick" name="create_date" value="{{{ $create_date }}}" size="12"/></td>
         </tr>
         <tr>
             <td>Amount:</td>
@@ -28,10 +27,12 @@
         <tr>
             <td>{{ Form::submit('Save') }}</td>
             <td>{{ Form::reset('Reset') }}</td>
-            <td>{{ Form::button('Back to list') }}</td>
         </tr>
     </table>
-    <div class="error">{{{ $error or '' }}}</div>
-    <div>{{{ $message or '' }}}</div>
+    @if($errors->has())
+        @foreach($errors->all() as $error)
+            <div class="error">{{ $error }}</div>
+        @endforeach
+    @endif
 {{ Form::close() }}
 @stop

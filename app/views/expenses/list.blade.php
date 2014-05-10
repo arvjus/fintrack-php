@@ -12,23 +12,19 @@
     <table cellspacing=5 cellpading=5>
         <tr>
             <td>Date from:</td>
-            <td><input type="text" class="date-pick" name="date_from" value="{{{ $date_from or ''}}}" size="12"/></td>
+            <td><input type="text" class="date-pick" name="date_from" value="{{{ $date_from }}}" size="12"/></td>
         </tr>
         <tr>
             <td>Date to:</td>
-            <td><input type="text" class="date-pick" name="date_to" value="{{{ $date_to or ''}}}" size="12"/></td>
+            <td><input type="text" class="date-pick" name="date_to" value="{{{ $date_to }}}" size="12"/></td>
         </tr>
-
         <tr>
             <td>Categories:</td>
             <td>
                 <table>
                     @foreach($categories as $category)
                         <tr>
-                            <td><input type="checkbox" name="category_id" group="category_id"
-                                       value="{{{ $category->category_id }}}" title="{{{ $category->descr }}}">
-                                    {{{ $category->name }}}
-                            </td>
+                            <td>{{ Form::checkbox('category_ids[]', $category->category_id, in_array($category->category_id, $category_ids), ['title' => $category->descr]) }} {{{ $category->name }}}</td>
                         </tr>
                     @endforeach
                 </table>
@@ -36,7 +32,7 @@
         </tr>
         <tr>
             <td>User:</td>
-            <td><input type="text" name="user_id" value="{{{ $user_id or ''}}}" size="12"/></td>
+            <td>{{ Form::select('user_id', $users, $user_id) }}</td>
         </tr>
     </table>
     <p>
@@ -46,11 +42,8 @@
             <td>{{ Form::reset('Reset') }}</td>
         </tr>
     </table>
-    <div class="error">{{{ $error or '' }}}</div>
-    <div>{{{ $message or '' }}}</div>
 {{ Form::close() }}
 
-{{ $expenses->links('pagination::simple') }}
 <table class="data">
     <tr>
         <th class="exp_h">Date</th>
@@ -68,9 +61,19 @@
             <td class="exp_l">{{{ $expense->category->name_short }}}</td>
             <td class="exp_l">{{{ $expense->descr }}}</td>
             <td class="exp_l">{{{ $expense->user->name }}}</td>
-            <td class="exp_l">{{ HTML::linkRoute('expense.edit', 'Edit', $expense->expense_id )}}</td>
-            <td class="exp_l">{{ HTML::linkRoute('expense.delete', 'Delete', $expense->expense_id )}}</td>
+            <td class="exp_l">{{ HTML::linkRoute('expense.edit', 'Edit', $expense->expense_id)}}</td>
+            <td class="exp_l">{{ HTML::linkRoute('expense.delete', 'Delete', $expense->expense_id, ['class' => 'confirmation'])}}</td>
         </tr>
     @endforeach
 </table>
+{{ $expenses->links('pagination::slider') }}
+<br>
+@if($errors->has())
+    @foreach($errors->all() as $error)
+        <div class="error">{{ $error }}</div>
+    @endforeach
+@endif
+@if(Session::has('success'))
+    <div class="success">{{Session::get('success')}}</div>
+@endif
 @stop

@@ -77,3 +77,9 @@ App::down(function () {
 */
 
 require app_path() . '/filters.php';
+
+
+/*
+ * Global constants
+ */
+const ITEMS_PER_PAGE    = 15;

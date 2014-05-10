@@ -27,7 +27,7 @@ class TestExpensesTableSeeder extends Seeder
     public function run() {
         $reporter_user_id = DB::table('users')->select('user_id')->where('name', 'reporter')->first()->user_id;
 
-        for ($i = 0; $i < 10; $i++) {
+        for ($i = 0; $i < 100; $i++) {
             $expense = new Expense();
             $expense->category_id = 'fd';
             $expense->user_id = $reporter_user_id;
@@ -68,7 +68,7 @@ class TestIncomesTableSeeder extends Seeder
     public function run() {
         $reporter_user_id = DB::table('users')->select('user_id')->where('name', 'reporter')->first()->user_id;
 
-        for ($i = 0; $i < 10; $i++) {
+        for ($i = 0; $i < 50; $i++) {
             $income = new Income();
             $income->user_id = $reporter_user_id;
             $income->create_date = date('Y-m-d', strtotime('2010-01-01'));

@@ -16,9 +16,9 @@ class Income extends Ardent
      * Ardent validation rules
      */
     public static $rules = array(
-        'user_id' => 'required',
-        'create_date' => 'required',
-        'amount' => 'required',
-        'descr' => 'between:4,50'
+        'create_date' => 'required|date_format:Y-m-d',
+        'amount' => 'required|numeric|min:1.0',
+        'descr' => 'max:50',
+        'user_id' => 'required'
     );
 }

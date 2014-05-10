@@ -8,7 +8,7 @@
 @section('content')
 <div id="heading">New Expense</div><p/>
 
-{{ Form::open(['route'=>['expense.do.save']]) }}
+{{ Form::open(['route'=>['expense.save']]) }}
     <table cellspacing=5 cellpading=5>
         <tr>
             <td>Date:</td>
@@ -20,7 +20,7 @@
                 <table>
                     @foreach($categories as $category)
                         <tr>
-                            <td><input type="radio" name="category_id" group="category_id" value="{{{ $category->category_id }}}" title="{{{ $category->descr }}}">{{{ $category->name }}}</td>
+                            <td>{{ Form::radio('category_id', $category->category_id, false, ['title' => $category->descr]) }} {{{ $category->name }}}</td>
                         </tr>
                     @endforeach
                 </table>
@@ -40,12 +40,14 @@
         <tr>
             <td>{{ Form::submit('Save') }}</td>
             <td>{{ Form::reset('Reset') }}</td>
-            <td>{{ Form::button('Back to list') }}</td>
         </tr>
     </table>
 
-    <div class="error">{{{ $error or '' }}}</div>
-    <div>{{{ $message or '' }}}</div>
+    @if($errors->has())
+        @foreach($errors->all() as $error)
+            <div class="error">{{ $error }}</div>
+        @endforeach
+    @endif
 {{ Form::close() }}
 @stop
 

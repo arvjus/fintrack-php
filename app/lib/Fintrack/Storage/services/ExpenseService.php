@@ -14,18 +14,19 @@ class ExpenseService
         }
     }
 
-    public function get($page) {
+    public function paginate($page) {
        return Expense::orderBy('create_date', 'DESC')->paginate($page);
     }
 
-    public function plain($date_from, $date_to, $category_ids = array()) {
+    public function plain($page, $date_from, $date_to, $category_ids = array(), $user_id = 0) {
+        $query = Expense::whereBetween('create_date', array($date_from, $date_to));
         if (count($category_ids) > 0) {
-            return Expense::whereBetween('create_date', array($date_from, $date_to))->
-                            whereRaw("category_id in ('" . implode("','", $category_ids) . "')")->
-                            orderBy('create_date', 'DESC')->get();
+            $query = $query->whereRaw("category_id in ('" . implode("','", $category_ids) . "')");
         }
-        return Expense::whereBetween('create_date', array($date_from, $date_to))->
-                        orderBy('create_date', 'DESC')->get();
+        if ($user_id) {
+            $query = $query->where('user_id', '=', $user_id);
+        }
+        return $query->orderBy('create_date', 'DESC')->paginate($page);
     }
 
     public function summaryByCategory($date_from, $date_to, $category_ids = array()) {

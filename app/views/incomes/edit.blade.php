@@ -8,7 +8,7 @@
 @section('content')
 <div id="heading">Edit Income</div><p/>
 
-{{ Form::open(['route'=>['income.do.update', $income->income_id]]) }}
+{{ Form::open(['route'=>['income.update', $income->income_id]]) }}
     <table cellspacing=5 cellpading=5>
         <tr>
             <td>Date:</td>
@@ -22,16 +22,27 @@
             <td>Description:</td>
             <td><textarea name="descr" cols="30" rows="5">{{{ $income->descr }}}</textarea></td>
         </tr>
+        <tr>
+            <td>User:</td>
+            <td>{{ Form::select('user_id', $users, $income->user_id) }}</td>
+        </tr>
     </table>
     <p>
     <table>
         <tr>
             <td>{{ Form::submit('Update') }}</td>
             <td>{{ Form::reset('Reset') }}</td>
-            <td>{{ Form::button('Back to list') }}</td>
+            <td><a href="{{ Session::get('previous_url') }}">{{ Form::button('Back to list') }}</a></td>
         </tr>
     </table>
-    <div class="error">{{{ $error or '' }}}</div>
-    <div>{{{ $message or '' }}}</div>
+    <br>
+    @if($errors->has())
+        @foreach($errors->all() as $error)
+            <div class="error">{{ $error }}</div>
+        @endforeach
+    @endif
+    @if(Session::has('success'))
+        <div class="success">{{Session::get('success')}}</div>
+    @endif
 {{ Form::close() }}
 @stop

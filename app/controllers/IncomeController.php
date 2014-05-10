@@ -10,83 +10,82 @@ class IncomeController extends BaseController
 
     /* get functions */
     public function recentIncome() {
-        $incomes = $this->incomeService->get(15);
+        $incomes = $this->incomeService->paginate(ITEMS_PER_PAGE);
         $this->layout->main = View::make('incomes.recent')->with(compact('incomes'));
     }
 
     public function listIncome() {
-        $date_from = date('Y-m-01', time());
-        $date_to = date('Y-m-d', time());
-        $incomes = $this->incomeService->get(15);
-        $this->layout->main = View::make('incomes.list')->with(compact('date_from', 'date_to', 'incomes'));
+        $date_from = Input::get('date_from', date('2010-01-01', time()));
+        $date_to = Input::get('date_to', date('Y-m-d', time()));
+        $user_id = Input::get('user_id', 0);
+        $users = array_merge(['0' => '--- select ---'], User::lists('name', 'user_id'));
+        $incomes = $this->incomeService->plain(ITEMS_PER_PAGE, $date_from, $date_to, $user_id);
+        $incomes->appends(compact('date_from', 'date_to', 'user_id'));
+        $this->layout->main = View::make('incomes.list')->with(compact('date_from', 'date_to', 'user_id', 'users', 'incomes'));
     }
 
     public function newIncome() {
-        $this->layout->main = View::make('incomes.new');
+        $create_date = date('Y-m-d', time());
+        $this->layout->main = View::make('incomes.new')->with(compact('create_date'));;
     }
 
     public function editIncome(Income $income) {
-        $this->layout->main = View::make('incomes.edit')->with(compact('income'));
+        // If called from another page, save requested URL in order to redirect afterwards
+        if (strpos(URL::previous(), 'edit') === false) {
+            Session::put('previous_url', URL::previous());
+        }
+
+        $users = User::lists('name', 'user_id');
+        $this->layout->main = View::make('incomes.edit')->with(compact('users', 'income'));
+    }
+
+    public function saveIncome() {
+        $data = [
+            'create_date' => Input::get('create_date'),
+            'amount' => Input::get('amount'),
+            'descr' => Input::get('descr'),
+            'user_id' => $this->getCurrentUser()
+        ];
+        $valid = Validator::make($data, Income::$rules);
+        if ($valid->passes()) {
+            $income = new Income($data);
+            $income->save();
+            return Redirect::route('income.recent')->with('success', 'Income is saved!');
+        } else {
+            return Redirect::back()->withErrors($valid)->withInput();
+        }
+    }
+
+    public function updateIncome(Income $income) {
+        $data = [
+            'create_date' => Input::get('create_date'),
+            'amount' => Input::get('amount'),
+            'descr' => Input::get('descr'),
+            'user_id' => Input::get('user_id')
+        ];
+        $valid = Validator::make($data, Income::$rules);
+        if ($valid->passes()) {
+            $income->create_date = $data['create_date'];
+            $income->amount = $data['amount'];
+            $income->descr = $data['descr'];
+            $income->user_id = $data['user_id'];
+            $income->save();
+            return Redirect::route('income.edit', array('income' => $income->income_id))->with('success', 'Income is updated!')->withInput();
+        } else {
+            return Redirect::back()->withErrors($valid)->withInput();
+        }
     }
 
     public function deleteIncome(Income $income) {
-        $this->layout->main = View::make('incomes.delete')->with(compact('income'));
-    }
-
-    public function doSaveIncome() {
-        $this->layout->main = View::make('confirmed')->with(['message' => 'Success!']);
-    }
-
-    public function doUpdateIncome(Income $income) {
-        $this->layout->main = View::make('confirmed')->with(['message' => 'Success!']);
-    }
-
-    public function doDeleteIncome(Income $income) {
-        $this->layout->main = View::make('confirmed')->with(['message' => 'Success!']);
-    }
-
-
-
-
-    /*
-        public function save() {
-            $incomes = new Income();
-    //        $incomes->create_date = Input::get('create_date');
-    //        $incomes->amount = Input::get('amount');
-
-            // do validation
-            if ($incomes->amount == 0.0) {
-                // Forward to the view
-            }
-
-            $view = View::make('incomes');
-            $view->incomes = $incomes;
-            $view->error = Lang::get('messages.error.amount.min', array('amount' => 0.0));
-            return $view;
-
-
-            long days = Math.abs(new Date().getTime() - incomes.getCreateDate().getTime())/1000/3660/24;
-            if (days > 500) {
-                error = Messages.getMessageResourceString("messages", Locale.US, "error.date.range", new Long[] { days });
-                return "incomes";
-            }
-
-            // persist/update entity
-            if (preinitId == null) {
-                incomes.setUserId(request.getUserPrincipal().getName());
-                incomeDao.save(incomes);
-                message = Messages.getMessageResourceString("messages", Locale.US, "status.added.incomes", null);
-
-                // Reset to default
-                incomes = new Income();
-                return execute(request, response);
-            } else {
-                incomes.setIncomeId(preinitId);
-                incomes.setUserId(request.getUserPrincipal().getName());
-                incomeDao.save(incomes);
-                message = Messages.getMessageResourceString("messages", Locale.US, "status.updated.incomes", new Integer[] {preinitId});
-            }
-
+        if ($income->delete()) {
+            return Redirect::back()->with('success', 'Income has been deleted!');
+        } else {
+            return Redirect::back()->withErrors(['Deletion failed!']);
         }
-    */
+    }
+
+    // TODO: get auth user
+    private function getCurrentUser() {
+        return DB::table('users')->select('user_id')->where('name', 'reporter')->first()->user_id;
+    }
 }
