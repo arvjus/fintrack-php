@@ -5,7 +5,9 @@ Route::model('income', 'Income');
 Route::model('expense', 'Expense');
 
 /* GET routes */
-Route::get('/', ['as' => 'home', 'uses' => 'HomeController@getIndex']);
+Route::get('/', function() {
+    return View::make('home');
+});
 
 Route::get('income/recent', ['as' => 'income.recent', 'uses' => 'IncomeController@recentIncome']);
 Route::get('income/list', ['as' => 'income.list', 'uses' => 'IncomeController@listIncome']);
