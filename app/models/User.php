@@ -18,7 +18,7 @@ class User extends Ardent implements UserInterface
     );
 
     public function getAuthIdentifier() {
-        return $this->username;
+        return $this->getKey();
     }
 
     public function getAuthPassword() {
@@ -26,14 +26,14 @@ class User extends Ardent implements UserInterface
     }
 
     public function getRememberToken() {
-        return false;
+        return $this->remember_token;
     }
 
     public function setRememberToken($value) {
-        // TODO: Implement setRememberToken() method.
+        $this->remember_token = $value;
     }
 
     public function getRememberTokenName() {
-        // TODO: Implement getRememberTokenName() method.
+        return 'remember_token';
     }
 }

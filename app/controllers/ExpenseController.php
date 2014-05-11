@@ -1,13 +1,16 @@
 <?php
 
-use Fintrack\Storage\Services\ExpenseService as ExpenseService;
-use Fintrack\Storage\Services\CategoryService as CategoryService;
+use Fintrack\Storage\Services\ExpenseService;
+use Fintrack\Storage\Services\CategoryService;
+use Fintrack\Storage\Services\UserService;
+
 
 class ExpenseController extends BaseController
 {
-    public function __construct(ExpenseService $expenseService, CategoryService $categoryService) {
+    public function __construct(ExpenseService $expenseService, CategoryService $categoryService, UserService $userService) {
         $this->expenseService = $expenseService;
         $this->categoryService = $categoryService;
+        $this->userService = $userService;
     }
 
     /* get functions */
@@ -22,7 +25,13 @@ class ExpenseController extends BaseController
         $category_ids = Input::get('category_ids', array());
         $user_id = Input::get('user_id', 0);
         $categories = $this->categoryService->all();
-        $users = array_merge(['0' => '--- select ---'], User::lists('username', 'user_id'));
+
+        $users = ['0' => '--- select ---'];
+        $allusers = $this->userService->allAsArray();
+        foreach ($allusers as $id => $name) {
+            $users[$id] = $name;
+        }
+
         $expenses = $this->expenseService->plain(ITEMS_PER_PAGE, $date_from, $date_to, $category_ids, $user_id);
         $expenses->appends(compact('date_from', 'date_to', 'category_ids', 'user_id'));
         $this->layout->main = View::make('expenses.list')->with(compact('date_from', 'date_to', 'category_ids', 'user_id', 'categories', 'users', 'expenses'));
@@ -51,7 +60,7 @@ class ExpenseController extends BaseController
             'category_id' => Input::get('category_id'),
             'amount' => Input::get('amount'),
             'descr' => Input::get('descr'),
-            'user_id' => $this->getCurrentUser()
+            'user_id' => $this->getCurrentUserId()
         ];
         $valid = Validator::make($data, Expense::$rules);
         if ($valid->passes()) {
@@ -69,7 +78,7 @@ class ExpenseController extends BaseController
             'category_id' => Input::get('category_id'),
             'amount' => Input::get('amount'),
             'descr' => Input::get('descr'),
-            'user_id' => $this->getCurrentUser()
+            'user_id' => Input::get('user_id')
         ];
         $valid = Validator::make($data, Expense::$rules);
         if ($valid->passes()) {
@@ -93,8 +102,7 @@ class ExpenseController extends BaseController
         }
     }
 
-    // TODO: get auth user
-    private function getCurrentUser() {
-        return DB::table('users')->select('user_id')->where('username', 'reporter')->first()->user_id;
+    private function getCurrentUserId() {
+        return DB::table('users')->select('user_id')->where('username', Auth::user()->username)->first()->user_id;
     }
 }

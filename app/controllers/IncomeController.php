@@ -1,13 +1,13 @@
 <?php
 
 use Fintrack\Storage\Services\IncomeService;
-use Fintrack\Storage\Services\LoginService;
+use Fintrack\Storage\Services\UserService;
 
 class IncomeController extends BaseController
 {
-    public function __construct(IncomeService $incomeService, LoginService $loginService) {
+    public function __construct(IncomeService $incomeService, UserService $userService) {
         $this->incomeService = $incomeService;
-        $this->loginService = $loginService;
+        $this->userService = $userService;
     }
 
     /* get functions */
@@ -20,10 +20,13 @@ class IncomeController extends BaseController
         $date_from = Input::get('date_from', date('2010-01-01', time()));
         $date_to = Input::get('date_to', date('Y-m-d', time()));
         $user_id = Input::get('user_id', 0);
-        $users = array_merge(['0' => '--- select ---'], $this->loginService->allAsArray());
 
+        $users = ['0' => '--- select ---'];
+        $allusers = $this->userService->allAsArray();
+        foreach ($allusers as $id => $name) {
+            $users[$id] = $name;
+        }
 
-        var_dump($users);
         $incomes = $this->incomeService->plain(ITEMS_PER_PAGE, $date_from, $date_to, $user_id);
         $incomes->appends(compact('date_from', 'date_to', 'user_id'));
         $this->layout->main = View::make('incomes.list')->with(compact('date_from', 'date_to', 'user_id', 'users', 'incomes'));
@@ -49,7 +52,7 @@ class IncomeController extends BaseController
             'create_date' => Input::get('create_date'),
             'amount' => Input::get('amount'),
             'descr' => Input::get('descr'),
-            'user_id' => $this->getCurrentUser()
+            'user_id' => $this->getCurrentUserId()
         ];
         $valid = Validator::make($data, Income::$rules);
         if ($valid->passes()) {
@@ -89,8 +92,7 @@ class IncomeController extends BaseController
         }
     }
 
-    // TODO: get auth user
-    private function getCurrentUser() {
-        return DB::table('users')->select('user_id')->where('username', 'reporter')->first()->user_id;
+    private function getCurrentUserId() {
+        return DB::table('users')->select('user_id')->where('username', Auth::user()->username)->first()->user_id;
     }
 }

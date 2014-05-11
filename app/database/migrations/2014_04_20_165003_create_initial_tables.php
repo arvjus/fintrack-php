@@ -5,7 +5,6 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateInitialTables extends Migration
 {
-
     /**
      * Run the migrations.
      *
@@ -16,6 +15,7 @@ class CreateInitialTables extends Migration
             $table->increments('user_id');
             $table->string('username', 16)->unique();
             $table->string('password', 64);
+            $table->string('remember_token', 64)->default('');
             $table->boolean('is_admin')->default(false);
             $table->boolean('is_reporter')->default(false);
         });

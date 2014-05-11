@@ -1,7 +1,5 @@
 <?php
 
-
-
 class LoginController extends BaseController
 {
     public function __construct() {
@@ -20,11 +18,11 @@ class LoginController extends BaseController
             return Redirect::to('/');
         }
         // authentication failure! lets go back to the login page
-        return Redirect::route('login')->with('error', '!!Your username/password combination was incorrect.')->withInput();
+        return Redirect::route('login')->with('error', 'Your username/password combination was incorrect.')->withInput();
     }
 
     public function logout() {
-        // todo: cleanup session
-        Redirect::to('/');
+        Auth::logout();
+        return Redirect::to('/');
     }
 }

@@ -46,7 +46,7 @@
                     <li class="sub">
                         <ul>
                             @if(Auth::check())
-                                <li class="item">{{HTML::linkRoute('logout', 'Logout ' . Auth::user()->username)}}</li>
+                                <li class="item">{{HTML::linkRoute('logout', Auth::user()->username . ' logout')}}</li>
                             @else
                                 <li class="item">{{HTML::linkRoute('login', 'Login')}}</li>
                             @endif
