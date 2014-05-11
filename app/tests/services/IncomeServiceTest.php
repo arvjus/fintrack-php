@@ -17,26 +17,20 @@ class IncomeServiceTest extends TestCase {
         $this->date2 = date('Y-m-d', strtotime('2010-02-10'));
     }
 
-    public function testGetAll() {
-        $incomes = $this->service->all();
-        $this->assertNotNull($incomes);
-        $this->assertEquals(3, count($incomes));
-    }
-
-    public function testGetLimited() {
-        $incomes = $this->service->all(2);
+    public function testGetLimitedByPage() {
+        $incomes = $this->service->paginate(2);
         $this->assertNotNull($incomes);
         $this->assertEquals(2, count($incomes));
     }
 
     public function testGetPlainAll() {
-        $incomes = $this->service->plain($this->date1, $this->date2);
+        $incomes = $this->service->plain(10, $this->date1, $this->date2);
         $this->assertNotNull($incomes);
         $this->assertEquals(3, count($incomes));
     }
 
     public function testGetPlainLimitedByDate() {
-        $incomes = $this->service->plain($this->date1, $this->date1);
+        $incomes = $this->service->plain(10, $this->date1, $this->date1);
         $this->assertNotNull($incomes);
         $this->assertEquals(2, count($incomes));
     }

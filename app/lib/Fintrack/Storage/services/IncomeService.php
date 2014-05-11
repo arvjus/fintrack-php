@@ -5,15 +5,6 @@ use Beans\SummaryBean;
 
 class IncomeService
 {
-    public function all($limit = 0) {
-        if ($limit > 0) {
-            return Income::take($limit)->
-                           orderBy('create_date', 'DESC')->get();
-        } else {
-            return Income::orderBy('create_date', 'DESC')->get();
-        }
-    }
-
     public function paginate($page) {
         return Income::orderBy('create_date', 'DESC')->paginate($page);
     }

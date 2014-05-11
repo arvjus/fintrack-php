@@ -28,4 +28,16 @@ class DataAggregationServiceTest extends TestCase {
         $this->assertNotNull($summaries);
         $this->assertEquals(0, count($summaries));
     }
+
+    public function testyyyymm2month() {
+        $month = $this->service->yyyymm2month('200001');
+        $this->assertEquals('jan', $month);
+
+        $month = $this->service->yyyymm2month('20000');
+        $this->assertEquals('20000', $month);
+
+        $month = $this->service->yyyymm2month('200022');
+        $this->assertEquals('200022', $month);
+    }
+
 }

@@ -82,4 +82,6 @@ require app_path() . '/filters.php';
 /*
  * Global constants
  */
-const ITEMS_PER_PAGE    = 15;
+if (!defined('ITEMS_PER_PAGE')) {
+    define('ITEMS_PER_PAGE', 15);
+}

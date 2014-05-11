@@ -10,7 +10,7 @@ class IncomeTest extends TestCase {
     public function testCreateOk() {
         $income = new Income();
         $income->user_id = DB::table('users')->select('user_id')->where('name', 'reporter')->first()->user_id;
-        $income->create_date = new DateTime();
+        $income->create_date = date('Y-m-d', time());
         $income->amount = 12345.67;
         $income->descr = 'Salary';
         saveModel($income);

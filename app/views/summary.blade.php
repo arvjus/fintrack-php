@@ -16,27 +16,23 @@
     <table cellspacing=5 cellpading=5>
         <tr>
             <td>Date from:</td>
-            <td><input type="text" class="date-pick" name="date_from" value="{{{ $date_from or ''}}}" size="12"/></td>
+            <td><input type="text" class="date-pick" name="date_from" value="{{{ $date_from }}}" size="12"/></td>
         </tr>
         <tr>
             <td>Date to:</td>
-            <td><input type="text" class="date-pick" name="date_to" value="{{{ $date_to or ''}}}" size="12"/></td>
+            <td><input type="text" class="date-pick" name="date_to" value="{{{ $date_to }}}" size="12"/></td>
         </tr>
-
         <tr>
             <td>Categories:</td>
             <td>
                 <table>
                     <tr>
-                        <td><input type="checkbox" name="income_selected" value="true">Income</td>
+                        <td>{{ Form::checkbox('income_selected', true, $income_selected) }} Income</td>
                     </tr>
                     @foreach($categories as $category)
-                        <tr>
-                            <td><input type="checkbox" name="category_id" group="category_id"
-                                       value="{{{ $category->category_id }}}" title="{{{ $category->descr }}}"
-                                    >{{{ $category->name }}}
-                            </td>
-                        </tr>
+                    <tr>
+                        <td>{{ Form::checkbox('category_ids[]', $category->category_id, in_array($category->category_id, $category_ids), ['title' => $category->descr]) }} {{{ $category->name }}}</td>
+                    </tr>
                     @endforeach
                 </table>
             </td>
@@ -46,16 +42,12 @@
             <td>
                 <table>
                     <tr>
-                        <td><input type="radio" name="groupped_by" class="plot-chart" group="groupped_by"
-                                   value="categories">Group by categories
-                        </td>
+                        <td>{{ Form::radio('groupped_by', 'categories', $groupped_by == 'categories') }} Group by categories</td>
                     </tr>
                     <tr>
-                        <td><input type="radio" name="groupped_by" class="plot-chart" group="groupped_by" value="months">Group
-                            by months
-                        </td>
+                        <td>{{ Form::radio('groupped_by', 'months', $groupped_by == 'months') }} Group by months</td>
                     </tr>
-                    <td><input type="checkbox" name="plot_chart" class="plot-chart" value="true">Plot chart</td>
+                    <td>{{ Form::checkbox('plot_chart', true, $plot_chart) }} Plot chart</td>
                 </table>
             </td>
         </tr>
@@ -67,10 +59,12 @@
             <td>{{ Form::reset('Reset') }}</td>
         </tr>
     </table>
-    <div class="error">{{{ $error or '' }}}</div>
-    <div>{{{ $message or '' }}}</div>
+    @if($errors->has())
+        @foreach($errors->all() as $error)
+            <div class="error">{{ $error }}</div>
+        @endforeach
+    @endif
 {{ Form::close() }}
-
 <hr/>
 <br/>
 @if ($plot_chart)
@@ -149,8 +143,4 @@
         </tbody>
     </table>
 @endif
-
-<br/>
-<div class="navigation"><a href="/home">Home</a></div>
-
 @stop

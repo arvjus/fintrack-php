@@ -5,15 +5,6 @@ use Beans\SummaryBean;
 
 class ExpenseService
 {
-    public function all($limit = 0) {
-        if ($limit > 0) {
-            return Expense::take($limit)->
-                   orderBy('create_date', 'DESC')->get();
-        } else {
-            return Expense::orderBy('create_date', 'DESC')->get();
-        }
-    }
-
     public function paginate($page) {
        return Expense::orderBy('create_date', 'DESC')->paginate($page);
     }

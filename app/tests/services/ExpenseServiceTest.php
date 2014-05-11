@@ -19,38 +19,32 @@ class ExpenseServiceTest extends TestCase {
         $this->date2 = date('Y-m-d', strtotime('2010-02-10'));
     }
 
-    public function testGetAll() {
-        $expenses = $this->service->all();
-        $this->assertNotNull($expenses);
-        $this->assertEquals(4, count($expenses));
-    }
-
-    public function testGetLimited() {
-        $expenses = $this->service->all(2);
+    public function testGetLimitedToPage() {
+        $expenses = $this->service->paginate(2);
         $this->assertNotNull($expenses);
         $this->assertEquals(2, count($expenses));
     }
 
     public function testGetPlainAll() {
-        $expenses = $this->service->plain($this->date1, $this->date2);
+        $expenses = $this->service->plain(10, $this->date1, $this->date2);
         $this->assertNotNull($expenses);
         $this->assertEquals(4, count($expenses));
     }
 
     public function testGetPlainLimitedByDate() {
-        $expenses = $this->service->plain($this->date1, $this->date1);
+        $expenses = $this->service->plain(10, $this->date1, $this->date1);
         $this->assertNotNull($expenses);
         $this->assertEquals(2, count($expenses));
     }
 
     public function testGetPlainLimitedByCategories() {
-        $expenses = $this->service->plain($this->date1, $this->date2, array('fd', 'el'));
+        $expenses = $this->service->plain(10, $this->date1, $this->date2, array('fd', 'el'));
         $this->assertNotNull($expenses);
         $this->assertEquals(3, count($expenses));
     }
 
     public function testGetPlainLimitedByDateAndCategories() {
-        $expenses = $this->service->plain($this->date1, $this->date1, array('fd', 'el'));
+        $expenses = $this->service->plain(10, $this->date1, $this->date1, array('fd', 'el'));
         $this->assertNotNull($expenses);
         $this->assertEquals(2, count($expenses));
     }
