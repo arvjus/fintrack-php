@@ -52,7 +52,7 @@ class IncomeController extends BaseController
             'create_date' => Input::get('create_date'),
             'amount' => Input::get('amount'),
             'descr' => Input::get('descr'),
-            'user_id' => $this->getCurrentUserId()
+            'user_id' => $this->userService->findByName(Auth::user()->username)->user_id
         ];
         $valid = Validator::make($data, Income::$rules);
         if ($valid->passes()) {
@@ -90,9 +90,5 @@ class IncomeController extends BaseController
         } else {
             return Redirect::back()->withErrors(['Deletion failed!']);
         }
-    }
-
-    private function getCurrentUserId() {
-        return DB::table('users')->select('user_id')->where('username', Auth::user()->username)->first()->user_id;
     }
 }

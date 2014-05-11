@@ -60,8 +60,9 @@ class ExpenseController extends BaseController
             'category_id' => Input::get('category_id'),
             'amount' => Input::get('amount'),
             'descr' => Input::get('descr'),
-            'user_id' => $this->getCurrentUserId()
+            'user_id' => $this->userService->findByName(Auth::user()->username)->user_id
         ];
+
         $valid = Validator::make($data, Expense::$rules);
         if ($valid->passes()) {
             $expense = new Expense($data);
@@ -100,9 +101,5 @@ class ExpenseController extends BaseController
         } else {
             return Redirect::back()->withErrors(['Deletion failed!']);
         }
-    }
-
-    private function getCurrentUserId() {
-        return DB::table('users')->select('user_id')->where('username', Auth::user()->username)->first()->user_id;
     }
 }
