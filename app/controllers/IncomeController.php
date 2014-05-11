@@ -17,7 +17,7 @@ class IncomeController extends BaseController
     }
 
     public function listIncome() {
-        $date_from = Input::get('date_from', date('2010-01-01', time()));
+        $date_from = Input::get('date_from', date('Y-m-01', time()));
         $date_to = Input::get('date_to', date('Y-m-d', time()));
         $user_id = Input::get('user_id', 0);
 

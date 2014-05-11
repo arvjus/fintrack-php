@@ -19,7 +19,7 @@ class SummaryController extends \BaseController {
      * @return Response
      */
     public function getIndex() {
-        $date_from = Input::get('date_from', date('2010-01-01', time()));
+        $date_from = Input::get('date_from', date('Y-01-01', time()));
         $date_to = Input::get('date_to', date('Y-m-d', time()));
         $income_selected = Input::get('income_selected', false);
         $category_ids = Input::get('category_ids', array());

@@ -6,8 +6,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="393ebd95-2fb8-4b54-aa00-89e84c9b747a" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/lib/Fintrack/Storage/services/DataAggregationService.php" afterPath="$PROJECT_DIR$/app/lib/Fintrack/Storage/services/DataAggregationService.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/ExpenseController.php" afterPath="$PROJECT_DIR$/app/controllers/ExpenseController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HOWTO" afterPath="$PROJECT_DIR$/HOWTO" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/IncomeController.php" afterPath="$PROJECT_DIR$/app/controllers/IncomeController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/SummaryController.php" afterPath="$PROJECT_DIR$/app/controllers/SummaryController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/database.php" afterPath="$PROJECT_DIR$/app/config/database.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/expenses/recent.blade.php" afterPath="$PROJECT_DIR$/app/views/expenses/recent.blade.php" />
     </list>
     <ignored path="fintrack.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -30,19 +35,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="ExpenseController.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/ExpenseController.php">
+      <file leaf-file-name="database.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/config/database.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="104" column="0" selection-start="4274" selection-end="4274" vertical-scroll-proportion="-30.083334" vertical-offset="808" max-vertical-offset="1620">
+            <state line="28" column="28" selection-start="959" selection-end="959" vertical-scroll-proportion="-17.5" vertical-offset="0" max-vertical-offset="1830">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="IncomeController.php" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/controllers/IncomeController.php">
+      <file leaf-file-name="HOWTO" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/HOWTO">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="93" column="0" selection-start="3613" selection-end="3613" vertical-scroll-proportion="0.87068963" vertical-offset="673" max-vertical-offset="1485">
+            <state line="11" column="44" selection-start="231" selection-end="275" vertical-scroll-proportion="0.19736843" vertical-offset="0" max-vertical-offset="836">
               <folding />
             </state>
           </provider>
@@ -67,9 +72,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/views/test.blade.php" />
-        <option value="$PROJECT_DIR$/app/controllers/BaseController.php" />
-        <option value="$PROJECT_DIR$/app/controllers/ListController.php" />
         <option value="$PROJECT_DIR$/app/controllers/HomeController.php" />
         <option value="$PROJECT_DIR$/app/views/list.blade.php" />
         <option value="$PROJECT_DIR$/app/views/confirmed.blade.php" />
@@ -89,7 +91,6 @@
         <option value="$PROJECT_DIR$/app/tests/services/IncomeServiceTest.php" />
         <option value="$PROJECT_DIR$/app/tests/services/ExpenseServiceTest.php" />
         <option value="$PROJECT_DIR$/app/tests/services/DataAggregationServiceTest.php" />
-        <option value="$PROJECT_DIR$/app/controllers/SummaryController.php" />
         <option value="$PROJECT_DIR$/app/lib/fintrack/storage/services/DataAggregationService.php" />
         <option value="$PROJECT_DIR$/app/views/login.blade.php" />
         <option value="$PROJECT_DIR$/app/lib/fintrack/storage/services/CategoryService.php" />
@@ -101,7 +102,6 @@
         <option value="$PROJECT_DIR$/app/tests/models/ExpenseTest.php" />
         <option value="$PROJECT_DIR$/app/tests/services/UserServiceTest.php" />
         <option value="$PROJECT_DIR$/app/views/expenses/edit.blade.php" />
-        <option value="$PROJECT_DIR$/app/views/expenses/recent.blade.php" />
         <option value="$PROJECT_DIR$/app/views/incomes/recent.blade.php" />
         <option value="$PROJECT_DIR$/app/views/incomes/list.blade.php" />
         <option value="$PROJECT_DIR$/app/views/expenses/list.blade.php" />
@@ -116,8 +116,13 @@
         <option value="$PROJECT_DIR$/app/database/migrations/2014_04_20_165003_create_initial_tables.php" />
         <option value="$PROJECT_DIR$/app/views/layouts/master.blade.php" />
         <option value="$PROJECT_DIR$/app/routes.php" />
-        <option value="$PROJECT_DIR$/app/controllers/ExpenseController.php" />
+        <option value="$PROJECT_DIR$/app/views/expenses/recent.blade.php" />
+        <option value="$PROJECT_DIR$/HOWTO" />
         <option value="$PROJECT_DIR$/app/controllers/IncomeController.php" />
+        <option value="$PROJECT_DIR$/app/controllers/ExpenseController.php" />
+        <option value="$PROJECT_DIR$/app/controllers/SummaryController.php" />
+        <option value="$PROJECT_DIR$/app/lib/Fintrack/Storage/services/DataAggregationService.php" />
+        <option value="$PROJECT_DIR$/app/config/database.php" />
       </list>
     </option>
   </component>
@@ -181,7 +186,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
+              <option name="myItemId" value="public" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -196,50 +201,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="fintrack" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="fintrack" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="layouts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="fintrack" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="fintrack" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="models" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -314,6 +275,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fintrack" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fintrack" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="config" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -449,7 +428,7 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3287037" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24969988" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2026862" sideWeight="0.49915966" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2026862" sideWeight="0.49915966" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3995381" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18690476" sideWeight="0.50084037" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
@@ -513,13 +492,6 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-1.2352216" vertical-offset="1003" max-vertical-offset="2970" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/HOWTO">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="31" selection-start="205" selection-end="249" vertical-scroll-proportion="0.18450184" vertical-offset="0" max-vertical-offset="813">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/Income.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="20" column="8" selection-start="468" selection-end="468" vertical-scroll-proportion="-12.5" vertical-offset="0" max-vertical-offset="435">
@@ -580,11 +552,6 @@
         <state line="47" column="91" selection-start="1850" selection-end="1856" vertical-scroll-proportion="0.88235295" vertical-offset="0" max-vertical-offset="2280" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/lib/Fintrack/Storage/services/DataAggregationService.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="0" selection-start="911" selection-end="911" vertical-scroll-proportion="0.48029557" vertical-offset="0" max-vertical-offset="1125" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/incomes/new.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="36" column="0" selection-start="905" selection-end="1053" vertical-scroll-proportion="0.66502464" vertical-offset="0" max-vertical-offset="812" />
@@ -598,11 +565,6 @@
     <entry file="file://$PROJECT_DIR$/app/views/login.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="16" column="3" selection-start="472" selection-end="472" vertical-scroll-proportion="0.2955665" vertical-offset="0" max-vertical-offset="812" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/SummaryController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="0" selection-start="7" selection-end="73" vertical-scroll-proportion="0.05541872" vertical-offset="0" max-vertical-offset="930" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/database/seeds/DatabaseSeeder.php">
@@ -633,16 +595,6 @@
     <entry file="file://$PROJECT_DIR$/app/tests/services/UserServiceTest.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="29" column="48" selection-start="785" selection-end="785" vertical-scroll-proportion="0.53571427" vertical-offset="0" max-vertical-offset="812" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/expenses/recent.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="54" selection-start="921" selection-end="921" vertical-scroll-proportion="-15.625" vertical-offset="0" max-vertical-offset="720" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/incomes/recent.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="49" selection-start="777" selection-end="777" vertical-scroll-proportion="-14.375" vertical-offset="0" max-vertical-offset="690" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/expenses/list.blade.php">
@@ -768,13 +720,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/ExpenseController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="104" column="0" selection-start="4274" selection-end="4274" vertical-scroll-proportion="-30.083334" vertical-offset="808" max-vertical-offset="1620">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/lib/Fintrack/Storage/services/UserService.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="18" column="0" selection-start="334" selection-end="334" vertical-scroll-proportion="0.33251232" vertical-offset="0" max-vertical-offset="812">
@@ -782,9 +727,62 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/expenses/recent.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="41" selection-start="130" selection-end="130" vertical-scroll-proportion="0.073891625" vertical-offset="0" max-vertical-offset="812">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/incomes/recent.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="49" selection-start="777" selection-end="777" vertical-scroll-proportion="0.42487684" vertical-offset="0" max-vertical-offset="812">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/ExpenseController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="54" selection-start="786" selection-end="786" vertical-scroll-proportion="0.27216747" vertical-offset="79" max-vertical-offset="1620">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/IncomeController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="93" column="0" selection-start="3613" selection-end="3613" vertical-scroll-proportion="0.87068963" vertical-offset="673" max-vertical-offset="1485">
+        <state line="19" column="54" selection-start="641" selection-end="641" vertical-scroll-proportion="0.33251232" vertical-offset="0" max-vertical-offset="1485">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/SummaryController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="52" selection-start="901" selection-end="901" vertical-scroll-proportion="0.3942428" vertical-offset="0" max-vertical-offset="930">
+          <folding>
+            <element signature="e#7#72#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/lib/Fintrack/Storage/services/DataAggregationService.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="53" column="54" selection-start="1955" selection-end="1955" vertical-scroll-proportion="0.97906405" vertical-offset="0" max-vertical-offset="1125">
+          <folding>
+            <element signature="e#44#66#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/database.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="28" selection-start="959" selection-end="959" vertical-scroll-proportion="-17.5" vertical-offset="0" max-vertical-offset="1830">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HOWTO">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="44" selection-start="231" selection-end="275" vertical-scroll-proportion="0.19736843" vertical-offset="0" max-vertical-offset="836">
           <folding />
         </state>
       </provider>

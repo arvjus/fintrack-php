@@ -46,12 +46,12 @@ class DataAggregationService
             if (array_key_exists('i' . $group, $beans)) {
                 $obj->income = $beans['i' . $group];
             } else {
-                $obj->income = new SummaryBean(0, 0.1, $group);
+                $obj->income = new SummaryBean(0, 0.0, $group);
             }
             if (array_key_exists('e' . $group, $beans)) {
                 $obj->expense = $beans['e' . $group];
             } else {
-                $obj->expense = new SummaryBean(0, 0.1, $group);
+                $obj->expense = new SummaryBean(0, 0.0, $group);
             }
             $list[] = $obj;
         }

@@ -2,11 +2,11 @@
 
 @section('head')
 {{ HTML::script('/js/fintrack.input.js') }}
-<title>Finance Tracker - Recently added expenses</title>
+<title>Finance Tracker - Recently Added Expenses</title>
 @stop
 
 @section('content')
-<div id="heading">Recently added expenses</div><p/>
+<div id="heading">Recently Added Expenses</div><p/>
 <table class="data">
     <tr>
         <th class="exp_h">Date</th>

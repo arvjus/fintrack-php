@@ -7,10 +7,9 @@ Database migration/seed
 ./artisan migrate:reset
 ./artisan migrate
 
+./artisan migrate:refresh
 ./artisan db:seed
 ./artisan db:seed --class=ProdDatabaseSeeder
-./artisan migrate:refresh --seed
-
 
 Create package
 --------------

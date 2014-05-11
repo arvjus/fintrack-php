@@ -20,7 +20,7 @@ class ExpenseController extends BaseController
     }
 
     public function listExpense() {
-        $date_from = Input::get('date_from', date('2010-01-01', time()));
+        $date_from = Input::get('date_from', date('Y-m-01', time()));
         $date_to = Input::get('date_to', date('Y-m-d', time()));
         $category_ids = Input::get('category_ids', array());
         $user_id = Input::get('user_id', 0);
