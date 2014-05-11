@@ -24,7 +24,7 @@
                         <ul>
                             <li class="item">{{HTML::linkRoute('income.new', 'Add new income')}}</li>
                             <li class="item">{{HTML::linkRoute('income.recent', 'Recently added')}}</li>
-                            <li class="item">{{HTML::linkRoute('income.list', 'List incomes')}}</li>
+                            <li class="item">{{HTML::linkRoute('income.list', 'List income')}}</li>
                         </ul>
                     </li>
                     <li class="sub"><div class="heading">Expenses</div></li>
@@ -45,13 +45,11 @@
                     <li class="sub"><div class="heading">Session</div></li>
                     <li class="sub">
                         <ul>
-                            <li class="item"><a href="/logout">Logout</a></li>
-                        </ul>
-                    </li>
-
-                    <li class="sub">
-                        <ul>
-                            <li class="item"><a href="/login">Login</a></li>
+                            @if(Auth::check())
+                                <li class="item">{{HTML::linkRoute('logout', 'Logout ' . Auth::user()->username)}}</li>
+                            @else
+                                <li class="item">{{HTML::linkRoute('login', 'Login')}}</li>
+                            @endif
                         </ul>
                     </li>
                 </ul>

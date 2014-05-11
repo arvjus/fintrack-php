@@ -2,11 +2,11 @@
 
 @section('head')
 {{ HTML::script('/js/fintrack.input.js') }}
-<title>Finance Tracker - Recently added income</title>
+<title>Finance Tracker - Recently Added Income</title>
 @stop
 
 @section('content')
-<div id="heading">Recently added income</div><p/>
+<div id="heading">Recently Added Income</div><p/>
 <table class="data">
     <tr>
         <th class="inc_h">Date</th>
@@ -21,7 +21,7 @@
         <td class="inc_l">{{{ $income->create_date }}}</td>
         <td class="inc_r">{{{ number_format($income->amount, 2, '.', '') }}}</td>
         <td class="inc_l">{{{ $income->descr }}}</td>
-        <td class="inc_l">{{{ $income->user->name }}}</td>
+        <td class="inc_l">{{{ $income->user->username }}}</td>
         <td class="inc_l">{{ HTML::linkRoute('income.edit', 'Edit', $income->income_id)}}</td>
         <td class="inc_l">{{ HTML::linkRoute('income.delete', 'Delete', $income->income_id, ['class' => 'confirmation'])}}</td>
     </tr>

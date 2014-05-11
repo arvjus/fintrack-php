@@ -1,11 +1,13 @@
 <?php
 
-use Fintrack\Storage\Services\IncomeService as IncomeService;
+use Fintrack\Storage\Services\IncomeService;
+use Fintrack\Storage\Services\LoginService;
 
 class IncomeController extends BaseController
 {
-    public function __construct(IncomeService $incomeService) {
+    public function __construct(IncomeService $incomeService, LoginService $loginService) {
         $this->incomeService = $incomeService;
+        $this->loginService = $loginService;
     }
 
     /* get functions */
@@ -18,7 +20,10 @@ class IncomeController extends BaseController
         $date_from = Input::get('date_from', date('2010-01-01', time()));
         $date_to = Input::get('date_to', date('Y-m-d', time()));
         $user_id = Input::get('user_id', 0);
-        $users = array_merge(['0' => '--- select ---'], User::lists('name', 'user_id'));
+        $users = array_merge(['0' => '--- select ---'], $this->loginService->allAsArray());
+
+
+        var_dump($users);
         $incomes = $this->incomeService->plain(ITEMS_PER_PAGE, $date_from, $date_to, $user_id);
         $incomes->appends(compact('date_from', 'date_to', 'user_id'));
         $this->layout->main = View::make('incomes.list')->with(compact('date_from', 'date_to', 'user_id', 'users', 'incomes'));
@@ -35,7 +40,7 @@ class IncomeController extends BaseController
             Session::put('previous_url', URL::previous());
         }
 
-        $users = User::lists('name', 'user_id');
+        $users = User::lists('username', 'user_id');
         $this->layout->main = View::make('incomes.edit')->with(compact('users', 'income'));
     }
 
@@ -86,6 +91,6 @@ class IncomeController extends BaseController
 
     // TODO: get auth user
     private function getCurrentUser() {
-        return DB::table('users')->select('user_id')->where('name', 'reporter')->first()->user_id;
+        return DB::table('users')->select('user_id')->where('username', 'reporter')->first()->user_id;
     }
 }

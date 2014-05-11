@@ -23,11 +23,11 @@ class UserServiceTest extends TestCase {
     public function testFind() {
         $user = $this->service->findByName('admin');
         $this->assertNotNull($user);
-        $this->assertEquals('admin', $user->name);
+        $this->assertEquals('admin', $user->username);
         $user_id = $user->user_id;
         $user = $this->service->find($user_id);
         $this->assertNotNull($user);
-        $this->assertEquals('admin', $user->name);
+        $this->assertEquals('admin', $user->username);
     }
 
     public function testRoles() {

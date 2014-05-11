@@ -36,21 +36,21 @@ class UsersTableSeeder extends Seeder
 {
     public function run() {
         $user = new User();
-        $user->name = 'admin';
+        $user->username = 'admin';
         $user->password = Hash::make('admin123');
         $user->is_admin = true;
         $user->is_reporter = true;
         saveModel($user);
 
         $user = new User();
-        $user->name = 'reporter';
+        $user->username = 'reporter';
         $user->password = Hash::make('reporter123');
         $user->is_admin = false;
         $user->is_reporter = true;
         saveModel($user);
 
         $user = new User();
-        $user->name = 'viewer';
+        $user->username = 'viewer';
         $user->password = Hash::make('viewer123');
         $user->is_admin = false;
         $user->is_reporter = false;
@@ -90,7 +90,7 @@ class CategoriesTableSeeder extends Seeder
 class ExpensesTableSeeder extends Seeder
 {
     public function run() {
-        $reporter_user_id = DB::table('users')->select('user_id')->where('name', 'reporter')->first()->user_id;
+        $reporter_user_id = DB::table('users')->select('user_id')->where('username', 'reporter')->first()->user_id;
 
         $expense = new Expense();
         $expense->category_id = 'fd';
@@ -129,7 +129,7 @@ class ExpensesTableSeeder extends Seeder
 class IncomesTableSeeder extends Seeder
 {
     public function run() {
-        $reporter_user_id = DB::table('users')->select('user_id')->where('name', 'reporter')->first()->user_id;
+        $reporter_user_id = DB::table('users')->select('user_id')->where('username', 'reporter')->first()->user_id;
 
         $income = new Income();
         $income->user_id = $reporter_user_id;

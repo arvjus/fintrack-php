@@ -10,6 +10,7 @@ class IncomeService
     }
 
     public function plain($page, $date_from, $date_to, $user_id = 0) {
+        var_dump($user_id);
         $query = Income::whereBetween('create_date', array($date_from, $date_to));
         if ($user_id) {
             $query = $query->where('user_id', '=', $user_id);

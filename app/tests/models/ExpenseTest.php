@@ -10,7 +10,7 @@ class ExpenseTest extends TestCase {
     public function testCreateOk() {
         $expense = new Expense();
         $expense->category_id = 'fd';
-        $expense->user_id = DB::table('users')->select('user_id')->where('name', 'reporter')->first()->user_id;
+        $expense->user_id = DB::table('users')->select('user_id')->where('username', 'reporter')->first()->user_id;
         $expense->create_date = date('Y-m-d', time());
         $expense->amount = 55.75;
         $expense->descr = 'McDonald\'s';
@@ -22,7 +22,7 @@ class ExpenseTest extends TestCase {
         $this->assertNotEmpty($expense);
         $this->assertEquals(55.75, round($expense->amount, 2));
         $this->assertNotEmpty($expense->user);
-        $this->assertEquals('reporter', $expense->user->name);
+        $this->assertEquals('reporter', $expense->user->username);
     }
 
     public function testFindAll() {

@@ -25,7 +25,7 @@ class TestDatabaseSeeder extends Seeder
 class TestExpensesTableSeeder extends Seeder
 {
     public function run() {
-        $reporter_user_id = DB::table('users')->select('user_id')->where('name', 'reporter')->first()->user_id;
+        $reporter_user_id = DB::table('users')->select('user_id')->where('username', 'reporter')->first()->user_id;
 
         for ($i = 0; $i < 100; $i++) {
             $expense = new Expense();
@@ -66,7 +66,7 @@ class TestExpensesTableSeeder extends Seeder
 class TestIncomesTableSeeder extends Seeder
 {
     public function run() {
-        $reporter_user_id = DB::table('users')->select('user_id')->where('name', 'reporter')->first()->user_id;
+        $reporter_user_id = DB::table('users')->select('user_id')->where('username', 'reporter')->first()->user_id;
 
         for ($i = 0; $i < 50; $i++) {
             $income = new Income();

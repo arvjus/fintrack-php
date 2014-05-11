@@ -22,7 +22,7 @@ class ExpenseController extends BaseController
         $category_ids = Input::get('category_ids', array());
         $user_id = Input::get('user_id', 0);
         $categories = $this->categoryService->all();
-        $users = array_merge(['0' => '--- select ---'], User::lists('name', 'user_id'));
+        $users = array_merge(['0' => '--- select ---'], User::lists('username', 'user_id'));
         $expenses = $this->expenseService->plain(ITEMS_PER_PAGE, $date_from, $date_to, $category_ids, $user_id);
         $expenses->appends(compact('date_from', 'date_to', 'category_ids', 'user_id'));
         $this->layout->main = View::make('expenses.list')->with(compact('date_from', 'date_to', 'category_ids', 'user_id', 'categories', 'users', 'expenses'));
@@ -41,7 +41,7 @@ class ExpenseController extends BaseController
         }
 
         $categories = $this->categoryService->all();
-        $users = User::lists('name', 'user_id');
+        $users = User::lists('username', 'user_id');
         $this->layout->main = View::make('expenses.edit')->with(compact('expense', 'users', 'categories'));
     }
 
@@ -95,6 +95,6 @@ class ExpenseController extends BaseController
 
     // TODO: get auth user
     private function getCurrentUser() {
-        return DB::table('users')->select('user_id')->where('name', 'reporter')->first()->user_id;
+        return DB::table('users')->select('user_id')->where('username', 'reporter')->first()->user_id;
     }
 }

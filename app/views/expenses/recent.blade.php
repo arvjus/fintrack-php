@@ -23,7 +23,7 @@
             <td class="exp_r">{{{ number_format($expense->amount, 2, '.', '') }}}</td>
             <td class="exp_l">{{{ $expense->category->name_short }}}</td>
             <td class="exp_l">{{{ $expense->descr }}}</td>
-            <td class="exp_l">{{{ $expense->user->name }}}</td>
+            <td class="exp_l">{{{ $expense->user->username }}}</td>
             <td class="exp_l">{{ HTML::linkRoute('expense.edit', 'Edit', $expense->expense_id)}}</td>
             <td class="exp_l">{{ HTML::linkRoute('expense.delete', 'Delete', $expense->expense_id, ['class' => 'confirmation'])}}</td>
         </tr>

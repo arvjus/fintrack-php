@@ -2,11 +2,11 @@
 
 @section('head')
 {{ HTML::script('/js/fintrack.input.js') }}
-<title>Finance Tracker - List Incomes</title>
+<title>Finance Tracker - List Income</title>
 @stop
 
 @section('content')
-<div id="heading">List Incomes</div><p/>
+<div id="heading">List Income</div><p/>
 
 {{ Form::open(['route'=>['income.list'], 'method' => 'get']) }}
     <table cellspacing=5 cellpading=5>
@@ -30,8 +30,6 @@
             <td>{{ Form::reset('Reset') }}</td>
         </tr>
     </table>
-    <div class="error">{{{ $error or '' }}}</div>
-    <div>{{{ $message or '' }}}</div>
 {{ Form::close() }}
 
 <table class="data">
@@ -48,7 +46,7 @@
             <td class="inc_l">{{{ $income->create_date }}}</td>
             <td class="inc_r">{{{ number_format($income->amount, 2, '.', '') }}}</td>
             <td class="inc_l">{{{ $income->descr }}}</td>
-            <td class="inc_l">{{{ $income->user->name }}}</td>
+            <td class="inc_l">{{{ $income->user->username }}}</td>
             <td class="inc_l">{{ HTML::linkRoute('income.edit', 'Edit', $income->income_id)}}</td>
             <td class="inc_l">{{ HTML::linkRoute('income.delete', 'Delete', $income->income_id, ['class' => 'confirmation'])}}</td>
         </tr>

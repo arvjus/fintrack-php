@@ -9,7 +9,7 @@ class UserTest extends TestCase {
 
     public function testCreateOk() {
         $user = new User();
-        $user->name = 'user';
+        $user->username = 'user';
         $user->password = 'password';
         $this->assertTrue($user->save());
     }

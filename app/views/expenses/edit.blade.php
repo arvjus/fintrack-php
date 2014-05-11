@@ -34,6 +34,10 @@
             <td>Description:</td>
             <td><textarea name="descr" cols="30" rows="5">{{{ $expense->descr }}}</textarea></td>
         </tr>
+        <tr>
+            <td>User:</td>
+            <td>{{ Form::select('user_id', $users, $expense->user_id) }}</td>
+        </tr>
     </table>
     <p>
     <table>

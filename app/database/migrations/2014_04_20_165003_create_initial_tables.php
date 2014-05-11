@@ -14,7 +14,7 @@ class CreateInitialTables extends Migration
     public function up() {
         Schema::create('users', function (Blueprint $table) {
             $table->increments('user_id');
-            $table->string('name', 16)->unique();
+            $table->string('username', 16)->unique();
             $table->string('password', 64);
             $table->boolean('is_admin')->default(false);
             $table->boolean('is_reporter')->default(false);
