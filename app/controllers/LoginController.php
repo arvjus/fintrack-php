@@ -18,7 +18,7 @@ class LoginController extends BaseController
             return Redirect::to('/');
         }
         // authentication failure! lets go back to the login page
-        return Redirect::route('login')->with('error', 'Your username/password combination was incorrect.')->withInput();
+        return Redirect::route('login')->with('error', Lang::get('messages.error.login.failed'))->withInput();
     }
 
     public function logout() {

@@ -9,16 +9,16 @@ return array(
     'heading.edit.expenses' => 'Edit Expense',
 
     // status
-    'status.added.incomes' => 'A new incomes record was added.',
-    'status.added.expenses' => 'A new expenses record was added.',
-    'status.updated.incomes' => 'Income record #:id was updated.',
-    'status.updated.expenses' => 'Expense record #:id was updated.',
-    'status.deleted.incomes' => 'Income record #:id was deleted.',
-    'status.deleted.expenses' => 'Expense record #:id was deleted.',
-    'status.deleted.records' => 'Records were deleted.',
-    'status.no.deleted.records' => 'No records were deleted.',
+    'status.added.income' => 'A new income record is added.',
+    'status.added.expense' => 'A new expense record is added.',
+    'status.updated.income' => 'Income record is updated.',
+    'status.updated.expense' => 'Expense record is updated.',
+    'status.deleted.income' => 'Income record is deleted.',
+    'status.deleted.expense' => 'Expense record is deleted.',
+    'status.no.deleted.record' => 'Failure, no record is deleted.',
 
     // validation
+    'error.login.failed' => 'Your username/password combination was incorrect.',
     'error.no.category' => 'Category selection is required.',
     'error.date.format' => 'Date format is not valid. Should match "yyyy-mm-dd" pattern.',
     'error.date.range' => 'Date is not in the valid range (:range days). Should be in +/- 500 days.',

@@ -67,7 +67,7 @@ class ExpenseController extends BaseController
         if ($valid->passes()) {
             $expense = new Expense($data);
             $expense->save();
-            return Redirect::route('expense.recent')->with('success', 'Expense is saved!');
+            return Redirect::route('expense.recent')->with('success', Lang::get('messages.status.added.expense'));
         } else {
             return Redirect::back()->withErrors($valid)->withInput();
         }
@@ -89,7 +89,7 @@ class ExpenseController extends BaseController
             $expense->descr = $data['descr'];
             $expense->user_id = $data['user_id'];
             $expense->save();
-            return Redirect::route('expense.edit', array('income' => $expense->expense_id))->with('success', 'Expense is updated!')->withInput();
+            return Redirect::route('expense.edit', array('income' => $expense->expense_id))->with('success', Lang::get('messages.status.updated.expense'))->withInput();
         } else {
             return Redirect::back()->withErrors($valid)->withInput();
         }
@@ -97,9 +97,9 @@ class ExpenseController extends BaseController
 
     public function deleteExpense(Expense $expense) {
         if ($expense->delete()) {
-            return Redirect::back()->with('success', 'Expense has been deleted!');
+            return Redirect::back()->with('success', Lang::get('messages.status.deleted.expense'));
         } else {
-            return Redirect::back()->withErrors(['Deletion failed!']);
+            return Redirect::back()->withErrors([Lang::get('messages.status.no.deleted.record')]);
         }
     }
 }

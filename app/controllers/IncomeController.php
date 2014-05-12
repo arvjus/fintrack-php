@@ -58,7 +58,7 @@ class IncomeController extends BaseController
         if ($valid->passes()) {
             $income = new Income($data);
             $income->save();
-            return Redirect::route('income.recent')->with('success', 'Income is saved!');
+            return Redirect::route('income.recent')->with('success', Lang::get('messages.status.added.income'));
         } else {
             return Redirect::back()->withErrors($valid)->withInput();
         }
@@ -78,7 +78,7 @@ class IncomeController extends BaseController
             $income->descr = $data['descr'];
             $income->user_id = $data['user_id'];
             $income->save();
-            return Redirect::route('income.edit', array('income' => $income->income_id))->with('success', 'Income is updated!')->withInput();
+            return Redirect::route('income.edit', array('income' => $income->income_id))->with('success', Lang::get('messages.status.updated.income'))->withInput();
         } else {
             return Redirect::back()->withErrors($valid)->withInput();
         }
@@ -86,9 +86,9 @@ class IncomeController extends BaseController
 
     public function deleteIncome(Income $income) {
         if ($income->delete()) {
-            return Redirect::back()->with('success', 'Income has been deleted!');
+            return Redirect::back()->with('success', Lang::get('messages.status.deleted.income'));
         } else {
-            return Redirect::back()->withErrors(['Deletion failed!']);
+            return Redirect::back()->withErrors([Lang::get('messages.status.no.deleted.record')]);
         }
     }
 }
