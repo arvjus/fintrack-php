@@ -89,7 +89,7 @@ class ExpenseController extends BaseController
             $expense->descr = $data['descr'];
             $expense->user_id = $data['user_id'];
             $expense->save();
-            return Redirect::route('expense.edit', array('income' => $expense->expense_id))->with('success', Lang::get('messages.status.updated.expense'))->withInput();
+            return Redirect::route('expense.edit', array('income' => $expense->expense_id))->with('success', Lang::get('messages.status.updated.expense', ['id' => $expense->expense_id]))->withInput();
         } else {
             return Redirect::back()->withErrors($valid)->withInput();
         }
@@ -97,7 +97,7 @@ class ExpenseController extends BaseController
 
     public function deleteExpense(Expense $expense) {
         if ($expense->delete()) {
-            return Redirect::back()->with('success', Lang::get('messages.status.deleted.expense'));
+            return Redirect::back()->with('success', Lang::get('messages.status.deleted.expense', ['id' => $expense->expense_id]));
         } else {
             return Redirect::back()->withErrors([Lang::get('messages.status.no.deleted.record')]);
         }

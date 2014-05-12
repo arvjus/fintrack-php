@@ -11,10 +11,10 @@ return array(
     // status
     'status.added.income' => 'A new income record is added.',
     'status.added.expense' => 'A new expense record is added.',
-    'status.updated.income' => 'Income record is updated.',
-    'status.updated.expense' => 'Expense record is updated.',
-    'status.deleted.income' => 'Income record is deleted.',
-    'status.deleted.expense' => 'Expense record is deleted.',
+    'status.updated.income' => 'Income record # :id is updated.',
+    'status.updated.expense' => 'Expense record # :id is updated.',
+    'status.deleted.income' => 'Income record # :id is deleted.',
+    'status.deleted.expense' => 'Expense record # :id is deleted.',
     'status.no.deleted.record' => 'Failure, no record is deleted.',
 
     // validation
