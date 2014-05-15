@@ -1,7 +1,15 @@
 
-Date.firstDayOfWeek = 1;
-Date.format = 'yyyy-mm-dd';
 $(document).ready(function() {
-	// date picker
-	$('input.date-pick').datePicker({ startDate: '2002-01-01'});
+
+    // select menu item based on current url
+    var path = $(location).attr('href');
+    $('ul.nav li').each(function() {
+        var $this = $(this);
+        var frag = $this.attr('data-frag');
+        if (frag !== undefined && path.indexOf(frag) > -1) {
+            if (!$this.hasClass('active')) {
+                $this.addClass('active');
+            }
+        }
+    });
 });

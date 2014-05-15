@@ -6,7 +6,11 @@ use Fintrack\Storage\Services\ExpenseService as ExpenseService;
 use Fintrack\Storage\Services\DataAggregationService as DataAggregationService;
 
 class SummaryController extends \BaseController {
-    public function __construct(CategoryService $categoryService, IncomeService $incomeService, ExpenseService $expenseService, DataAggregationService $dataAggregationService) {
+    public function __construct(
+        CategoryService $categoryService,
+        IncomeService $incomeService,
+        ExpenseService $expenseService,
+        DataAggregationService $dataAggregationService) {
         $this->categoryService = $categoryService;
         $this->incomeService = $incomeService;
         $this->expenseService = $expenseService;
@@ -49,8 +53,7 @@ class SummaryController extends \BaseController {
         $expenses_total = $this->dataAggregationService->total($expenses);
         $summary = $this->dataAggregationService->joinSummary($incomes, $expenses);
 
-        $this->layout->main = View::make('summary')->with(compact('date_from', 'date_to',
-            'income_selected', 'category_ids', 'categories',
-            'groupped_by', 'plot_chart', 'incomes', 'incomes_total', 'expenses', 'expenses_total', 'summary'));
+        $this->layout->main = View::make('summary', compact('groupped_by', 'plot_chart', 'incomes', 'incomes_total', 'expenses', 'expenses_total', 'summary'))->
+            nest('refinements', 'refinements.summary', compact('date_from', 'date_to', 'income_selected', 'category_ids', 'categories', 'groupped_by', 'plot_chart'));
     }
 }

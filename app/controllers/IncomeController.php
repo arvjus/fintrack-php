@@ -12,8 +12,8 @@ class IncomeController extends BaseController
 
     /* get functions */
     public function recentIncome() {
-        $incomes = $this->incomeService->paginate(ITEMS_PER_PAGE);
-        $this->layout->main = View::make('incomes.recent')->with(compact('incomes'));
+        $incomes = $this->incomeService->paginate(20);
+        $this->layout->main = View::make('incomes.recent', compact('incomes'));
     }
 
     public function listIncome() {
@@ -27,14 +27,15 @@ class IncomeController extends BaseController
             $users[$id] = $name;
         }
 
-        $incomes = $this->incomeService->plain(ITEMS_PER_PAGE, $date_from, $date_to, $user_id);
+        $incomes = $this->incomeService->plain(20, $date_from, $date_to, $user_id);
         $incomes->appends(compact('date_from', 'date_to', 'user_id'));
-        $this->layout->main = View::make('incomes.list')->with(compact('date_from', 'date_to', 'user_id', 'users', 'incomes'));
+        $this->layout->main = View::make('incomes.list', compact('incomes'))->
+            nest('refinements', 'refinements.incomes', compact('date_from', 'date_to', 'user_id', 'users'));
     }
 
     public function newIncome() {
         $create_date = date('Y-m-d', time());
-        $this->layout->main = View::make('incomes.new')->with(compact('create_date'));;
+        $this->layout->main = View::make('incomes.new', compact('create_date'));;
     }
 
     public function editIncome(Income $income) {
@@ -44,7 +45,7 @@ class IncomeController extends BaseController
         }
 
         $users = User::lists('username', 'user_id');
-        $this->layout->main = View::make('incomes.edit')->with(compact('users', 'income'));
+        $this->layout->main = View::make('incomes.edit', compact('users', 'income'));
     }
 
     public function saveIncome() {
@@ -78,7 +79,8 @@ class IncomeController extends BaseController
             $income->descr = $data['descr'];
             $income->user_id = $data['user_id'];
             $income->save();
-            return Redirect::route('income.edit', array('income' => $income->income_id))->with('success', Lang::get('messages.status.updated.income', ['id' => $income->income_id]))->withInput();
+            return Redirect::route('income.edit', ['income' => $income->income_id])->
+                with('success', Lang::get('messages.status.updated.income', ['id' => $income->income_id]))->withInput();
         } else {
             return Redirect::back()->withErrors($valid)->withInput();
         }

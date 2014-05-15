@@ -7275,7 +7275,7 @@ namespace {
          *
          * The base URL never ends with a /.
          *
-         * This is similar to getBasePath(), except that it also includes the
+         * This is similar to getBasePath(), except that it also refinements the
          * script filename (e.g. index.php) if one exists.
          *
          * @return string The raw URL (i.e. not urldecoded)
@@ -10107,7 +10107,7 @@ namespace {
          *
          * The base URL never ends with a /.
          *
-         * This is similar to getBasePath(), except that it also includes the
+         * This is similar to getBasePath(), except that it also refinements the
          * script filename (e.g. index.php) if one exists.
          *
          * @return string The raw URL (i.e. not urldecoded)

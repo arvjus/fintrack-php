@@ -25,11 +25,11 @@ function summaryTotalChart() {
 	}
 
 	// plot chart
-	$('#summary-total-chart').css({height: '180px'}).empty();
+	$('#summary-total-chart').css({height: '180px', width: '780px'}).empty();
 	$.jqplot('summary-total-chart', [expenses_line, incomes_line], {
 	    title: 'Summary Total',
 	    legend: {show: true, location: 'ne', xoffset: 20}, 
-	    seriesColors:['#aaaabb', '#aabbaa'],
+	    seriesColors:['#aaaab8', '#aaafaa'],
 	    seriesDefaults:{
 	        renderer: $.jqplot.BarRenderer, 
 	        rendererOptions: {barDirection: 'horizontal', barWidth: 15, barPadding: 5, barMargin: 15, shadowAngle: 135}
@@ -66,11 +66,11 @@ function summaryByCategoriesChart() {
 	}
 
 	// plot chart
-	$('#summary-categories-chart').css({height: '360px'}).empty();
+	$('#summary-categories-chart').css({height: '360px', width: '780px'}).empty();
 	$.jqplot('summary-categories-chart', [amount_line], {
 	    title: 'Summary By Categories',
 	    legend: {show: true, location: 'ne', xoffset: 20}, 
-	    seriesColors:['#aaaabb'],
+	    seriesColors:['#aaaaaf'],
 	    seriesDefaults:{
 	        renderer: $.jqplot.BarRenderer, 
 	        rendererOptions: {barDirection: 'horizontal', barWidth: 15, barPadding: 5, barMargin: 15, shadowAngle: 135}
@@ -109,11 +109,11 @@ function summaryByMonthsChart() {
 	}
 
 	// plot chart
-	$('#summary-months-chart').css({height: '360px'}).empty();
+	$('#summary-months-chart').css({height: '360px', width: '780px'}).empty();
 	$.jqplot('summary-months-chart', [incomes_line, expenses_line], {
 	    title: 'Summary By Month',
 	    legend: {show: true, location: 'ne', xoffset: 20}, 
-	    seriesColors:['#aabbaa', '#aaaabb'],
+	    seriesColors:['#aaafaa', '#aaaaaf'],
 	    seriesDefaults:{
 	        renderer: $.jqplot.BarRenderer, 
 	        rendererOptions: {barWidth: name_ticks.length > 12 ? 5 : 15, barPadding: 5, barMargin: 15}

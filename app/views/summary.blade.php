@@ -9,87 +9,32 @@
 <title>Finance Tracker - Summary</title>
 @stop
 
-@section('content')
-<div id="heading">Summary</div><p/>
+@section('refinements')
+{{$refinements}}
+@stop
 
-{{ Form::open(['route'=>['summary'], 'method' => 'get']) }}
-    <table cellspacing=5 cellpading=5>
-        <tr>
-            <td>Date from:</td>
-            <td><input type="text" class="date-pick" name="date_from" value="{{{ $date_from }}}" size="12"/></td>
-        </tr>
-        <tr>
-            <td>Date to:</td>
-            <td><input type="text" class="date-pick" name="date_to" value="{{{ $date_to }}}" size="12"/></td>
-        </tr>
-        <tr>
-            <td>Categories:</td>
-            <td>
-                <table>
-                    <tr>
-                        <td>{{ Form::checkbox('income_selected', true, $income_selected) }} Income</td>
-                    </tr>
-                    @foreach($categories as $category)
-                    <tr>
-                        <td>{{ Form::checkbox('category_ids[]', $category->category_id, in_array($category->category_id, $category_ids), ['title' => $category->descr]) }} {{{ $category->name }}}</td>
-                    </tr>
-                    @endforeach
-                </table>
-            </td>
-        </tr>
-        <tr>
-            <td>Report:</td>
-            <td>
-                <table>
-                    <tr>
-                        <td>{{ Form::radio('groupped_by', 'categories', $groupped_by == 'categories') }} Group by categories</td>
-                    </tr>
-                    <tr>
-                        <td>{{ Form::radio('groupped_by', 'months', $groupped_by == 'months') }} Group by months</td>
-                    </tr>
-                    <td>{{ Form::checkbox('plot_chart', true, $plot_chart) }} Plot chart</td>
-                </table>
-            </td>
-        </tr>
-    </table>
-    <p>
-    <table>
-        <tr>
-            <td>{{ Form::submit('Refresh') }}</td>
-            <td>{{ Form::reset('Reset') }}</td>
-        </tr>
-    </table>
-    @if($errors->has())
-        @foreach($errors->all() as $error)
-            <div class="error">{{ $error }}</div>
-        @endforeach
-    @endif
-{{ Form::close() }}
-<hr/>
-<br/>
+@section('content')
 @if ($plot_chart)
     <div class="summary-chart jqPlot" id="summary-total-chart" style="height:0px; width:800px;"></div>
     <br/>
 @endif
-<table class="data">
-    <tbody>
-    <tr>
-        <th class="inc_h">Incomes</th>
-        <th class="inc_h">Count</th>
-        <th class="inc_h">Amount</th>
-        <th class="exp_h">Expenses</th>
-        <th class="exp_h">Count</th>
-        <th class="exp_h">Amount</th>
+<table  class="table table-bordered table-striped table-condensed">
+    <tr class="row-padded">
+        <th class="text-left">Incomes</th>
+        <th class="text-left">Count</th>
+        <th class="text-left">Amount</th>
+        <th class="text-left">Expenses</th>
+        <th class="text-left">Count</th>
+        <th class="text-left">Amount</th>
     </tr>
-    <tr class="total_values">
-        <td class="inc_l">Total</td>
-        <td class="inc_r">{{{ $incomes_total->count }}}</td>
-        <td class="inc_r">{{{ number_format($incomes_total->amount, 2, '.', '') }}}</td>
-        <td class="exp_l">Total</td>
-        <td class="exp_r">{{{ $expenses_total->count }}}</td>
-        <td class="exp_r">{{{ number_format($expenses_total->amount, 2, '.', '') }}}</td>
+    <tr class="total_values row-padded">
+        <td class="text-left">Total</td>
+        <td class="text-right">{{{ $incomes_total->count }}}</td>
+        <td class="text-right">{{{ number_format($incomes_total->amount, 2, '.', '') }}}</td>
+        <td class="text-left">Total</td>
+        <td class="text-right">{{{ $expenses_total->count }}}</td>
+        <td class="text-right">{{{ number_format($expenses_total->amount, 2, '.', '') }}}</td>
     </tr>
-    </tbody>
 </table>
 <br/>
 @if ($groupped_by == 'categories')
@@ -98,21 +43,19 @@
         <br/>
     @endif
     <br/>
-    <table class="data">
-        <tbody>
+    <table  class="table table-bordered table-striped table-condensed">
         <tr>
-            <th class="exp_h">Category</th>
-            <th class="exp_h">Count</th>
-            <th class="exp_h">Amount</th>
+            <th class="text-left">Category</th>
+            <th class="text-left">Count</th>
+            <th class="text-left">Amount</th>
         </tr>
         @foreach ($expenses as $expense)
             <tr class="category_values">
-                <td class="exp_l">{{{ $expense->group }}}</td>
-                <td class="exp_l">{{{ $expense->count }}}</td>
-                <td class="exp_r">{{{ number_format($expense->amount, 2, '.', '') }}}</td>
+                <td class="text-left">{{{ $expense->group }}}</td>
+                <td class="text-left">{{{ $expense->count }}}</td>
+                <td class="text-right">{{{ number_format($expense->amount, 2, '.', '') }}}</td>
             </tr>
         @endforeach
-        </tbody>
     </table>
 @endif
 @if ($groupped_by == 'months')
@@ -120,27 +63,25 @@
         <div class="summary-chart jqPlot" id="summary-months-chart" style="height:0px; width:800px;"></div>
         <br/>
     @endif
-    <table class="data">
-        <tbody>
+    <table  class="table table-bordered table-striped table-condensed">
         <tr>
-            <th class="inc_h">Incomes</th>
-            <th class="inc_h">Count</th>
-            <th class="inc_h">Amount</th>
-            <th class="exp_h">Expences</th>
-            <th class="exp_h">Count</th>
-            <th class="exp_h">Amount</th>
+            <th class="text-left">Incomes</th>
+            <th class="text-left">Count</th>
+            <th class="text-left">Amount</th>
+            <th class="text-left">Expences</th>
+            <th class="text-left">Count</th>
+            <th class="text-left">Amount</th>
         </tr>
         @foreach ($summary as $item)
             <tr class="month_values">
-                <td class="inc_l">{{{ $item->yyyymm }}}</td>
-                <td class="inc_l">{{{ $item->income->count }}}</td>
-                <td class="inc_r">{{{ number_format($item->income->amount, 2, '.', '') }}}</td>
-                <td class="exp_l">{{{ $item->yyyymm }}}</td>
-                <td class="exp_l">{{{ $item->expense->count }}}</td>
-                <td class="exp_r">{{{ number_format($item->expense->amount, 2, '.', '') }}}</td>
+                <td class="text-left">{{{ $item->yyyymm }}}</td>
+                <td class="text-left">{{{ $item->income->count }}}</td>
+                <td class="text-right">{{{ number_format($item->income->amount, 2, '.', '') }}}</td>
+                <td class="text-left">{{{ $item->yyyymm }}}</td>
+                <td class="text-left">{{{ $item->expense->count }}}</td>
+                <td class="text-right">{{{ number_format($item->expense->amount, 2, '.', '') }}}</td>
             </tr>
         @endforeach
-        </tbody>
     </table>
 @endif
 @stop

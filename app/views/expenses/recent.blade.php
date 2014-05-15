@@ -6,30 +6,29 @@
 @stop
 
 @section('content')
-<div id="heading">Recently Added Expenses</div><p/>
-<table class="data">
-    <tr>
-        <th class="exp_h">Date</th>
-        <th class="exp_h">Amount</th>
-        <th class="exp_h">Category</th>
-        <th class="exp_h">Description</th>
-        <th class="exp_h">User</th>
-        <th class="exp_h">Edit</th>
-        <th class="exp_h">Delete</th>
+{{ $expenses->links('pagination::slider') }}
+<table  class="table table-bordered table-striped table-condensed">
+    <tr class="row-padded">
+        <th class="text-left">Date</th>
+        <th class="text-left">Amount</th>
+        <th class="text-left">Category</th>
+        <th class="text-left">Description</th>
+        <th class="text-left">User</th>
+        <th class="text-left">Edit</th>
+        <th class="text-left">Delete</th>
     </tr>
     @foreach ($expenses as $expense)
-        <tr>
-            <td class="exp_l">{{{ $expense->create_date }}}</td>
-            <td class="exp_r">{{{ number_format($expense->amount, 2, '.', '') }}}</td>
-            <td class="exp_l">{{{ $expense->category->name_short }}}</td>
-            <td class="exp_l">{{{ $expense->descr }}}</td>
-            <td class="exp_l">{{{ $expense->user->username }}}</td>
-            <td class="exp_l">{{ HTML::linkRoute('expense.edit', 'Edit', $expense->expense_id)}}</td>
-            <td class="exp_l">{{ HTML::linkRoute('expense.delete', 'Delete', $expense->expense_id, ['class' => 'confirmation'])}}</td>
+    <tr class="row-padded">
+            <td class="text-left">{{{ $expense->create_date }}}</td>
+            <td class="text-rigth">{{{ number_format($expense->amount, 2, '.', '') }}}</td>
+            <td class="text-left">{{{ $expense->category->name_short }}}</td>
+            <td class="text-left">{{{ $expense->descr }}}</td>
+            <td class="text-left">{{{ $expense->user->username }}}</td>
+            <td class="text-left">{{ HTML::linkRoute('expense.edit', 'Edit', $expense->expense_id, ['class' => 'btn btn-mini'])}}</td>
+            <td class="text-left">{{ HTML::linkRoute('expense.delete', 'Delete', $expense->expense_id, ['class' => 'btn btn-mini btn-danger confirmation'])}}</td>
         </tr>
     @endforeach
 </table>
-{{ $expenses->links('pagination::slider') }}
 <br>
 @if($errors->has())
     @foreach($errors->all() as $error)

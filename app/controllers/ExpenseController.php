@@ -15,8 +15,8 @@ class ExpenseController extends BaseController
 
     /* get functions */
     public function recentExpense() {
-        $expenses = $this->expenseService->paginate(ITEMS_PER_PAGE);
-        $this->layout->main = View::make('expenses.recent')->with(compact('expenses'));
+        $expenses = $this->expenseService->paginate(20);
+        $this->layout->main = View::make('expenses.recent', compact('expenses'));
     }
 
     public function listExpense() {
@@ -32,15 +32,16 @@ class ExpenseController extends BaseController
             $users[$id] = $name;
         }
 
-        $expenses = $this->expenseService->plain(ITEMS_PER_PAGE, $date_from, $date_to, $category_ids, $user_id);
+        $expenses = $this->expenseService->plain(23, $date_from, $date_to, $category_ids, $user_id);
         $expenses->appends(compact('date_from', 'date_to', 'category_ids', 'user_id'));
-        $this->layout->main = View::make('expenses.list')->with(compact('date_from', 'date_to', 'category_ids', 'user_id', 'categories', 'users', 'expenses'));
+        $this->layout->main = View::make('expenses.list', compact('expenses'))->
+            nest('refinements', 'refinements.expenses', compact('date_from', 'date_to', 'category_ids', 'user_id', 'categories', 'users'));
     }
 
     public function newExpense() {
         $create_date = date('Y-m-d', time());
         $categories = $this->categoryService->all();
-        $this->layout->main = View::make('expenses.new')->with(compact('create_date', 'categories'));
+        $this->layout->main = View::make('expenses.new', compact('create_date', 'categories'));
     }
 
     public function editExpense(Expense $expense) {
@@ -51,7 +52,7 @@ class ExpenseController extends BaseController
 
         $categories = $this->categoryService->all();
         $users = User::lists('username', 'user_id');
-        $this->layout->main = View::make('expenses.edit')->with(compact('expense', 'users', 'categories'));
+        $this->layout->main = View::make('expenses.edit', compact('expense', 'users', 'categories'));
     }
 
     public function saveExpense() {
@@ -89,7 +90,8 @@ class ExpenseController extends BaseController
             $expense->descr = $data['descr'];
             $expense->user_id = $data['user_id'];
             $expense->save();
-            return Redirect::route('expense.edit', array('income' => $expense->expense_id))->with('success', Lang::get('messages.status.updated.expense', ['id' => $expense->expense_id]))->withInput();
+            return Redirect::route('expense.edit', ['income' => $expense->expense_id])->
+                with('success', Lang::get('messages.status.updated.expense', ['id' => $expense->expense_id]))->withInput();
         } else {
             return Redirect::back()->withErrors($valid)->withInput();
         }

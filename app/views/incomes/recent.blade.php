@@ -6,28 +6,27 @@
 @stop
 
 @section('content')
-<div id="heading">Recently Added Income</div><p/>
-<table class="data">
-    <tr>
-        <th class="inc_h">Date</th>
-        <th class="inc_h">Amount</th>
-        <th class="inc_h">Description</th>
-        <th class="inc_h">User</th>
-        <th class="inc_h">Edit</th>
-        <th class="inc_h">Delete</th>
+{{ $incomes->links('pagination::slider') }}
+<table  class="table table-bordered table-striped table-condensed">
+    <tr class="row-padded">
+        <th class="text-left">Date</th>
+        <th class="text-left">Amount</th>
+        <th class="text-left">Description</th>
+        <th class="text-left">User</th>
+        <th class="text-left">Edit</th>
+        <th class="text-left">Delete</th>
     </tr>
     @foreach ($incomes as $income)
-    <tr>
-        <td class="inc_l">{{{ $income->create_date }}}</td>
-        <td class="inc_r">{{{ number_format($income->amount, 2, '.', '') }}}</td>
-        <td class="inc_l">{{{ $income->descr }}}</td>
-        <td class="inc_l">{{{ $income->user->username }}}</td>
-        <td class="inc_l">{{ HTML::linkRoute('income.edit', 'Edit', $income->income_id)}}</td>
-        <td class="inc_l">{{ HTML::linkRoute('income.delete', 'Delete', $income->income_id, ['class' => 'confirmation'])}}</td>
+    <tr class="row-padded">
+        <td class="text-left">{{{ $income->create_date }}}</td>
+        <td class="text-right">{{{ number_format($income->amount, 2, '.', '') }}}</td>
+        <td class="text-left">{{{ $income->descr }}}</td>
+        <td class="text-left">{{{ $income->user->username }}}</td>
+        <td class="text-left">{{ HTML::linkRoute('income.edit', 'Edit', $income->income_id, ['class' => 'btn btn-mini'])}}</td>
+        <td class="text-left">{{ HTML::linkRoute('income.delete', 'Delete', $income->income_id, ['class' => 'btn btn-mini btn-danger confirmation'])}}</td>
     </tr>
     @endforeach
 </table>
-{{ $incomes->links('pagination::slider') }}
 <br>
 @if($errors->has())
     @foreach($errors->all() as $error)
