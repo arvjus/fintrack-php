@@ -6,7 +6,7 @@
 @stop
 
 @section('content')
-{{ Form::open(['route'=>['expense.update', $expense->expense_id], 'class' => 'form-horizontal']) }}
+{{ Form::open(['route'=>['expense.update', $view, $expense->expense_id], 'class' => 'form-horizontal']) }}
     <div class="control-group">
         <label class="control-label">Date:</label>
         <div class="controls">
@@ -25,19 +25,19 @@
         </div>
     </div>
     <div class="control-group">
-        <label class="control-label">Amount:</label>
+        <label class="control-label">Amount</label>
         <div class="controls">
             <input type="text" name="amount" class="focus" value="{{{ number_format($expense->amount, 2, '.', '') }}}" size="12"/>
         </div>
     </div>
     <div class="control-group">
-        <label class="control-label">Description:&nbsp;&nbsp;</label>
+        <label class="control-label">Description</label>
         <div class="controls">
             <textarea name="descr" cols="30" rows="5">{{{ $expense->descr }}}</textarea>
         </div>
     </div>
     <div class="control-group">
-        <label class="control-label">User:</label>
+        <label class="control-label">User</label>
         <div class="controls">
             {{ Form::select('user_id', $users, $expense->user_id) }}
         </div>

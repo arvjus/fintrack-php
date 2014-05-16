@@ -13,21 +13,19 @@
 
 <body>
 <div class="container">
-
-    <div class="navbar">
-        <div class="navbar-inner">
-            <div class="container">
-                <ul class="nav">
-                    <li>{{HTML::link('/', 'Financial Tracker')}}</li>
-                    @if(Auth::check())
-                        <li>{{HTML::linkRoute('logout', Auth::user()->username . ' logout')}}</li>
-                    @else
-                        <li>{{HTML::linkRoute('login', 'Login')}}</li>
-                    @endif
-                </ul>
-            </div>
-        </div>
+    <div class="navbar navbar-inner">
+        <span class="navbar-text caption">Financial Tracker</span>
+        <span class="navbar-text pull-right">
+                @if(Auth::check())
+                    Logged in as {{Auth::user()->username}} {{HTML::linkRoute('logout', 'Logout')}}
+                @else
+                    {{HTML::linkRoute('login', 'Login')}}
+                @endif
+        </span>
     </div>
+
+
+
 
     <div class="row">
         <div class="span2">

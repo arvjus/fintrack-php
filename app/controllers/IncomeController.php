@@ -38,14 +38,14 @@ class IncomeController extends BaseController
         $this->layout->main = View::make('incomes.new', compact('create_date'));;
     }
 
-    public function editIncome(Income $income) {
+    public function editIncome($view, Income $income) {
         // If called from another page, save requested URL in order to redirect afterwards
         if (strpos(URL::previous(), 'edit') === false) {
             Session::put('previous_url', URL::previous());
         }
 
         $users = User::lists('username', 'user_id');
-        $this->layout->main = View::make('incomes.edit', compact('users', 'income'));
+        $this->layout->main = View::make('incomes.edit', compact('users', 'income', 'view'));
     }
 
     public function saveIncome() {
@@ -65,7 +65,7 @@ class IncomeController extends BaseController
         }
     }
 
-    public function updateIncome(Income $income) {
+    public function updateIncome($view, Income $income) {
         $data = [
             'create_date' => Input::get('create_date'),
             'amount' => Input::get('amount'),
@@ -79,7 +79,7 @@ class IncomeController extends BaseController
             $income->descr = $data['descr'];
             $income->user_id = $data['user_id'];
             $income->save();
-            return Redirect::route('income.edit', ['income' => $income->income_id])->
+            return Redirect::route('income.edit', ['view' => $view, 'income' => $income->income_id])->
                 with('success', Lang::get('messages.status.updated.income', ['id' => $income->income_id]))->withInput();
         } else {
             return Redirect::back()->withErrors($valid)->withInput();

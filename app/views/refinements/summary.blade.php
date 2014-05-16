@@ -1,12 +1,12 @@
 {{ Form::open(['route'=>['summary'], 'method' => 'get', 'class' => 'form-vertical']) }}
 <div class="control-group">
-    <label class="control-label">Date from:<br>
+    <label class="control-label">Date from<br>
         <input type="text" class="date-pick input-small" name="date_from" value="{{{ $date_from }}}"/>
     </label>
-    <label class="control-label">Date to:<br>
+    <label class="control-label">Date to<br>
         <input type="text" class="date-pick input-small" name="date_to" value="{{{ $date_to }}}"/>
     </label>
-    <label class="control-label">Categories:<br>
+    <label class="control-label">Categories<br>
         <label class="checkbox">Income
             {{ Form::checkbox('income_selected', true, $income_selected) }}
         </label>
@@ -16,7 +16,7 @@
         </label>
         @endforeach
     </label>
-    <label class="control-label">Report:<br>
+    <label class="control-label">Report<br>
         <label class="radio">By categories
             {{ Form::radio('groupped_by', 'categories', $groupped_by == 'categories') }}
         </label>

@@ -39,13 +39,17 @@
     margin-top: 10px !important;
 }
 
+.navbar {
+    margin: 5px 0px 15px !important;
+}
+
 .nav li a {
     padding: 3px 10px !important;
 }
 
-/*
-* Messages
-*/
+span.caption {
+    font-size: 22px;
+}
 
 .error {
     color:					#ff3333;

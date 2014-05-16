@@ -6,10 +6,9 @@
 
 @section('content')
 @if(Auth::check())
-<div id="heading">Welcome to Fintrack, {{ Auth::user()->username }}!</div><p/>
+Welcome {{ Auth::user()->username }}!
 @else
-<div id="heading">Welcome to Fintrack!</div><p/>
-Please, login {{HTML::linkRoute('login', 'here')}}
+Welcome! Please, {{HTML::linkRoute('login', 'login')}}
 @endif
 @stop
 

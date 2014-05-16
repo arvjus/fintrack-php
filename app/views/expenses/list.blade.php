@@ -28,7 +28,7 @@
         <td class="text-left">{{{ $expense->category->name_short }}}</td>
         <td class="text-left">{{{ $expense->descr }}}</td>
         <td class="text-left">{{{ $expense->user->username }}}</td>
-        <td class="text-left">{{ HTML::linkRoute('expense.edit', 'Edit', $expense->expense_id, ['class' => 'btn btn-mini'])}}</td>
+        <td class="text-left">{{ HTML::linkRoute('expense.edit', 'Edit', ['list', $expense->expense_id], ['class' => 'btn btn-mini'])}}</td>
         <td class="text-left">{{ HTML::linkRoute('expense.delete', 'Delete', $expense->expense_id, ['class' => 'btn btn-mini btn-danger confirmation'])}}</td>
     </tr>
     @endforeach

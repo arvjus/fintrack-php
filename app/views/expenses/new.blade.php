@@ -8,13 +8,13 @@
 @section('content')
 {{ Form::open(['route'=>['expense.save'], 'class' => 'form-horizontal']) }}
     <div class="control-group">
-        <label class="control-label">Date:</label>
+        <label class="control-label">Date</label>
         <div class="controls">
             <input type="text" class="date-pick input-small" name="create_date" value="{{{ $create_date }}}"/>
         </div>
     </div>
     <div class="control-group">
-        <label class="control-label">Category:</label>
+        <label class="control-label">Category</label>
         <div class="controls">
             @foreach($categories as $category)
             <label class="radio">{{{ $category->name }}}
@@ -24,13 +24,13 @@
         </div>
     </div>
     <div class="control-group">
-        <label class="control-label">Amount:</label>
+        <label class="control-label">Amount</label>
         <div class="controls">
             <input type="text" name="amount" class="focus" value="" size="12"/>
         </div>
     </div>
     <div class="control-group">
-        <label class="control-label">Description:&nbsp;&nbsp;</label>
+        <label class="control-label">Description</label>
         <div class="controls">
             <textarea name="descr" cols="30" rows="5"></textarea>
         </div>

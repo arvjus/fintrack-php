@@ -44,7 +44,7 @@ class ExpenseController extends BaseController
         $this->layout->main = View::make('expenses.new', compact('create_date', 'categories'));
     }
 
-    public function editExpense(Expense $expense) {
+    public function editExpense($view, Expense $expense) {
         // If called from another page, save requested URL in order to redirect afterwards
         if (strpos(URL::previous(), 'edit') === false) {
             Session::put('previous_url', URL::previous());
@@ -52,7 +52,7 @@ class ExpenseController extends BaseController
 
         $categories = $this->categoryService->all();
         $users = User::lists('username', 'user_id');
-        $this->layout->main = View::make('expenses.edit', compact('expense', 'users', 'categories'));
+        $this->layout->main = View::make('expenses.edit', compact('expense', 'users', 'categories', 'view'));
     }
 
     public function saveExpense() {
@@ -74,7 +74,7 @@ class ExpenseController extends BaseController
         }
     }
 
-    public function updateExpense(Expense $expense) {
+    public function updateExpense($view, Expense $expense) {
         $data = [
             'create_date' => Input::get('create_date'),
             'category_id' => Input::get('category_id'),
@@ -90,7 +90,7 @@ class ExpenseController extends BaseController
             $expense->descr = $data['descr'];
             $expense->user_id = $data['user_id'];
             $expense->save();
-            return Redirect::route('expense.edit', ['income' => $expense->expense_id])->
+            return Redirect::route('expense.edit', ['view' => $view, 'income' => $expense->expense_id])->
                 with('success', Lang::get('messages.status.updated.expense', ['id' => $expense->expense_id]))->withInput();
         } else {
             return Redirect::back()->withErrors($valid)->withInput();

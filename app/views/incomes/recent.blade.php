@@ -22,7 +22,7 @@
         <td class="text-right">{{{ number_format($income->amount, 2, '.', '') }}}</td>
         <td class="text-left">{{{ $income->descr }}}</td>
         <td class="text-left">{{{ $income->user->username }}}</td>
-        <td class="text-left">{{ HTML::linkRoute('income.edit', 'Edit', $income->income_id, ['class' => 'btn btn-mini'])}}</td>
+        <td class="text-left">{{ HTML::linkRoute('income.edit', 'Edit', ['recent', $income->income_id], ['class' => 'btn btn-mini'])}}</td>
         <td class="text-left">{{ HTML::linkRoute('income.delete', 'Delete', $income->income_id, ['class' => 'btn btn-mini btn-danger confirmation'])}}</td>
     </tr>
     @endforeach
