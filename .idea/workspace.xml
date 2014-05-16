@@ -5,29 +5,7 @@
     <option name="CUSTOM_SCOPE_NAME" value="Project Production Files" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="393ebd95-2fb8-4b54-aa00-89e84c9b747a" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/favicon.ico" afterPath="$PROJECT_DIR$/public/favicon.ico" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/ExpenseController.php" afterPath="$PROJECT_DIR$/app/controllers/ExpenseController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/IncomeController.php" afterPath="$PROJECT_DIR$/app/controllers/IncomeController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/database.php" afterPath="$PROJECT_DIR$/app/config/database.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/expenses/edit.blade.php" afterPath="$PROJECT_DIR$/app/views/expenses/edit.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/incomes/edit.blade.php" afterPath="$PROJECT_DIR$/app/views/incomes/edit.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/refinements/expenses.blade.php" afterPath="$PROJECT_DIR$/app/views/refinements/expenses.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/fintrack.css" afterPath="$PROJECT_DIR$/public/css/fintrack.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/home.blade.php" afterPath="$PROJECT_DIR$/app/views/home.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/refinements/incomes.blade.php" afterPath="$PROJECT_DIR$/app/views/refinements/incomes.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/expenses/list.blade.php" afterPath="$PROJECT_DIR$/app/views/expenses/list.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/incomes/list.blade.php" afterPath="$PROJECT_DIR$/app/views/incomes/list.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/login.blade.php" afterPath="$PROJECT_DIR$/app/views/login.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/master.blade.php" afterPath="$PROJECT_DIR$/app/views/layouts/master.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/expenses/new.blade.php" afterPath="$PROJECT_DIR$/app/views/expenses/new.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/incomes/new.blade.php" afterPath="$PROJECT_DIR$/app/views/incomes/new.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/expenses/recent.blade.php" afterPath="$PROJECT_DIR$/app/views/expenses/recent.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/incomes/recent.blade.php" afterPath="$PROJECT_DIR$/app/views/incomes/recent.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/routes.php" afterPath="$PROJECT_DIR$/app/routes.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/refinements/summary.blade.php" afterPath="$PROJECT_DIR$/app/views/refinements/summary.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="393ebd95-2fb8-4b54-aa00-89e84c9b747a" name="Default" comment="" />
     <ignored path="fintrack.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
