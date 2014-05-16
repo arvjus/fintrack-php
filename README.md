@@ -1,16 +1,16 @@
-# Fintrack - Personal Financial Tracking Software
+## Fintrack - Personal Financial Tracking Software
 
 Powered by [Laravel 4 Framework](http://github.com/laravel/framework)
 
 
-## License
+### License
 
 The MIT License (MIT)
 
 Copyright © 2014 Arvid Juskaitis <arvydas.juskaitis@gmail.com>
 
 
-## Some of screenshots
+### Some of screenshots
 
 Click to view.
 
@@ -23,7 +23,7 @@ Click to view.
 [![Add new expense](https://raw.githubusercontent.com/arvjus/fintrack/master/screenshots/add-expense-thumb.png)](https://raw.githubusercontent.com/arvjus/fintrack/master/screenshots/add-expense.png)
 
 
-## Prerequisites
+### Prerequisites
 
 * PHP >= 5.4
 * [Composer](https://getcomposer.org)
@@ -31,7 +31,7 @@ Click to view.
 * Apache 2 Web Server (optional)
 
 
-## Installation
+### Installation
 
 1. Clone repository, install components
 ```bash
@@ -42,22 +42,22 @@ $ composer.phar install
 
 2. Install database, configure in app/configure/database.php
 
-Migrate database, seed test data
+3. Migrate database, seed test data
 ```bash
 $ php artisan migrate:make
 $ php artisan migrate:refresh
 $ php db:seed
 ```
 
-3. Start built-in web server
+4. Start built-in web server
 ```bash
 $ php artisan serve
 ```
 
-4. Go to [http://localhost:8000](http://localhost:8000) and login with admin/admin123
+5. Go to [http://localhost:8000](http://localhost:8000) and login with admin/admin123
 
 
-## Changelog
+### Changelog
 
 2014-05-17 Release Version 1.0
 
