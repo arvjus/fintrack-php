@@ -1,25 +1,31 @@
-FinTrack - personal finance tracker
+# Fintrack - Personal Financial Tracking Software
 
-Build by using Laravel, Eloquent, Blade, PHPUnit
+Powered by [Laravel 4 Framework](http://github.com/laravel/framework)
 
 
-Screenshots
------------
+### License
+
+The Fintrack is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+
+
+### Some of screenshots
 
 Click to view.
 
-### Mutt
+[![List expenses](https://raw.githubusercontent.com/arvjus/fintrack/master/screenshots/list-expenses-thumb.png)](https://raw.githubusercontent.com/arvjus/fintrack/master/screenshots/list-expenses.png)
 
-[![Add new income](https://raw.githubusercontent.com/arvjus/fintrack/master/screenshots/add-income.png)](https://raw.githubusercontent.com/arvjus/fintrack/master/screenshots/add-income.png)
-[![Add new expense](https://raw.githubusercontent.com/arvjus/fintrack/master/screenshots/add-expense.png)](https://raw.githubusercontent.com/arvjus/fintrack/master/screenshots/add-expense.png)
-[![List expenses](https://raw.githubusercontent.com/arvjus/fintrack/master/screenshots/list-expenses.png)](https://raw.githubusercontent.com/arvjus/fintrack/master/screenshots/list-expenses.png)
-[![Show summary](https://raw.githubusercontent.com/arvjus/fintrack/master/screenshots/summary.png)](https://raw.githubusercontent.com/arvjus/fintrack/master/screenshots/summary.png)
+[![Show summary](https://raw.githubusercontent.com/arvjus/fintrack/master/screenshots/summary-thumb.png)](https://raw.githubusercontent.com/arvjus/fintrack/master/screenshots/summary.png)
 
-[![mutt light](https://github.com/altercation/solarized/raw/master/img/screen-mutt-light-th.png)](https://github.com/altercation/solarized/raw/master/img/screen-mutt-light.png)
+[![Add new income](https://raw.githubusercontent.com/arvjus/fintrack/master/screenshots/add-income-thumb.png)](https://raw.githubusercontent.com/arvjus/fintrack/master/screenshots/add-income.png)
 
+[![Add new expense](https://raw.githubusercontent.com/arvjus/fintrack/master/screenshots/add-expense-thumb.png)](https://raw.githubusercontent.com/arvjus/fintrack/master/screenshots/add-expense.png)
 
 
+### Prerequisites
+
+* PHP >= 5.4
+* MySQL 5.x
 
 
-
+### Install
 
