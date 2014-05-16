@@ -31,12 +31,12 @@
     <leaf>
       <file leaf-file-name="README.md" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/README.md">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="61" column="0" selection-start="1643" selection-end="1643" vertical-scroll-proportion="0.8684211" vertical-offset="222" max-vertical-offset="1050">
+          <provider editor-type-id="text-editor">
+            <state line="45" column="7" selection-start="1425" selection-end="1425" vertical-scroll-proportion="0.0" vertical-offset="252" max-vertical-offset="1050">
               <folding />
             </state>
           </provider>
-          <provider editor-type-id="MarkdownPreviewEditor">
+          <provider selected="true" editor-type-id="MarkdownPreviewEditor">
             <state />
           </provider>
         </entry>
@@ -626,12 +626,12 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="61" column="0" selection-start="1643" selection-end="1643" vertical-scroll-proportion="0.8684211" vertical-offset="222" max-vertical-offset="1050">
+      <provider editor-type-id="text-editor">
+        <state line="45" column="7" selection-start="1425" selection-end="1425" vertical-scroll-proportion="0.0" vertical-offset="252" max-vertical-offset="1050">
           <folding />
         </state>
       </provider>
-      <provider editor-type-id="MarkdownPreviewEditor">
+      <provider selected="true" editor-type-id="MarkdownPreviewEditor">
         <state />
       </provider>
     </entry>

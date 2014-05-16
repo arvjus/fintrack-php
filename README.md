@@ -54,7 +54,7 @@ $ php db:seed
 $ php artisan serve
 ```
 
-4. Go to (http://localhost:8000) and login with admin/admin123
+4. Go to [http://localhost:8000](http://localhost:8000) and login with admin/admin123
 
 
 ## Changelog
