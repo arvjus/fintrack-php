@@ -8,11 +8,11 @@
     </label>
 
     <label class="control-label">Categories:<br>
-            @foreach($categories as $category)
-            <label class="checkbox">{{{ $category->name_short }}}
-                {{ Form::checkbox('category_ids[]', $category->category_id, in_array($category->category_id, $category_ids), ['title' => $category->descr]) }}
-            </label>
-            @endforeach
+        @foreach($categories as $category)
+        <label class="checkbox">{{{ $category->name_short }}}
+            {{ Form::checkbox('category_ids[]', $category->category_id, in_array($category->category_id, $category_ids), ['title' => $category->descr]) }}
+        </label>
+        @endforeach
     </label>
     <label class="control-label">User:<br>
         {{ Form::select('user_id', $users, $user_id, ['class' => 'input-medium sidebar-limited']) }}

@@ -6,48 +6,50 @@
 @stop
 
 @section('content')
-<div id="heading">New Expense</div><p/>
-
-{{ Form::open(['route'=>['expense.save']]) }}
-    <table cellspacing=5 cellpading=5>
-        <tr>
-            <td>Date:</td>
-            <td><input type="text" class="date-pick" name="create_date" value="{{{ date('Y-m-d', time()) }}}" size="12"/></td>
-        </tr>
-        <tr>
-            <td>Category:</td>
-            <td>
-                <table>
-                    @foreach($categories as $category)
-                        <tr>
-                            <td>{{ Form::radio('category_id', $category->category_id, false, ['title' => $category->descr]) }} {{{ $category->name }}}</td>
-                        </tr>
-                    @endforeach
-                </table>
-            </td>
-        </tr>
-        <tr>
-            <td>Amount:</td>
-            <td><input type="text" name="amount" class="focus" value="" size="12"/></td>
-        </tr>
-        <tr>
-            <td>Description:</td>
-            <td><textarea name="descr" cols="30" rows="5"></textarea></td>
-        </tr>
-    </table>
-    <p>
-    <table>
-        <tr>
-            <td>{{ Form::submit('Save') }}</td>
-            <td>{{ Form::reset('Reset') }}</td>
-        </tr>
-    </table>
-
-    @if($errors->has())
-        @foreach($errors->all() as $error)
-            <div class="error">{{ $error }}</div>
-        @endforeach
-    @endif
+{{ Form::open(['route'=>['expense.save'], 'class' => 'form-horizontal']) }}
+    <div class="control-group">
+        <label class="control-label">Date:</label>
+        <div class="controls">
+            <input type="text" class="date-pick input-small" name="create_date" value="{{{ $create_date }}}"/>
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label">Category:</label>
+        <div class="controls">
+            @foreach($categories as $category)
+            <label class="radio">{{{ $category->name }}}
+                {{ Form::radio('category_id', $category->category_id, false, ['title' => $category->descr]) }}
+            </label>
+            @endforeach
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label">Amount:</label>
+        <div class="controls">
+            <input type="text" name="amount" class="focus" value="" size="12"/>
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label">Description:&nbsp;&nbsp;</label>
+        <div class="controls">
+            <textarea name="descr" cols="30" rows="5"></textarea>
+        </div>
+    </div>
+    <div class="control-group">
+        <div class="controls">
+            {{ Form::submit('Save', ['class' => 'btn btn-small btn-primary']) }}
+            {{ Form::reset('Reset', ['class' => 'btn btn-small']) }}
+        </div>
+    </div>
+    <div class="control-group">
+        <div class="controls">
+            @if($errors->has())
+            @foreach($errors->all() as $error)
+                <div class="error">{{ $error }}</div>
+            @endforeach
+            @endif
+        </div>
+    </div>
 {{ Form::close() }}
 @stop
 

@@ -42,3 +42,15 @@
 .nav li a {
     padding: 3px 10px !important;
 }
+
+/*
+* Messages
+*/
+
+.error {
+    color:					#ff3333;
+}
+
+.message {
+    color:					#000000;
+}
