@@ -33,14 +33,14 @@ Click to view.
 
 ## Installation
 
-Clone repository, install components
+1. Clone repository, install components
 ```bash
 $ git clone https://github.com/arvjus/fintrack
 $ cd fintrack
 $ composer.phar install
 ```
 
-Install database, configure in app/configure/database.php
+2. Install database, configure in app/configure/database.php
 
 Migrate database, seed test data
 ```bash
@@ -49,16 +49,16 @@ $ php artisan migrate:refresh
 $ php db:seed
 ```
 
-Start built-in web server
+3. Start built-in web server
 ```bash
 $ php artisan serve
 ```
 
-Go to http://localhost:8000 and login with admin/admin123
+4. Go to (http://localhost:8000) and login with admin/admin123
 
 
 ## Changelog
 
-    2014-05-17 Release Version 1.0
+2014-05-17 Release Version 1.0
 
 
