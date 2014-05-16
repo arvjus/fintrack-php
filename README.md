@@ -3,12 +3,14 @@
 Powered by [Laravel 4 Framework](http://github.com/laravel/framework)
 
 
-### License
+## License
 
-The Fintrack is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+The MIT License (MIT)
+
+Copyright © 2014 Arvid Juskaitis <arvydas.juskaitis@gmail.com>
 
 
-### Some of screenshots
+## Some of screenshots
 
 Click to view.
 
@@ -21,11 +23,42 @@ Click to view.
 [![Add new expense](https://raw.githubusercontent.com/arvjus/fintrack/master/screenshots/add-expense-thumb.png)](https://raw.githubusercontent.com/arvjus/fintrack/master/screenshots/add-expense.png)
 
 
-### Prerequisites
+## Prerequisites
 
 * PHP >= 5.4
+* [Composer](https://getcomposer.org)
 * MySQL 5.x
+* Apache 2 Web Server (optional)
 
 
-### Install
+## Installation
+
+Clone repository, install components
+```bash
+$ git clone https://github.com/arvjus/fintrack
+$ cd fintrack
+$ composer.phar install
+```
+
+Install database, configure in app/configure/database.php
+
+Migrate database, seed test data
+```bash
+$ php artisan migrate:make
+$ php artisan migrate:refresh
+$ php db:seed
+```
+
+Start built-in web server
+```bash
+$ php artisan serve
+```
+
+Go to http://localhost:8000 and login with admin/admin123
+
+
+## Changelog
+
+    2014-05-17 Release Version 1.0
+
 
