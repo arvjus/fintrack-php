@@ -49,6 +49,12 @@ $ php artisan migrate:refresh
 $ php db:seed
 ```
 
+Optionally, run unitests
+```bash
+$ phpunit
+```
+
+
 Start built-in web server
 ```bash
 $ php artisan serve
