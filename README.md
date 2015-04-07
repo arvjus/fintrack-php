@@ -35,7 +35,7 @@ Click to view.
 
 Clone repository, install components
 ```bash
-$ git clone https://github.com/arvjus/fintrack
+$ git clone https://github.com/arvjus/fintrack-php.git
 $ cd fintrack
 $ composer.phar install
 ```
